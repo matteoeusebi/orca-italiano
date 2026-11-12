@@ -4,6 +4,8 @@ L'interfaccia di [Orca](https://github.com/stablyai/orca) in italiano, come plug
 
 > Pacchetto **non ufficiale**, fatto dalla community. Non è affiliato né approvato da Stably.
 
+L'icona riprende la mascotte di Orca, che è un disegno di Stably, con lo sfondo nei colori della bandiera italiana. È un omaggio: il disegno resta loro.
+
 ## Cosa lo distingue
 
 - **Copertura completa.** Tutti i testi traducibili della versione di Orca a cui è allineato (oltre 18.000), nessuno lasciato in inglese per dimenticanza.
@@ -66,6 +68,6 @@ Le eccezioni ai controlli, una per chiave e con il motivo evidente dal testo, st
 
 ## English
 
-Unofficial, community-made Italian UI language pack for [Orca](https://github.com/stablyai/orca). Data only; nothing runs. Covers every translatable string of the Orca version it is aligned to, with one enforced glossary and automated checks (placeholders, tags, line breaks, Orca's length limits). Not affiliated with or endorsed by Stably. MIT licensed; the strings derive from Orca's MIT-licensed English catalog.
+Unofficial, community-made Italian UI language pack for [Orca](https://github.com/stablyai/orca). Data only; nothing runs. Covers every translatable string of the Orca version it is aligned to, with one enforced glossary and automated checks (placeholders, tags, line breaks, Orca's length limits). Not affiliated with or endorsed by Stably. The icon is a recoloured version of Orca's mascot, which is Stably's artwork. MIT licensed; the strings derive from Orca's MIT-licensed English catalog.
 
 Install: `orca plugin install matteoeusebi/orca-italiano`, then Settings → Appearance → Language → Italiano.
