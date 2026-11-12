@@ -1,0 +1,28 @@
+{
+  "$schema": "https://raw.githubusercontent.com/stablyai/orca/main/docs/schemas/plugins/orca-plugin.v2.schema.json",
+  "manifestVersion": 2,
+  "execution": "data",
+  "id": "italiano",
+  "name": "Italiano",
+  "version": "1.4.257",
+  "description": "L'interfaccia di Orca in italiano: traduzione completa con glossario unico, allineata a Orca 1.4.257. Pacchetto della community, non ufficiale.",
+  "author": {
+    "name": "matteoeusebi",
+    "url": "https://github.com/matteoeusebi"
+  },
+  "repository": "https://github.com/matteoeusebi/orca-italiano",
+  "license": "MIT",
+  "icon": "assets/icon.png",
+  "engines": {
+    "orca": ">=1.4.246"
+  },
+  "contributes": {
+    "languagePacks": [
+      {
+        "locale": "it",
+        "displayName": "Italiano",
+        "path": "locales/it.json"
+      }
+    ]
+  }
+}
