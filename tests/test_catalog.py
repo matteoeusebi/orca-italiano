@@ -207,6 +207,32 @@ class PackToolTest(unittest.TestCase):
         self.assertTrue(any("id 0: placeholders" in e for e in errors))
         self.assertTrue(any("id 2: missing" in e for e in errors))
 
+    def test_latest_stable_reads_only_plain_version_tags(self):
+        output = "\n".join([
+            "aaa\trefs/tags/mobile-android-v0.0.64",
+            "bbb\trefs/tags/v1.4.99",
+            "ccc\trefs/tags/v1.4.257",
+            "ddd\trefs/tags/v1.4.257^{}",
+            "eee\trefs/tags/v1.4.258-rc.1",
+        ])
+        self.assertEqual(packtool.latest_stable(output), "1.4.257")
+        with self.assertRaises(packtool.ToolError):
+            packtool.latest_stable("fff\trefs/tags/nightly")
+
+    def test_version_key_orders_numerically(self):
+        self.assertGreater(packtool.version_key("1.4.100"), packtool.version_key("1.4.99"))
+        with self.assertRaises(packtool.ToolError):
+            packtool.version_key("1.4")
+
+    def test_bumped_manifest_updates_version_and_description_without_mutating(self):
+        manifest = {"version": "1.4.257", "description": "Allineata a Orca 1.4.257. Non ufficiale.", "id": "x"}
+        bumped = packtool.bumped_manifest(manifest, "1.4.260")
+        self.assertEqual(bumped["version"], "1.4.260")
+        self.assertEqual(bumped["description"], "Allineata a Orca 1.4.260. Non ufficiale.")
+        self.assertEqual(manifest["version"], "1.4.257")
+        with self.assertRaises(packtool.ToolError):
+            packtool.bumped_manifest(manifest, "next")
+
     def test_bad_version_is_a_tool_error(self):
         with self.assertRaises(packtool.ToolError):
             packtool.source_dir("../etc")

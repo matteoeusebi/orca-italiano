@@ -6,6 +6,9 @@
   merge   <version>            fold translated chunks into locales/it.json
   check   <version>            verify locales/it.json against the English catalog
   chunk   <number>             verify one translated chunk (.work/out/NNN.json)
+  status                       print the pack's Orca version and Orca's latest release;
+                               exit 0 when the pack is behind, 1 when it is aligned
+  bump    <version>            set the pack version in orca-plugin.json
 
 Standard library only. Run from the repository root.
 """
@@ -14,6 +17,7 @@ from __future__ import annotations
 
 import argparse
 import re
+import subprocess
 import sys
 import urllib.request
 from pathlib import Path
@@ -35,6 +39,9 @@ SOURCE_FILES = {
     "plugin-translatable-chrome.ts": "src/shared/plugins/languages/plugin-translatable-chrome.ts",
 }
 VERSION_RE = re.compile(r"^\d+\.\d+\.\d+$")
+MANIFEST_PATH = ROOT / "orca-plugin.json"
+ORCA_REPOSITORY_URL = "https://github.com/stablyai/orca.git"
+DESCRIPTION_VERSION_RE = re.compile(r"Orca \d+\.\d+\.\d+")
 CHUNK_MAX_ITEMS = 320
 CHUNK_MAX_CHARS = 22_000
 
@@ -262,6 +269,56 @@ def cmd_chunk(args: argparse.Namespace) -> int:
     return 1 if errors else 0
 
 
+def version_key(version: str) -> tuple[int, ...]:
+    if not VERSION_RE.match(version):
+        raise ToolError(f"version must look like 1.4.257, got {version!r}")
+    return tuple(int(part) for part in version.split("."))
+
+
+def latest_stable(ls_remote_output: str) -> str:
+    """Highest vX.Y.Z tag in `git ls-remote --tags` output; other tags are ignored."""
+    versions = {
+        match.group(1)
+        for match in re.finditer(r"refs/tags/v(\d+\.\d+\.\d+)(?:\^\{\})?$", ls_remote_output, re.MULTILINE)
+    }
+    if not versions:
+        raise ToolError("no stable Orca release tag found")
+    return max(versions, key=version_key)
+
+
+def fetch_tags() -> str:
+    # Why git and not the REST API: unauthenticated API calls are rate limited per IP.
+    try:
+        result = subprocess.run(
+            ["git", "ls-remote", "--tags", ORCA_REPOSITORY_URL, "v*"],
+            capture_output=True, text=True, timeout=60, check=True,
+        )
+    except (OSError, subprocess.SubprocessError) as error:
+        raise ToolError(f"could not list Orca tags: {error}") from error
+    return result.stdout
+
+
+def bumped_manifest(manifest: dict, version: str) -> dict:
+    """Copy of the manifest with the new version, also inside the description."""
+    version_key(version)
+    description = DESCRIPTION_VERSION_RE.sub(f"Orca {version}", manifest.get("description", ""))
+    return {**manifest, "version": version, "description": description}
+
+
+def cmd_status(args: argparse.Namespace) -> int:
+    current = catalog.load_json(MANIFEST_PATH)["version"]
+    latest = latest_stable(fetch_tags())
+    behind = version_key(latest) > version_key(current)
+    print(f"pack {current}, Orca {latest}: {'update needed' if behind else 'aligned'}")
+    return 0 if behind else 1
+
+
+def cmd_bump(args: argparse.Namespace) -> int:
+    catalog.write_json(MANIFEST_PATH, bumped_manifest(catalog.load_json(MANIFEST_PATH), args.version))
+    print(f"orca-plugin.json set to {args.version}")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
     commands = parser.add_subparsers(dest="command", required=True)
@@ -276,6 +333,10 @@ def build_parser() -> argparse.ArgumentParser:
     chunk = commands.add_parser("chunk")
     chunk.add_argument("number", help="chunk number, e.g. 7")
     chunk.set_defaults(handler=cmd_chunk)
+    commands.add_parser("status").set_defaults(handler=cmd_status)
+    bump = commands.add_parser("bump")
+    bump.add_argument("version", help="Orca version the pack is now aligned to")
+    bump.set_defaults(handler=cmd_bump)
     return parser
 
 

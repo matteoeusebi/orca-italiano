@@ -24,5 +24,9 @@
         "path": "locales/it.json"
       }
     ]
+  },
+  "cover": {
+    "path": "assets/cover.png",
+    "alt": "Le impostazioni di Orca in italiano: pagina Aspetto con il menu Lingua aperto e Italiano selezionato."
   }
 }
