@@ -23,10 +23,10 @@ I testi che Orca protegge (conferme distruttive, finestre di sicurezza, pagina d
 Da terminale:
 
 ```sh
-orca plugin install matteoeusebi/orca-extensions
+orca plugin install matteoeusebi/orca-italiano
 ```
 
-Oppure in Orca: **Settings → Plugins → Install**, incolla `https://github.com/matteoeusebi/orca-extensions`.
+Oppure in Orca: **Settings → Plugins → Install**, incolla `https://github.com/matteoeusebi/orca-italiano`.
 
 Poi scegli la lingua: **Settings → Appearance → Language → Italiano**.
 
@@ -72,4 +72,4 @@ Le eccezioni ai controlli, una per chiave e con il motivo evidente dal testo, st
 
 Unofficial, community-made Italian UI language pack for [Orca](https://github.com/stablyai/orca). Data only; nothing runs. Covers every translatable string of the Orca version it is aligned to, with one enforced glossary and automated checks (placeholders, tags, line breaks, Orca's length limits). Not affiliated with or endorsed by Stably. The icon shows Orca's mascot, which is Stably's artwork, eating spaghetti. MIT licensed; the strings derive from Orca's MIT-licensed English catalog.
 
-Install: `orca plugin install matteoeusebi/orca-extensions`, then Settings → Appearance → Language → Italiano.
+Install: `orca plugin install matteoeusebi/orca-italiano`, then Settings → Appearance → Language → Italiano.
