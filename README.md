@@ -1,15 +1,6 @@
 <p align="center"><img src="assets/project-icon.png" width="96" height="96" alt=""></p>
 
-# Orca Extensions
-
-Estensioni non ufficiali per [Orca](https://github.com/stablyai/orca), fatte dalla community.
-
-| Estensione | Che cosa fa | Stato |
-|---|---|---|
-| **Italiano per Orca** | L'interfaccia di Orca in italiano | Disponibile, si installa da questo repository |
-| **Plans** | Un pannello che mostra a che punto è ogni piano, fase per fase | In sviluppo, non ancora pubblicato |
-
-## Italiano per Orca
+# Italiano per Orca
 
 L'interfaccia di [Orca](https://github.com/stablyai/orca) in italiano, come plugin di lingua. Solo dati: non esegue codice e non chiede autorizzazioni.
 
@@ -17,7 +8,7 @@ L'interfaccia di [Orca](https://github.com/stablyai/orca) in italiano, come plug
 
 L'icona riprende la mascotte di Orca, che è un disegno di Stably, mentre mangia un piatto di spaghetti. È un omaggio: il disegno resta loro.
 
-### Cosa lo distingue
+## Cosa lo distingue
 
 - **Copertura completa.** Tutti i testi traducibili della versione di Orca a cui è allineato (oltre 18.000), nessuno lasciato in inglese per dimenticanza.
 - **Un solo glossario.** Ogni termine ha una traduzione fissa, scritta in [`GLOSSARIO.md`](GLOSSARIO.md): «area di lavoro», «riquadro», «scheda», «associare». I termini git restano quelli che usi ogni giorno: branch, commit, worktree, pull request.
@@ -27,7 +18,7 @@ L'icona riprende la mascotte di Orca, che è un disegno di Stably, mentre mangia
 
 I testi che Orca protegge (conferme distruttive, finestre di sicurezza, pagina dei plugin) restano in inglese con qualsiasi pacchetto di lingua: è una scelta di Orca, non una lacuna.
 
-### Installazione
+## Installazione
 
 Da terminale:
 
@@ -41,15 +32,15 @@ Poi scegli la lingua: **Settings → Appearance → Language → Italiano**.
 
 Per aggiornare: `orca plugin update matteoeusebi.italiano`.
 
-### Versioni
+## Versioni
 
 Il numero di versione è quello di Orca a cui la traduzione è allineata. Con un Orca più nuovo il pacchetto funziona lo stesso: i testi aggiunti dopo restano in inglese fino al prossimo allineamento.
 
-### Segnalare un errore
+## Segnalare un errore
 
 Apri una issue con il testo che vedi, dove lo vedi e come lo scriveresti. Uno screenshot aiuta.
 
-### Per chi contribuisce
+## Per chi contribuisce
 
 Serve solo Python 3.9 o successivo, senza dipendenze.
 
@@ -78,8 +69,6 @@ Le eccezioni ai controlli, una per chiave e con il motivo evidente dal testo, st
 ---
 
 ## English
-
-Orca Extensions: unofficial, community-made extensions for [Orca](https://github.com/stablyai/orca). Available today: the Italian language pack below. In development, not published yet: Plans, a panel that shows where each plan stands, phase by phase.
 
 Unofficial, community-made Italian UI language pack for [Orca](https://github.com/stablyai/orca). Data only; nothing runs. Covers every translatable string of the Orca version it is aligned to, with one enforced glossary and automated checks (placeholders, tags, line breaks, Orca's length limits). Not affiliated with or endorsed by Stably. The icon shows Orca's mascot, which is Stably's artwork, eating spaghetti. MIT licensed; the strings derive from Orca's MIT-licensed English catalog.
 
