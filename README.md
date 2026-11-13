@@ -1,3 +1,5 @@
+<p align="center"><img src="assets/project-icon.png" width="96" height="96" alt=""></p>
+
 # Italiano per Orca
 
 L'interfaccia di [Orca](https://github.com/stablyai/orca) in italiano, come plugin di lingua. Solo dati: non esegue codice e non chiede autorizzazioni.
