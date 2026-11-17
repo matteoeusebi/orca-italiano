@@ -76,6 +76,15 @@
     "failed": "Impossibile aprire il file."
   },
   "sidebar": {
+    "worktreeCardsUpdateNotice": {
+      "newLabel": "Novità",
+      "title": "Schede dei worktree",
+      "exampleChildren": "1 figlio",
+      "statusCaption": "Il titolo segnala gli agenti che ti aspettano",
+      "childrenCaption": "I worktree padre riepilogano i worktree figli",
+      "unreadCaption": "<label>Pallino blu:</label> non letto",
+      "dismiss": "Ignora"
+    },
     "revealFiltered": {
       "title": "Mostrare l’area di lavoro nascosta?",
       "description": "L’area di lavoro attiva è nascosta nella barra laterale. Per mostrarla verranno modificati solo i filtri che la nascondono.",
@@ -252,6 +261,22 @@
       "showOnHostAriaLabel": "Mostra {{name}} su {{host}} nella barra laterale",
       "keywordShow": "mostra",
       "keywordUnhide": "rendi visibile"
+    },
+    "cardSlot": {
+      "needsYouLabel": "In attesa di te",
+      "failedLabel": "Ultimo turno non riuscito",
+      "markedUnread": "Segnato come non letto da te",
+      "unread": "Risultato non letto",
+      "working": "Al lavoro",
+      "monitoring": "In monitoraggio",
+      "offlineLabel": "Host offline",
+      "offline": "offline",
+      "needYouCount": "{{count}} ti aspettano",
+      "needsYou": "Ti aspetta",
+      "failed": "Non riuscito",
+      "detailsRow": "Riga dei dettagli",
+      "workspaceUnread": "Non letti in quest’area di lavoro",
+      "unreadTab": "Scheda non letta"
     }
   },
   "app": {
@@ -636,6 +661,10 @@
       "wordSeparators": {
         "description": "Caratteri trattati come separatori di parola nella selezione con doppio clic, spazio compreso.",
         "noSpaceHint": "Spazio non incluso: il doppio clic selezionerà anche oltre gli spazi."
+      },
+      "fontSize": {
+        "decrease": "Riduci dimensione del font",
+        "increase": "Aumenta dimensione del font"
       }
     },
     "appearance": {
@@ -686,6 +715,7 @@
         "fontKeywordTypeface": "carattere",
         "fontKeywordTypography": "tipografia",
         "inheritFont": "Uguale al font dell’IDE",
+        "systemFont": "Font di sistema",
         "fontPreviewLabel": "Anteprima del font della chat",
         "fontPreview": "Quel fez sghembo copre davanti.",
         "title": "Interfaccia chat",
@@ -753,6 +783,10 @@
           "undecodable": "Impossibile decodificare l’immagine selezionata.",
           "saveFailed": "Impossibile salvare l’icona personalizzata."
         }
+      },
+      "uiZoom": {
+        "zoomOut": "Riduci zoom",
+        "zoomIn": "Aumenta zoom"
       }
     },
     "browser": {
@@ -865,9 +899,25 @@
         "title": "Password",
         "description": "Accessi salvati per il browser di Orca: aggiungili, importali, modificali ed eliminali.",
         "httpSuffix": " · http"
+      },
+      "memorySaver": {
+        "unviewedForLabel": "Non visualizzata da",
+        "unviewedForDescription": "Quanto tempo una scheda resta non visualizzata prima di essere liberata.",
+        "hoursSuffix": "ore",
+        "title": "Risparmio memoria",
+        "description": "Libera la memoria delle schede che non hai visualizzato. Si ricaricano quando le apri.",
+        "searchKeywords": {
+          "memory": "memoria",
+          "tabs": "schede",
+          "idle": "inattività",
+          "sleep": "sospensione",
+          "performance": "prestazioni"
+        }
       }
     },
     "agents": {
+      "installedRegion": "Agenti installati",
+      "availableRegion": "Agenti disponibili da installare",
       "permissionsTitle": "Autorizzazioni",
       "permissionsChoiceExplanation": "Cosa ogni agente può fare senza chiedere. Qui sotto puoi impostare diversamente un singolo agente.",
       "permissionEachOwn": "Impostazioni proprie di ogni agente",
@@ -1314,7 +1364,9 @@
       "useExample": "Usa questo esempio",
       "description": "Script eseguiti in questa cartella quando viene creata un’area di lavoro. Tutte le aree di lavoro condividono la cartella. Gli script locali sono salvati su questo computer; gli script di `orca.yaml` sono condivisi con il tuo team.",
       "invalidSetup": "Il file è presente, ma Orca non ha trovato uno script di setup valido.",
-      "supportedKeys": "Definisci solo le chiavi supportate: `scripts` e `setup`."
+      "supportedKeys": "Definisci solo le chiavi supportate: `scripts` e `setup`.",
+      "supportedArchiveKeys": "Definisci solo le chiavi supportate: `scripts`, `setup` e `archive`.",
+      "invalidArchive": "Il file è presente, ma Orca non ha trovato uno script di setup o di archiviazione valido."
     }
   },
   "menu": {
@@ -2397,6 +2449,15 @@
       "workspacePortBrowserOpen": {
         "systemBrowserHint": "{{shortcut}}+clic per aprire nel browser di sistema",
         "tooltip": "{{label}}. {{hint}}"
+      },
+      "worktreePaletteEvidence": {
+        "workspaceComment": "Commento dell’area di lavoro",
+        "createdByAutomation": "Creata da un’automazione",
+        "linkedTask": "Attività collegata",
+        "pullRequest": "Pull request",
+        "mergeRequest": "Merge request",
+        "linkedIssue": "Issue collegata",
+        "listeningPort": "Porta in ascolto"
       }
     },
     "hooks": {
@@ -2538,9 +2599,9 @@
         "unreadableSkillSource": "Una cartella di skill non ha risposto, quindi questo stato potrebbe essere incompleto."
       },
       "useMacosTccPromptNotice": {
-        "titleOne": "macOS ha appena interrotto un agente",
-        "titleMany": "macOS ha interrotto i tuoi agenti {{count}}×",
-        "subtitle": "L’Accesso completo al disco evita queste richieste sui file.",
+        "titleOne": "macOS ha appena mostrato una richiesta di accesso ai file",
+        "titleMany": "macOS ha mostrato {{count}} richieste di accesso ai file",
+        "subtitle": "L’Accesso completo al disco evita queste richieste.",
         "enable": "Attiva Accesso completo al disco",
         "close": "Chiudi",
         "dismiss": "Non mostrare più"
@@ -4021,6 +4082,8 @@
           "draft": "Bozza",
           "labelCount_one": "{{count}} etichetta",
           "labelCount_other": "{{count}} etichette",
+          "authorCount_one": "{{count}} autore",
+          "authorCount_other": "{{count}} autori",
           "allStates": "Tutti",
           "filterPullRequests": "Filtra pull request",
           "filterIssues": "Filtra issue",
@@ -4173,6 +4236,7 @@
             "1e4b81d892": "Thump",
             "86af8d938c": "Bong",
             "80f7cc95b3": "Due toni",
+            "silent": "Silenzioso",
             "017abebfa6": "Predefinito di sistema"
           }
         }
@@ -4442,7 +4506,8 @@
             "terminalProcessLimit": "Il sistema non può avviare un altro processo di terminale. Chiudi i terminali inutilizzati o termina i processi inutilizzati, poi riprova.",
             "hostTerminalCap": "L’host sta già eseguendo il numero massimo di terminali consentito da Orca. Chiudi un terminale che non ti serve più, poi riprova.",
             "title": "Problema del terminale",
-            "errorTitle": "Errore del terminale"
+            "errorTitle": "Errore del terminale",
+            "copyErrorDetails": "Copia dettagli errore"
           },
           "TerminalProcessExitOverlay": {
             "capacityTitle": "Limite di console di Git Bash raggiunto",
@@ -5030,7 +5095,6 @@
             "c8857b40f7": "Aggiorna dati di utilizzo",
             "75ded02687": "Gestisci account…",
             "ff0fbe9311": "Attivo",
-            "7657e3db9c": "Account Codex",
             "38b5647724": "Runtime per l’utilizzo di Codex",
             "ba55303942": "Apri i dettagli di Codex e il selettore account",
             "c35af53b73": "Accedi",
@@ -5038,7 +5102,6 @@
             "5c938d39ac": "sett.",
             "54e8d6bb2d": "Fable",
             "a79c64f87e": "Fable",
-            "d450654fa2": "Account Claude",
             "11e2354daf": "Runtime per l’utilizzo di Claude",
             "3dd7ddfae1": "Apri i dettagli di Claude e il selettore account",
             "59c6e7b4e0": "Le sessioni visibili si riavviano subito. Le altre si riavviano quando il loro worktree diventa attivo.",
@@ -5331,7 +5394,8 @@
             "compact": "Compatto",
             "detailedTooltip": "Utilizzo completo con barre, etichette e percentuali",
             "compactTooltip": "Utilizzo sintetico: un riepilogo per provider",
-            "footerDetailAria": "Dettaglio utilizzo nel piè di pagina"
+            "footerDetailAria": "Dettaglio utilizzo nel piè di pagina",
+            "notChecked": "Non controllato"
           },
           "RemoteServerUpdateStatusSegment": {
             "updating": "Aggiornamento {{value0}}/{{value1}}",
@@ -5464,11 +5528,6 @@
             "behind": "{{behind}} indietro",
             "activeAgents_one": "{{count}} agente attivo",
             "activeAgents_other": "{{count}} agenti attivi",
-            "completedAgents_one": "{{count}} agente completato",
-            "completedAgents_other": "{{count}} agenti completati",
-            "activeAndCompletedAgents": "{{active}}, {{completed}}",
-            "completedAgentsRetained_one": "{{count}} agente completato conservato",
-            "completedAgentsRetained_other": "{{count}} agenti completati conservati",
             "noTrackedAgents": "Nessun agente monitorato in esecuzione",
             "noTerminalTabs": "Nessuna scheda di terminale",
             "liveTerminalTabs_one": "Schede di terminale attive: {{live}} su {{count}}",
@@ -5521,12 +5580,17 @@
           "AccountSwitchList": {
             "used": "Usato",
             "left": "Rimanente",
-            "reset": "Azzeramento"
+            "reset": "Azzeramento",
+            "accounts": "Account"
           },
           "InlineUsageBars": {
             "now": "adesso",
             "resetsNow": "si azzera ora",
             "resetsIn": "si azzera tra {{duration}}"
+          },
+          "UsageDisplayToggle": {
+            "showRemaining": "Mostra utilizzo rimanente",
+            "showUsed": "Mostra utilizzo consumato"
           }
         }
       },
@@ -8042,8 +8106,11 @@
           "a3f8c2d1e0b4": "Importati {{value0}} cookie da {{value1}} ({{value2}}) in {{value3}}.",
           "b4e9d3f2a1c5": "Importati {{value0}} cookie da {{value1}} in {{value2}}.",
           "c5a273a809": "Da {{value0}}",
+          "4054c458e1": "Cancella cookie predefiniti",
           "80bffd32bf": "Importa cookie",
-          "bd7d68f138": "Da file…"
+          "bd7d68f138": "Da file…",
+          "3b662becd5": "Cancellare i cookie del profilo predefinito?",
+          "f159cf5a3e": "Potrebbe disconnetterti dai siti in questo profilo."
         },
         "BrowserUseComputerUseNotice": {
           "79209b37b9": "Se l’importazione dei cookie non fa al caso tuo, Computer Use può controllare le app locali e, dove possibile, usare le sessioni del browser in cui hai già eseguito l’accesso. Installa la skill Orca Computer Use; su macOS servono anche le autorizzazioni per la privacy.",
@@ -8260,12 +8327,6 @@
             "title": "Sospensione degli agenti",
             "toggleLabel": "Attiva o disattiva la sospensione degli agenti"
           },
-          "newWorktreeCardStyle": {
-            "copy": "Anteprima del nuovo layout delle schede dei worktree, della posizione dei metadati, delle opzioni del menu di visualizzazione e della presentazione dello stato.",
-            "description": "Anteprima del nuovo layout delle schede dei worktree, della posizione dei metadati, delle opzioni del menu di visualizzazione e della presentazione dello stato.",
-            "title": "Nuovo stile delle schede",
-            "toggleLabel": "Attiva o disattiva il nuovo stile delle schede"
-          },
           "ca2219fe5e": "Mostra una piccola mascotte animata nell’angolo in basso a destra. Scegli un personaggio (Claudino, OpenCode, Gremlin) o carica un tuo PNG, APNG, GIF, WebP, JPG o SVG dal menu della mascotte nella barra di stato. Puoi nasconderla quando vuoi dallo stesso menu, senza disattivare questa impostazione.",
           "dd6f0a1d45": "Mascotte",
           "0e89a574ae": "Mascotte animata fluttuante nell’angolo in basso a destra.",
@@ -8293,6 +8354,13 @@
             "modeAriaLabel": "Modalità di apertura della Dashboard degli agenti",
             "modeInWindow": "Nella finestra",
             "modePopout": "Finestra separata"
+          },
+          "worktreeCardStyle": {
+            "title": "Stile delle schede",
+            "copy": "Scegli l’aspetto delle schede delle aree di lavoro nella barra laterale.",
+            "ariaLabel": "Stile delle schede",
+            "classic": "Classico",
+            "experimental": "Sperimentale"
           }
         },
         "FloatingWorkspacePane": {
@@ -8514,7 +8582,19 @@
           "f2765fbbf6": "Budget API di GitLab",
           "8cdbaf4b03": "Maiuscole nella chiave Jira",
           "fdbcd676b0": "Budget API di GitHub",
-          "074f7aa0d6": "Base di confronto predefinita"
+          "074f7aa0d6": "Base di confronto predefinita",
+          "prAutoRefreshUpdateFailed": "Impossibile modificare l’aggiornamento automatico delle PR su questo host.",
+          "prAutoRefreshDefault": "Automatico",
+          "prAutoRefreshReduced": "Meno spesso",
+          "prAutoRefreshOff": "Manuale",
+          "prAutoRefreshAbout": "Informazioni sugli aggiornamenti PR",
+          "prAutoRefreshHintAutomatic": "Mantiene aggiornati pull request e controlli.",
+          "prAutoRefreshHintLessOften": "Controlla GitHub meno spesso. Utile se raggiungi i limiti di richieste di GitHub.",
+          "prAutoRefreshTitle": "Aggiornamenti PR",
+          "prAutoRefreshDescription": "Quanto spesso Orca controlla GitHub per modifiche alle pull request e alla CI.",
+          "prAutoRefreshHintOff": "Si aggiorna quando esegui il push o fai clic su Aggiorna.",
+          "prAutoRefreshUnsupportedHost": "Aggiorna Orca su {{host}} per modificarlo",
+          "prAutoRefreshUnknownHost": "il server selezionato"
         },
         "HiddenExperimentalGroup": {
           "7c4e18d2f6": "Attiva su questo computer i gesti di acquisizione del glitch del grassetto: {{samplingShortcut}} avvia una serie di campionamenti; {{captureShortcut}} salva su disco i dati del riquadro.",
@@ -10430,11 +10510,9 @@
             "newWorktreeCardStyle": {
               "card": "scheda",
               "cards": "schede",
-              "description": "Anteprima del nuovo layout delle schede dei worktree, della posizione dei metadati, delle opzioni del menu di visualizzazione e della presentazione dello stato.",
               "menu": "menu",
               "metadata": "metadati",
               "status": "stato",
-              "title": "Nuovo stile delle schede",
               "worktree": "worktree",
               "worktrees": "worktree"
             },
@@ -10457,6 +10535,10 @@
               "inWindow": "nella finestra",
               "worktrees": "worktree",
               "eaf17a7214": "Dashboard degli agenti"
+            },
+            "worktreeCardStyle": {
+              "title": "Stile delle schede",
+              "description": "Scegli l’aspetto delle schede delle aree di lavoro nella barra laterale."
             }
           }
         },
@@ -11854,6 +11936,7 @@
           "e27c8d45bf": "La diagnostica è disattivata da una variabile d’ambiente."
         },
         "ShortcutCommandBlock": {
+          "retryAfterError": "Premi un’altra scorciatoia, oppure Esc per annullare.",
           "eb72c52c28": "Premi una scorciatoia o tocca due volte un modificatore (ad es. {{value0}}). Esc per annullare.",
           "70b5d25583": "Scorciatoia {{value0}}",
           "287e07ddde": "Modificata",
@@ -15878,13 +15961,6 @@
                       "c94ff11e91": "Impossibile ricontrollare lo stato del setup."
                     }
                   }
-                },
-                "tab": {
-                  "intro": {
-                    "actions": {
-                      "68a5dc6604": "Impossibile nascondere Emulatore mobile."
-                    }
-                  }
                 }
               }
             }
@@ -15909,17 +15985,6 @@
             "5789936d9a": "Visualizza in anteprima i simulatori iOS mentre gli agenti controllano lo schermo.",
             "8014b4b80b": "Mantieni",
             "6e051a40b7": "Nascondi"
-          },
-          "mobile": {
-            "emulator": {
-              "hidden": {
-                "toast": {
-                  "e8f098a870": "Emulatore mobile nascosto",
-                  "c46c979c1d": "Puoi riattivare Emulatore mobile in qualsiasi momento in",
-                  "600f9a745a": "Impostazioni › Emulatore mobile"
-                }
-              }
-            }
           },
           "useEmulatorScreenKeyboard": {
             "pasteTooLarge": "Il testo incollato è troppo lungo per la tastiera dell’emulatore.",
@@ -16340,10 +16405,9 @@
           "725868c75d": "Sfoglia cartelle",
           "5e7f0d8a80": "Selettore di cartelle non disponibile per i file remoti",
           "30099dca46": "Cartella",
-          "2d7d39dc63": ".md",
           "c8ac7868e6": "nome file",
           "b6ed807cc6": "Nome",
-          "e365f3c638": "Dai un nome al file Markdown e scegli una cartella.",
+          "description": "Dai un nome al file e scegli una cartella.",
           "674b046582": "Salva come",
           "nameEmpty": "Il nome non può essere vuoto",
           "nameHasSeparators": "Il nome non può contenere separatori di percorso",
@@ -16981,7 +17045,8 @@
                     },
                     "extensions": {
                       "intro": {
-                        "title": "Estensioni di Chrome",
+                        "title": "Porta le tue estensioni di Chrome",
+                        "everydayTitle": "I tuoi strumenti del browser di tutti i giorni, in Orca",
                         "body": "Installale dal Chrome Web Store e fissale accanto alla barra degli indirizzi.",
                         "action": "Apri Web Store",
                         "secondaryAction": "Ho capito"
@@ -17368,8 +17433,6 @@
           "18763ded26": "Pianificazione",
           "dbef8dc110": "Questa automazione SSH viene eseguita solo quando Orca riesce a raggiungere l’host SSH. Se la riconnessione richiede credenziali interattive o l’host non è disponibile, l’esecuzione viene registrata come saltata.",
           "1f6026358e": "Elimina automazione",
-          "d79452fb30": "Riprendi automazione",
-          "91a4155e95": "Metti in pausa automazione",
           "2fb1605beb": "Esegui ora",
           "221916d93c": "Crea un’automazione per iniziare a pianificare il lavoro degli agenti.",
           "b09b2384fd": "In pausa",
@@ -17399,7 +17462,9 @@
           "usageDetail_other": "{{tokens}} token · {{known}}/{{count}} esecuzioni segnalate",
           "createdBy": "Creata da",
           "createdByPluginTitle": "Plugin {{plugin}}",
-          "createdByEnded": "Plugin rimosso o disattivato: deve chiedere prima di modificare questa automazione"
+          "createdByEnded": "Plugin rimosso o disattivato: deve chiedere prima di modificare questa automazione",
+          "active": "Attiva",
+          "runNowStarting": "Avvio…"
         },
         "AutomationEditorDialog": {
           "fb1896a5e7": "Annulla",
@@ -17455,18 +17520,12 @@
         },
         "AutomationRunHistory": {
           "402651bfb6": "Ancora nessuna esecuzione.",
-          "9974a2b429": "Stato",
           "13988187b3": "Token",
           "86a248187e": "Spesa",
           "149c0b49c7": "Area di lavoro",
           "8faaa00726": "Esecuzione",
-          "53fc5f07ab": "Cronologia esecuzioni",
-          "a00e38d1a3": "n/d",
+          "a00e38d1a3": "—",
           "historyUnavailable": "La cronologia delle esecuzioni non è disponibile da questo host. Non significa che l’automazione non sia riuscita o che non abbia esecuzioni."
-        },
-        "AutomationRunPageFrame": {
-          "40a511bed4": "Contesto dell’esecuzione",
-          "33741dd973": "Torna alle esecuzioni"
         },
         "AutomationSchedulePicker": {
           "9e677335b0": "Minuto",
@@ -17492,10 +17551,8 @@
           "5ad314118e": "Sessione"
         },
         "AutomationsPage": {
-          "c3a28c9793": "Seleziona un’automazione per vederne le esecuzioni.",
           "295698292f": "Riesegui",
           "0e110a3469": "Esecuzioni",
-          "bb1b2cd31e": "Panoramica",
           "25060635c6": "Aggiungi",
           "d207ab4c25": "Parti da un modello",
           "f4612e3f78": "Modifica",
@@ -17527,8 +17584,6 @@
           "2430fecf53": "Scegli un luogo di esecuzione e inserisci un prompt prima di salvare.",
           "376631ef2b": "Riprendi",
           "b457436d6a": "Metti in pausa",
-          "pendingAutomationMissing": "Automazione non più disponibile.",
-          "pendingAutomationRunMissing": "Cronologia esecuzioni non più disponibile.",
           "paused": "In pausa",
           "missingWorkspace": "Area di lavoro mancante",
           "usageUnavailable": "Utilizzo non disponibile",
@@ -17537,7 +17592,6 @@
           "latestSavedOutput": "Ultimo output salvato",
           "fullOutputUnavailable": "Impossibile caricare l’output completo.",
           "retryFullOutput": "Riprova",
-          "backToList": "Tutte le automazioni",
           "tableName": "Nome",
           "tableProject": "Progetto",
           "tableHost": "Host",
@@ -17547,7 +17601,6 @@
           "rowActions": "Azioni dell’automazione",
           "tableLastRun": "Ultima esecuzione",
           "ownerChanged": "Questa automazione ha cambiato host. Aggiorna e riprova.",
-          "runError": "Errore:",
           "setupSkippedChanged": "Setup non eseguito: il branch di questa esecuzione ha comandi di setup in orca.yaml diversi da quelli approvati quando l’automazione è stata salvata. Salva di nuovo l’automazione per controllare i comandi attuali.",
           "runUsageSummaryTokens_one": "{{cost}} stimati · {{tokens}} token",
           "runUsageSummaryTokens_other": "{{cost}} stimati · {{tokens}} token"
@@ -17802,11 +17855,11 @@
           "local": "Locale",
           "remote": "Remoto",
           "historyUnavailable_one": "La cronologia delle esecuzioni non è disponibile per {{count}} automazione. I conteggi includono solo la cronologia disponibile.",
-          "historyUnavailable_other": "La cronologia delle esecuzioni non è disponibile per {{count}} automazioni. I conteggi includono solo la cronologia disponibile."
+          "historyUnavailable_other": "La cronologia delle esecuzioni non è disponibile per {{count}} automazioni. I conteggi includono solo la cronologia disponibile.",
+          "searchLabel": "Cerca esecuzioni"
         },
         "AutomationsPageBreadcrumb": {
-          "ariaLabel": "Percorso di navigazione delle automazioni",
-          "runDetails": "Dettagli dell’esecuzione"
+          "ariaLabel": "Percorso di navigazione delle automazioni"
         },
         "extraAgentArgs": {
           "advanced": "Avanzate",
@@ -17849,7 +17902,7 @@
           "runStatusDispatchFailed": "Non riuscita"
         },
         "runContent": {
-          "noOutput": "Nessun contenuto di output disponibile."
+          "noOutput": "Nessun output."
         },
         "runViewState": {
           "viewRun": "Visualizza esecuzione",
@@ -17866,12 +17919,13 @@
         },
         "runWorkspaceDisplay": {
           "notLaunched": "Non avviata",
-          "namedWorkspaceGone": "{{name}} (non più disponibile)"
+          "removed": "Rimossa",
+          "namedRemoved": "{{name}} è stata rimossa"
         },
         "usage": {
           "tokensAndCost_one": "{{tokens}} token · {{cost}}",
           "tokensAndCost_other": "{{tokens}} token · {{cost}}",
-          "costUnavailable": "n/d"
+          "costUnavailable": "—"
         },
         "externalActionDisabled": {
           "actionInProgress": "Un’altra azione sulle automazioni è ancora in corso.",
@@ -17889,6 +17943,45 @@
         },
         "launchSettings": {
           "needsFreshSession": "Le impostazioni di avvio dell’agente richiedono una nuova sessione a ogni esecuzione."
+        },
+        "runNotFound": {
+          "crumbRun": "Esecuzione non trovata",
+          "crumbAutomation": "Automazione non trovata",
+          "runTitle": "Questa esecuzione non esiste più",
+          "automationTitle": "Questa automazione non esiste più",
+          "runDescription": "È stata eliminata o rimossa dalla cronologia delle esecuzioni conservata.",
+          "automationDescription": "È stata eliminata, oppure il suo host non la elenca più.",
+          "goToAutomations": "Vai ad Automazioni",
+          "openThisAutomation": "Apri automazione"
+        },
+        "recentRuns": {
+          "title": "Esecuzioni recenti",
+          "allRuns": "Tutte le esecuzioni ({{count}})",
+          "allRuns_one": "Tutte le esecuzioni ({{count}})",
+          "allRuns_other": "Tutte le esecuzioni ({{count}})"
+        },
+        "runIdentity": {
+          "triggerManual": "Esegui ora",
+          "triggerScheduled": "Pianificata",
+          "newerRun": "Esecuzione più recente",
+          "olderRun": "Esecuzione meno recente",
+          "needsCredentials": "{{host}} richiede le credenziali per riconnettersi, quindi questa esecuzione non è partita.",
+          "signIn": "Accedi a {{host}}",
+          "output": "Output",
+          "details": "Dettagli",
+          "runNumber": "Esecuzione #{{number}}",
+          "runFailed": "Esecuzione non riuscita.",
+          "scheduledAt": "Pianificata: {{time}}",
+          "startedAt": "Avviata: {{time}}",
+          "noFailureReason": "Questa esecuzione non è partita e non è stato registrato alcun motivo."
+        },
+        "runTable": {
+          "result": "Risultato"
+        },
+        "listGroups": {
+          "attention": "Richiede attenzione",
+          "active": "Attive",
+          "paused": "In pausa"
         }
       },
       "agent": {
@@ -19380,7 +19473,8 @@
         "safetyReview": "{{agent}} ha segnalato un avviso della revisione di sicurezza. Vedi i dettagli.",
         "truncatedResponse": "Risposta del provider troncata (dimensione originale: {{bytes}} byte).",
         "modelFallback": "Claude ha cambiato modello: {{from}} → {{to}}.",
-        "forkedFrom": "Fork da"
+        "forkedFrom": "Fork da",
+        "forkedFromUnknown": "Fork creato da un’altra chat"
       },
       "composer": {
         "send": "Invia",
@@ -19503,7 +19597,9 @@
           "medium": "Med",
           "xhigh": "Extra"
         },
-        "imageUnavailable": "Anteprima non disponibile"
+        "imageUnavailable": "Anteprima non disponibile",
+        "modelAndEffortValue": "{{model}} · {{effort}}",
+        "modelAndEffort": "Modello e impegno"
       },
       "tool": {
         "exitCode": "uscita {{value0}}",
@@ -19922,7 +20018,7 @@
       "queuedMessages": {
         "steer": "Indirizza",
         "send": "Invia",
-        "steerHint": "Invia senza interrompere il modello",
+        "steerHint": "Invia ora, mentre l’agente continua a lavorare",
         "sendHint": "Invia subito questo messaggio",
         "delete": "Elimina",
         "moreActions": "Altre azioni",
@@ -20097,7 +20193,8 @@
         "export": "Esporta la sessione in HTML",
         "settings": "Apri le impostazioni nel terminale",
         "extensions": "Apri la dashboard delle estensioni nel terminale",
-        "hotkeys": "Mostra le scorciatoie da tastiera nel terminale"
+        "hotkeys": "Mostra le scorciatoie da tastiera nel terminale",
+        "mcpManage": "Gestisci i server MCP"
       },
       "modelDescriptions": {
         "grok_4_7": "Il modello di frontiera più recente di xAI",
@@ -20190,9 +20287,14 @@
         "hostUnsupported": "Questo host usa una versione meno recente di Orca. Aggiorna Orca sull’host, poi riprova.",
         "failedDetail": "La chat non è cambiata. Riprova.",
         "commandDescription": "Crea un fork della chat dalla sua ultima risposta",
-        "commandWorking": "Attendi la fine della risposta, poi crea il fork.",
+        "commandWorking": "Impossibile creare un fork mentre {{agent}} risponde. Esegui di nuovo /fork quando ha finito.",
         "commandNothing": "Non c’è ancora una risposta da cui creare un fork.",
-        "commandTakesNoText": "Invia /fork da solo, poi scrivi nella nuova chat."
+        "commandTakesNoText": "Invia /fork da solo, poi scrivi nella nuova chat.",
+        "mark": "Fork ·",
+        "markedName": "{{mark}} {{name}}",
+        "accessibleName": "Fork: {{name}}",
+        "sourceTooltip": "Fork di {{name}}",
+        "unknownSourceTooltip": "Fork di un’altra chat"
       },
       "usage": {
         "description": "Mostra l’utilizzo dell’account Codex di questa chat",
@@ -20211,6 +20313,58 @@
           "nothingToReset": "Al momento non c’è nulla da reimpostare.",
           "noCredit": "Su questo account non restano crediti di reset di Codex.",
           "alreadyRedeemed": "Quel credito di reset è già stato usato."
+        }
+      },
+      "mcp": {
+        "title": "Server MCP",
+        "close": "Chiudi",
+        "loading": "Caricamento…",
+        "notRunning": "Si connettono quando invii il prossimo messaggio",
+        "unsupported": "Aggiorna Orca sull’host di questa chat per gestirli qui",
+        "readFailed": "Impossibile caricare",
+        "retry": "Riprova",
+        "empty": "Nessuno configurato per questa chat",
+        "cancel": "Annulla",
+        "reconnect": "Riconnetti",
+        "toggle": "Usa {{name}}",
+        "actionFailed": "Impossibile completare l’operazione. Riprova.",
+        "summary": {
+          "connected": "{{count}} connessi",
+          "needsAuth_one": "{{count}} richiede l’accesso",
+          "needsAuth_other": "{{count}} richiedono l’accesso",
+          "failed": "{{count}} non riusciti",
+          "signingIn": "accesso a {{name}} in corso"
+        },
+        "source": {
+          "project": "Progetto",
+          "local": "Locale",
+          "user": "Utente",
+          "plugin": "Plugin",
+          "session": "Sessione"
+        },
+        "status": {
+          "connected": "Connesso",
+          "tools_one": "{{count}} strumento",
+          "tools_other": "{{count}} strumenti",
+          "pending": "Connessione…",
+          "needsAuth": "Accesso richiesto",
+          "failed": "Non riuscito",
+          "failedReason": "Non riuscito: {{error}}",
+          "disabled": "Disattivato",
+          "needsAuthAfterSend": "Accesso richiesto. Invia un messaggio per accedere da qui."
+        },
+        "signIn": {
+          "action": "Accedi",
+          "waiting": "In attesa dell’accesso…",
+          "waitingBrowser": "In attesa del browser…",
+          "remote": "Dopo l’accesso, il browser arriva su una pagina che non si carica. Copia l’indirizzo di quella pagina e incollalo qui.",
+          "external": "Completa l’accesso nella pagina che si è aperta",
+          "done": "Fine",
+          "finish": "Completa",
+          "openAgain": "Apri di nuovo",
+          "addressLabel": "Indirizzo della pagina di accesso",
+          "unfinished": "L’accesso non è ancora completato. Completalo nella pagina che si è aperta, poi premi Fine.",
+          "pastePlaceholder": "http://localhost:…"
         }
       },
       "cardKindHidden": {
@@ -20343,7 +20497,7 @@
           "pinned": "Fissate",
           "unread": "Non lette",
           "comment": "Con commento",
-          "retainedDoneAgents": "Trascrizioni di agenti terminati",
+          "finishedAgents": "Agenti terminati",
           "contextPresence": "Schede, terminali e commenti aperti",
           "completelyEmpty": "Niente da perdere",
           "noWorkspaces": "Nessuna area di lavoro trovata.",
@@ -20459,7 +20613,7 @@
               "comment": "Commento",
               "prunable": "Eliminabile",
               "locked": "Bloccato",
-              "retainedAgents": "Agenti terminati"
+              "finishedAgents": "Agenti terminati"
             }
           },
           "selectionVanishedCount_one": "{{count}} area di lavoro selezionata non esiste più.",
@@ -20576,6 +20730,7 @@
         "copySessionId": "Copia ID sessione",
         "copySessionIdSuccess": "ID sessione copiato",
         "copySessionIdError": "Impossibile copiare l’ID sessione",
+        "copySessionIdUnavailable": "Nessun ID sessione da copiare",
         "copyOrcaSessionId": "Copia ID sessione Orca",
         "orcaSessionIdTooltip": "ID di Orca per questo agente, distinto dall’ID di sessione della CLI dell’agente. Gli agenti lo usano per fare riferimento l’uno all’altro tramite Orca.",
         "orcaSessionIdCopied": "ID sessione Orca copiato",
@@ -21093,6 +21248,18 @@
       "keywordJira": "jira",
       "keywordDefaultProject": "progetto predefinito",
       "keywordIssuePicker": "selettore issue"
+    },
+    "RepositoryBrowserProfileSection": {
+      "title": "Profilo del browser",
+      "description": "Le nuove schede del browser in questo progetto, incluse quelle aperte dagli agenti, usano questo profilo. Collega più progetti allo stesso profilo per condividere un accesso.",
+      "keywordProfile": "profilo del browser",
+      "keywordCookies": "cookie",
+      "keywordSignIn": "accesso",
+      "selectLabel": "Profilo per le nuove schede",
+      "inherit": "Impostazione del browser ({{scope}})",
+      "deletedOption": "Profilo eliminato",
+      "deleted": "Il profilo scelto per questo progetto è stato eliminato, quindi le nuove schede seguono l’impostazione del browser.",
+      "saveFailed": "Impossibile salvare il profilo del browser. Potrebbe essere necessario aggiornare Orca sull’host di questo progetto."
     },
     "managed-runtime": {
       "cancelled": "Installazione annullata.",
@@ -22996,6 +23163,8 @@
       "tabCloseAll": "Chiudi tutte le schede dell’editor",
       "tabRename": "Rinomina scheda attiva",
       "tabReopenClosed": "Riapri scheda chiusa",
+      "tabMoveLeft": "Sposta la scheda attiva a sinistra",
+      "tabMoveRight": "Sposta la scheda attiva a destra",
       "tabNextSameType": "Scheda successiva (stesso tipo)",
       "tabPreviousSameType": "Scheda precedente (stesso tipo)",
       "tabNextAllTypes": "Scheda successiva (tutti i tipi)",
@@ -23006,6 +23175,7 @@
       "tabOpenQuickCommandsMenu": "Mostra/nascondi menu Comandi rapidi",
       "editorFind": "Trova nell’editor",
       "editorReplace": "Sostituisci nell’editor",
+      "editorToggleChangesView": "Mostra/nascondi vista modifiche",
       "fileExplorerUndo": "Annulla operazione sui file",
       "fileExplorerRedo": "Ripristina operazione sui file",
       "fileExplorerCopyPath": "Copia percorso del file",
@@ -23023,6 +23193,7 @@
       "chatFind": "Trova nella chat",
       "terminalToggleNativeChat": "Passa da interfaccia chat a terminale e viceversa",
       "terminalClosePane": "Chiudi riquadro attivo",
+      "terminalCopySessionId": "Copia ID sessione",
       "terminalSplitRight": "Dividi terminale a destra",
       "terminalSplitDown": "Dividi terminale in basso",
       "terminalSwitchInputSource": "Cambia sorgente di input / lingua (nativo)",
@@ -23433,6 +23604,16 @@
         "settingUp": "Il progetto è ancora in fase di configurazione sull’host di automazione selezionato.",
         "error": "Setup del progetto non riuscito sull’host di automazione selezionato.",
         "unsupported": "L’host di automazione selezionato non supporta questo progetto."
+      },
+      "blocked": {
+        "trustWorkspace": "L’agente attende che tu consideri attendibile questa cartella.",
+        "trustWorkspaceNamed": "{{agent}} attende che tu consideri attendibile questa cartella.",
+        "update": "L’agente attende che tu risponda a una richiesta di aggiornamento.",
+        "folder": "L’agente chiede in quale cartella lavorare.",
+        "model": "L’agente ti chiede di scegliere un modello.",
+        "approval": "L’agente attende che tu approvi un’azione.",
+        "signIn": "L’agente attende che tu acceda.",
+        "prompt": "L’agente si è fermato a una richiesta che attende la tua risposta."
       }
     },
     "extraAgentArgs": {
@@ -23944,6 +24125,32 @@
       "summary": "Orca ha smesso di rispondere",
       "title": "Segnala un blocco",
       "uncheckAttachments": "Deseleziona \"Allega il rapporto sul blocco salvato e i log diagnostici\" e riprova, oppure copia i dettagli."
+    }
+  },
+  "tabBar": {
+    "createRow": {
+      "label": "Azioni per nuove schede. Freccia sinistra e destra per scegliere; l’ultima personalizza questa riga.",
+      "shownLabel": "Nel menu +",
+      "hint": "Trascina per riordinare, oppure {{modifier}}↑/↓. Spazio mostra o nasconde. Gli elementi nascosti si aprono comunque dalla ricerca e con le loro scorciatoie.",
+      "reset": "Reimposta ordine",
+      "allShortcuts": "Tutte le scorciatoie da tastiera…",
+      "hiddenLabel": "Nascosti",
+      "hiddenEmpty": "Trascina qui gli elementi per nasconderli",
+      "locked": "Sempre visibile",
+      "hide": "Nascondi",
+      "show": "Mostra",
+      "customize": "Personalizza",
+      "featureOff": "Disattivato",
+      "turnOn": "Disattivato. Mostralo per riattivarlo.",
+      "moreOptions": "Altre opzioni"
+    }
+  },
+  "emulatorPane": {
+    "tabIntro": {
+      "hiddenFromMenu": "Emulatore mobile rimosso dal menu +",
+      "hiddenFromMenuHint": "Puoi ripristinarlo dall’ingranaggio alla fine della riga di icone.",
+      "undoHide": "Annulla",
+      "saveFailed": "Impossibile aggiornare il menu +."
     }
   }
 }

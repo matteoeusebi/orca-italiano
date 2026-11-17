@@ -4,8 +4,8 @@
   "execution": "data",
   "id": "italiano",
   "name": "Italiano",
-  "version": "1.4.259",
-  "description": "L'interfaccia di Orca in italiano: traduzione completa con glossario unico, allineata a Orca 1.4.259. Pacchetto della community, non ufficiale.",
+  "version": "1.4.261",
+  "description": "L'interfaccia di Orca in italiano: traduzione completa con glossario unico, allineata a Orca 1.4.261. Pacchetto della community, non ufficiale.",
   "author": {
     "name": "matteoeusebi",
     "url": "https://github.com/matteoeusebi"
