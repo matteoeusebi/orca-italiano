@@ -983,8 +983,6 @@
       "customArgsBadge": "Personalizzato",
       "customArgsTooltip": "Usa argomenti di avvio propri.",
       "editRowPermissions": "Autorizzazioni di {{agent}}: {{mode}}",
-      "rowPermissions": "Autorizzazioni",
-      "rowPermissionsLabel": "Autorizzazioni di {{agent}}",
       "customPermissions": "Argomenti personalizzati",
       "replaceWithPermissionMode": "Sostituisci con {{mode}}",
       "permissionArgsTerminalOnly": "Questi argomenti potrebbero controllare le autorizzazioni di {{agent}} nel terminale, quindi Orca non aggiunge alcun flag. Le chat usano la scelta Autorizzazioni qui sopra.",
@@ -992,15 +990,9 @@
       "localSaveFailedAgent": "Impossibile salvare le impostazioni di {{agent}}. Riprova.",
       "permissionFromArgs": "{{agent}} impostato su {{mode}} nei terminali e nelle nuove chat.",
       "permissionFromArgsTerminals": "{{agent}} impostato su {{mode}} nei terminali.",
-      "permissionOwnAgent": "Usa le impostazioni proprie di {{agent}}",
-      "permissionOwnAll": "Impostazioni proprie degli agenti",
-      "permissionOwnLegacyDescription": "Orca non aggiunge flag di autorizzazione nei terminali; le chat usano Impostazioni → Chat.",
-      "permissionOwnDescription": "Terminali e chat seguono le impostazioni di autorizzazione proprie dell’agente.",
       "permissionOwnShort": "Impostazioni proprie",
       "permissionWithoutAuto": "Agenti senza Approva per me",
       "permissionMixed": "Miste",
-      "permissionSurfaceDifference": "I terminali usano le impostazioni proprie dell’agente; le nuove chat usano {{mode}}.",
-      "permissionSameAsAll": "Come tutti gli agenti",
       "choiceChipRemove": "Rimuovi {{flag}}",
       "choiceChipTooltip": "Aggiunto da {{choice}}. Rimuovilo per usare il valore predefinito.",
       "permissionChipRemove": "Rimuovi {{flag}} e usa le impostazioni proprie di {{agent}}",
@@ -1324,7 +1316,6 @@
       "permissions": "Autorizzazioni",
       "permissionsDescription": "L’autorizzazione iniziale per le nuove sessioni. Per tutto il resto viene chiesto nella sessione.",
       "active": "Attivo",
-      "activeDescription": "Risponde ai messaggi ed esegue le automazioni.",
       "memoryFact": "Memoria",
       "cancel": "Annulla",
       "save": "Salva",
@@ -1487,7 +1478,6 @@
         "missing": "Questo progetto non è più in Orca.",
         "notYet": "Non ancora disponibile",
         "none": "Ancora nessuna skill in questo progetto. Esegui il setup del progetto per aggiungerne le skill; verranno caricate nella prossima chat di {{bot}}.",
-        "more": "e altre {{count}}",
         "openFolder": "Apri cartella",
         "noneShort": "Nessuna skill",
         "link": "Collega un progetto",
@@ -1496,7 +1486,14 @@
         "title": "Skill",
         "listedTitle": "{{agent}} non può caricare direttamente queste skill.",
         "listedBody": "{{bot}} ne riceve l’elenco nelle istruzioni e ne legge una quando serve. Non compariranno nel suo menu /.",
-        "remoteSsh": "Su {{host}} tramite SSH. {{bot}} è in esecuzione su questo computer, quindi non può ancora caricarle."
+        "remoteSsh": "Su {{host}} tramite SSH. {{bot}} è in esecuzione su questo computer, quindi non può ancora caricarle.",
+        "claudeOnly": "Solo Claude",
+        "notClaude": "Non per Claude",
+        "own": "Skill proprie di {{bot}}",
+        "ownNone": "Ancora nessuna skill propria.",
+        "ownShort": "Skill proprie",
+        "showMore": "Mostra altre {{count}}",
+        "notLoaded": "Nessun agente la carica"
       },
       "askNewHomeChat": "Chiedi prima di una nuova chat principale",
       "askNewHomeChatDescription": "Chiedi conferma prima che Nuova chat principale sostituisca la conversazione in corso del bot.",
@@ -19860,6 +19857,7 @@
         "optionUpdateFailed": "Impossibile aggiornare l’opzione",
         "optionValue": {
           "none": "Nessuno",
+          "off": "Disattivato",
           "ultracode": "Ultracode",
           "fast": "Veloce",
           "minimal": "Minimo",
@@ -19882,19 +19880,6 @@
         "attachmentOwnerChanged": "Quest’area di lavoro ha cambiato host durante il caricamento degli allegati — trascina di nuovo i file.",
         "attachmentUnreadable": "Impossibile leggere i file trascinati.",
         "tooManyAttachments": "Allega al massimo {{value0}} file alla volta.",
-        "permissions": "Permessi",
-        "permissionAsk": "Chiedi approvazione",
-        "permissionAskDescription": "Chiede prima di modifiche e comandi non consentiti dalle tue impostazioni",
-        "permissionAskSharedDescription": "Chiede prima di modifiche o comandi che non ha già il permesso di eseguire",
-        "permissionAcceptEdits": "Accetta modifiche",
-        "permissionAcceptEditsDescription": "Approva le modifiche e i comandi sui file; per il resto chiede",
-        "permissionAcceptEditsAntigravityDescription": "Approva le modifiche ai file; per il resto chiede",
-        "permissionAuto": "Approva per me",
-        "permissionAutoDescription": "Esamina le richieste di approvazione al posto tuo",
-        "permissionFullAccess": "Accesso completo",
-        "permissionFullAccessDescription": "Non chiede mai prima di modifiche o comandi",
-        "permissionFullAccessCodexDescription": "Non chiede mai; può modificare qualsiasi file e usare la rete",
-        "permissionFullAccessSharedDescription": "Non chiede mai prima di modifiche o comandi",
         "pasteFailed": "Impossibile incollare.",
         "tooManySkills": "Il messaggio non è stato inviato a {{agent}}. Seleziona al massimo {{limit}} file di skill e riprova.",
         "commandAttachmentsUnsupported": "Rimuovi gli allegati prima di usare un comando della sessione di chat.",
@@ -23296,7 +23281,13 @@
       "terminalDescription": "Usa gli account salvati da agy. Il cambio vale per le nuove sessioni agy.",
       "terminalDescriptionChats": "Usa gli account salvati da agy. Il cambio vale per le nuove sessioni agy e per le chat Antigravity.",
       "terminalDescriptionNoChats": "Usa gli account salvati da agy. Il cambio vale per le nuove sessioni agy, non per le chat Antigravity.",
-      "addAccountHelp": "Per aggiungere un account, esegui /logout in agy, accedi di nuovo, poi salvalo qui."
+      "addAccountHelp": "Per aggiungere un account, esegui /logout in agy, accedi di nuovo, poi salvalo qui.",
+      "googleSignIn": "Accesso con account Google",
+      "googleSignInAgy": "Accesso proprio di agy",
+      "googleSignInAgyOption": "Accedi eseguendo agy",
+      "googleSignInOrca": "Accesso integrato di Orca",
+      "googleSignInOrcaOption": "Accedi qui dal browser; agy non serve",
+      "googleSignInUpdateFailed": "Impossibile cambiare il modo in cui Antigravity accede con Google."
     },
     "claude": {
       "added": "Account aggiunto. Selezionalo per usarlo con il prossimo Claude che avvii.",
@@ -24129,6 +24120,9 @@
     "linkedMessageMissing": "Impossibile trovare quel messaggio.",
     "math": {
       "scrollDisplayEquation": "Scorri equazione"
+    },
+    "messageTime": {
+      "yesterday": "Ieri {{time}}"
     }
   },
   "quitAndStopAllSessions": {
@@ -24581,6 +24575,7 @@
   },
   "automations": {
     "runFailures": {
+      "botProviderErrorNotSaved": "Il turno del bot non è riuscito, ma questa esecuzione non ha salvato l’errore del provider. La chat originale potrebbe contenere più dettagli.",
       "noDispatchHost": "Nessuna finestra di Orca disponibile per avviare l’automazione.",
       "unevaluableSchedule": "Impossibile valutare questa automazione: l’occorrenza è stata saltata.",
       "noRunnableHost": "Questa automazione non ha un host su cui essere eseguita.",
@@ -25095,6 +25090,7 @@
       "hostReconnect": "Riconnetti",
       "hostReconnecting": "Riconnessione…",
       "hostUpdateAction": "Aggiorna",
+      "namePlaceholder": "Dai un nome al bot",
       "picture": "Immagine",
       "previousPicture": "Immagine precedente",
       "nextPicture": "Immagine successiva",
@@ -25120,18 +25116,16 @@
       "computer": "Computer",
       "computerHint": "Dove viene eseguito il bot.",
       "computerAccountHint": "Dove viene eseguito il bot, con accesso a Orca come {{account}}.",
-      "useChatDefaults": "Usa i predefiniti della chat",
-      "usingChatDefault": "Usa il predefinito della chat. Le esecuzioni in background usano l’impostazione Agenti.",
       "agent": "Agente",
       "folder": "Cartella: {{path}}",
       "cancel": "Annulla",
+      "creating": "Creazione…",
       "openFailed": "{{name}} è stato creato, ma non si può ancora aprire.",
       "watches": "Osserva",
       "does": "Fa",
       "reports": "Riferisce",
       "takesOver": "Prende in carico",
       "agentsKeepRunning": "I loro agenti continuano a funzionare.",
-      "fromTemplate": "Modello",
       "uploadDropOrPaste": "<upload>Carica</upload>, trascina o incolla un’immagine",
       "purposeLabel": "Identità",
       "purposePlaceholder": "Chi è e cosa fa",
@@ -25334,7 +25328,7 @@
       "description": "La chat principale di {{name}} riparte da zero su {{agent}}. La conversazione attuale resta nella cronologia.",
       "kept": "Mantenuti: anima, memoria, automazioni, connettori",
       "notKept": "Non mantenuta: la conversazione attuale",
-      "threads": "I thread Slack già in esecuzione restano su {{agent}} finché non terminano",
+      "threads": "I thread Slack con una chat Orca esistente mantengono l’agente di quella chat",
       "action": "Passa a {{agent}}"
     },
     "avatar": {
@@ -25580,7 +25574,12 @@
         "title": "Vuoi eliminare il webhook di “{{automation}}”?",
         "note": "Il suo URL smette di funzionare e le chiamate ancora in attesa vengono annullate. Un nuovo webhook riceve un nuovo URL.",
         "confirm": "Elimina webhook",
-        "done": "Webhook eliminato"
+        "done": "Webhook eliminato",
+        "withAutomation": {
+          "title": "Vuoi eliminare “{{automation}}” e il suo webhook?",
+          "note": "Nient’altro avvia questa automazione, quindi viene eliminata insieme alla sua cronologia delle esecuzioni. L’URL del webhook smette di funzionare e le chiamate ancora in attesa vengono annullate.",
+          "confirm": "Elimina entrambi"
+        }
       },
       "recentCalls": "Chiamate recenti",
       "showFewer": "Mostra meno",
@@ -25740,9 +25739,6 @@
       "reading": "Analisi della tua configurazione…",
       "read": "Analisi della tua configurazione"
     },
-    "header": {
-      "open": "Apri le impostazioni di {{name}}"
-    },
     "lookSteps": {
       "slackThread": "un thread Slack",
       "slackChannel": "un canale Slack",
@@ -25792,6 +25788,7 @@
       "peerAsked": "{{from}} ha chiesto a {{to}}",
       "peerTold": "{{from}} ha detto a {{to}}",
       "peerFollowedUp": "{{bot}} ha scritto di nuovo",
+      "handoffsPaused": "In pausa dopo {{count}} passaggi di consegne. Rispondi per continuare.",
       "peerReplyRead": "{{reader}} ha letto la risposta di {{peer}}",
       "deleteTitle": "Vuoi eliminare {{name}}?",
       "deleteDescription": "I suoi bot non vengono eliminati.",
@@ -25988,6 +25985,8 @@
       "ownerStep": "Passaggio {{step}} di 3",
       "otherAccount": "Cambia account",
       "keyMissed": "Hai scaricato la chiave ma Orca non l’ha rilevata?",
+      "pickHostKey": "Scegli il file di chiave da importare:",
+      "pickKeyHere": "Scegli un file su questo computer",
       "action": {
         "makeNewKey": "Crea una nuova chiave",
         "importKey": "Importa un file di chiave",
@@ -26273,7 +26272,6 @@
       "publishing": "Pubblicazione…",
       "previewChanged": "L’anteprima è cambiata. Controllala prima di pubblicare.",
       "manageSharing": "Gestisci condivisione…",
-      "sharedUpdated": "Condiviso · aggiornato {{date}}",
       "secretFoundTitle": "Segreto trovato",
       "secretWhere": "{{flag}} in {{where}}, riga {{line}}",
       "goToLine": "Vai alla riga",
@@ -26322,7 +26320,8 @@
         "sharedBy": "Condiviso da {{who}}",
         "viewOriginal": "Vedi originale",
         "originalGone": "Non più disponibile"
-      }
+      },
+      "duplicateSkill": "Stesso nome, in {{folder}} · non condivisa"
     },
     "apps": {
       "title": "Aggiungi a {{bot}}",
@@ -26439,7 +26438,9 @@
       "tomorrowAt": "domani {{time}}",
       "idleNext": "Inattivo · prossima esecuzione {{when}} · {{name}}",
       "runningNamed": "In esecuzione: {{name}}",
-      "nextAt": "Prossima esecuzione {{when}}"
+      "nextAt": "Prossima esecuzione {{when}}",
+      "runsOn": "In esecuzione su {{host}}",
+      "disconnected": "Disconnesso"
     },
     "needs": {
       "access": "{{person}} ha chiesto l’accesso",
@@ -26560,11 +26561,8 @@
       "yesterday": "ieri",
       "lastLooked": "ultima ricognizione {{when}}",
       "lastTidied": "ultimo riordino {{when}}",
-      "memoryFiles_one": "MEMORY.md e {{count}} file per argomento",
-      "memoryFiles_other": "MEMORY.md e {{count}} file per argomento",
       "toolsFrom": "{{count}} da {{agent}}",
       "toolsMore": "altri {{count}} da {{agent}}",
-      "withAccess": "{{service}} {{people}} con accesso",
       "onlyYou": "Solo tu"
     },
     "page": {
@@ -26583,6 +26581,7 @@
       },
       "thisComputer": "questo computer",
       "pageUnrouted": "Impossibile raggiungere {{host}} per aprire questa pagina nel suo browser. Riconnetti {{host}}, poi riprova.",
+      "botWorkspaceUnavailable": "L’area di lavoro di questo agente al momento non è disponibile qui, quindi la pagina non può aprirsi al suo interno.",
       "signIn": {
         "waitingFirst": "Nel browser di Orca per {{host}}, accedi con l’account Orca che {{host}} deve usare. Verifica che la pagina mostri {{code}}.",
         "waiting": "Approva nel browser di Orca per {{host}}. Verifica che la pagina mostri {{code}}.",
@@ -26699,14 +26698,11 @@
       "copyPath": "Copia percorso",
       "topicFiles": "File per argomento",
       "schedule": "Pianificazione",
-      "automationsFoot": "Le automazioni sono in Home › Automazioni.",
       "soulAndMemory": "Anima e memoria",
       "access": "Accesso",
       "whoCanAsk": "Chi può chiedere",
-      "chatDefault": "il tuo predefinito per le chat",
       "name": "Nome del bot",
       "rename": "Rinomina {{name}}",
-      "share": "Condividi…",
       "agent": "Agente e modello",
       "computer": "Computer",
       "deleteBot": "Elimina bot…",
@@ -26725,10 +26721,26 @@
       "items": "Elementi",
       "itemsStale": {
         "days": "{{days}} giorni",
-        "detail": "Nessuna attività per questo periodo. Gli elementi pianificati hanno il triplo del tempo.",
         "never": "Mai",
-        "title": "Segna gli elementi come fermi dopo"
-      }
+        "title": "Segna gli elementi come fermi dopo",
+        "shortTitle": "Fermi dopo"
+      },
+      "memoryFiles_one": "{{count}} file",
+      "memoryFiles_other": "{{count}} file",
+      "lookAroundShort": {
+        "every4h": "4 h",
+        "every2h": "2 h",
+        "twiceDaily": "Due volte al giorno",
+        "mornings": "Al mattino"
+      },
+      "tidyUpShort": {
+        "night": "Ogni notte",
+        "week": "Ogni settimana"
+      },
+      "youAndOthers_one": "Tu e {{count}} altro",
+      "youAndOthers_other": "Tu e altri {{count}}",
+      "shareAction": "Condividi",
+      "sharingOn": "Attivo"
     },
     "items": {
       "activity": {
@@ -26896,7 +26908,7 @@
         "links": "Link",
         "showLess": "Mostra meno",
         "showMore": "Mostra di più",
-        "sub": "Elemento {{number}} · {{chat}} · {{when}}",
+        "subWhere": "Elemento {{number}} · {{chat}}",
         "showEarlier": "Mostra precedenti",
         "next": "Elemento successivo",
         "previous": "Elemento precedente",
@@ -26938,7 +26950,8 @@
         "previous": "Domanda precedente",
         "recommended": "Consigliato",
         "step": "{{n}} di {{total}}",
-        "typeAnswer": "Scrivi la tua risposta"
+        "typeAnswer": "Scrivi la tua risposta",
+        "replaced": "L’agente ha fatto una nuova domanda. Leggila, poi rispondi."
       }
     },
     "search": {
@@ -27249,6 +27262,10 @@
     "kimiProduct": "Kimi Code",
     "cursorProduct": "Cursor CLI",
     "hermesProduct": "Hermes Agent",
+    "gooseProduct": "Goose CLI",
+    "auggieProduct": "Auggie",
+    "kiloProduct": "Kilo CLI",
+    "mimoCodeProduct": "MiMo Code",
     "commandCopied": "Comando copiato",
     "commandNotCopied": "Impossibile copiare il comando",
     "copyCommand": "Copia",
