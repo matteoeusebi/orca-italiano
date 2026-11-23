@@ -1174,7 +1174,8 @@
         "automationHelp": "Viene eliminata anche la cronologia delle esecuzioni.",
         "automation": "Eliminazione di un’automazione",
         "title": "Conferme",
-        "running": "Chiusura di una chat o di un terminale in esecuzione"
+        "running": "Chiusura di una chat o di un terminale in esecuzione",
+        "chat": "Eliminazione di una chat"
       },
       "pages": {
         "folder": "Cartella delle aree di lavoro",
@@ -1767,8 +1768,7 @@
       "saveFailed": "Impossibile salvare gli aggiornamenti automatici.",
       "title": "Aggiornamenti automatici",
       "description": "Sulle installazioni desktop supportate, Orca scarica gli aggiornamenti idonei durante i normali controlli e si riavvia per installarli automaticamente.",
-      "info": "Informazioni sugli aggiornamenti automatici",
-      "installingStatus": "è in fase di installazione."
+      "info": "Informazioni sugli aggiornamenti automatici"
     }
   },
   "menu": {
@@ -2274,7 +2274,8 @@
             "new": {
               "tab": {
                 "11cce5cc77": "Impossibile avviare {{value0}} in un nuovo terminale.",
-                "a5a1f7033f": "{{value0}} non inviato: incollalo quando l’agente è pronto."
+                "a5a1f7033f": "{{value0}} non inviato: incollalo quando l’agente è pronto.",
+                "agentExited": "L’agente si è chiuso prima che il tuo prompt venisse inviato."
               }
             }
           },
@@ -7952,7 +7953,8 @@
           "running": "In esecuzione",
           "stopped": "Arrestata",
           "title": "Aggiungi distribuzione WSL",
-          "description": "Orca esegue il server dentro la distribuzione, così git, file e terminali funzionano in modo nativo in Linux. I progetti di questa distribuzione che hai aperto tramite \\\\wsl.localhost passano automaticamente a questo host quando i loro terminali sono inattivi; i progetti su un’unità Windows (/mnt/…) restano su questo computer. Puoi riportare indietro un progetto spostato dalla barra laterale.",
+          "descriptionMoveFromSidebar": "Orca esegue il server dentro la distribuzione, così git, file e terminali funzionano in modo nativo in Linux. I progetti di questa distribuzione che hai aperto tramite \\\\wsl.localhost restano su questo computer finché non li sposti dal loro menu nella barra laterale. Anche i progetti su un’unità Windows (/mnt/…) restano qui. Puoi riportare indietro un progetto spostato dalla barra laterale.",
+          "descriptionAutoMove": "Orca esegue il server dentro la distribuzione, così git, file e terminali funzionano in modo nativo in Linux. I progetti di questa distribuzione che hai aperto tramite \\\\wsl.localhost passano automaticamente a questo host quando i loro terminali sono inattivi. I progetti su un’unità Windows (/mnt/…) restano su questo computer. Puoi riportare indietro un progetto spostato dalla barra laterale.",
           "distro": "Distribuzione",
           "loading": "Ricerca delle distribuzioni WSL…",
           "placeholder": "Scegli una distribuzione",
@@ -8819,21 +8821,21 @@
         },
         "GeneralUpdateSettingsSection": {
           "8a52ca1d02": "Note di versione",
-          "d89806cc89": "è pronta per l’installazione.",
-          "a6b37929dc": "Versione",
-          "8311da27ba": "è disponibile.",
           "02dc082e70": "Impossibile avviare il download dell’aggiornamento.",
           "ceb579abaf": "Cerca aggiornamenti dell’app e installa una versione più recente di Orca.",
           "bd79d412f0": "Controllo degli aggiornamenti non riuscito. {{value0}}",
           "b9ad70c30d": "Errore di aggiornamento. {{value0}}",
-          "2a48034c4c": "Download della v{{value0}}... {{value1}}%",
           "f40d88390d": "Hai l’ultima versione.",
           "31fd7150cf": "Ricerca aggiornamenti...",
           "d69a09b672": "Gli aggiornamenti vengono cercati automaticamente all’avvio.",
-          "e3b9d21c07": "è disponibile. Aggiorna Orca con il gestore di pacchetti del sistema: Orca non può installare questa versione da solo.",
           "6d27bd46e3": "Cerca aggiornamenti",
-          "857ca887da": "Scarica aggiornamento (",
-          "c0a8f827c7": "Riavvia per aggiornare ("
+          "downloadUpdate": "Scarica aggiornamento",
+          "restartToUpdate": "Riavvia per aggiornare",
+          "versionAvailable": "La versione {{version}} è disponibile.",
+          "externallyManagedVersionAvailable": "La versione {{version}} è disponibile. Aggiorna Orca con il gestore di pacchetti del sistema: Orca non può installare questa versione da solo.",
+          "versionReadyToInstall": "La versione {{version}} è pronta per l’installazione.",
+          "versionInstalling": "Installazione della versione {{version}} in corso.",
+          "downloadingVersion": "Download della versione {{version}} ({{percent}}%)…"
         },
         "GeneralWorkspaceSettingsSection": {
           "3d538a98f7": "Scegli le app disponibili nel menu Apri in di un’area di lavoro.",
@@ -12803,13 +12805,10 @@
         },
         "ReleaseChannelSection": {
           "switchFailed": "Impossibile passare a quella build.",
-          "title": "Canale di rilascio",
+          "title": "Canale di aggiornamento",
           "description": "Cambia canale di aggiornamento o passa a qualsiasi build pubblicata, anche precedente. I downgrade sono consentiti e le build non verificate possono essere difettose.",
           "devOnly": "Solo sviluppo",
-          "channelAriaLabel": "Canale di aggiornamento",
-          "hourlyWarning": "Le build orarie escono direttamente da main senza test, e quelle per Windows non sono firmate. Tieni a portata di mano una build stabile.",
-          "dailyWarning": "Le build giornaliere escono direttamente da main senza test, e quelle per Windows non sono firmate. Tieni a portata di mano una build stabile.",
-          "adhocWarning": "Le build adhoc vengono da un branch non ancora unito, e quelle per Windows non sono firmate. Chi le ha create potrebbe abbandonarle: tieni a portata di mano una build stabile.",
+          "adhocWarning": "Le build per Windows non sono firmate. Chi le ha create potrebbe smettere di mantenerle: tieni a portata di mano una build stabile.",
           "loadingBuilds": "Caricamento delle build…",
           "noBuilds": "Nessuna build trovata",
           "refresh": "Aggiorna elenco build",
@@ -12819,9 +12818,21 @@
           "willSwitch": "{{value0}} → {{value1}}",
           "webUnavailable": "Il cambio di build è disponibile solo nell’app desktop.",
           "devChannelUnsupportedAria": "{{value0}} (solo {{value1}})",
-          "devChannelUnsupported": "Le build {{value0}} sono prodotte solo per {{value1}}. Linux resta su Stable o RC.",
+          "devChannelUnsupported": "Il canale {{value0}} è disponibile solo per {{value1}}. Linux resta su {{stable}} o {{rc}}.",
           "downloadInstaller": "Scarica il programma di installazione",
-          "manualInstallHint": "Le build {{value0}} non sono firmate su Windows, quindi l’aggiornamento integrato non può installarne una sopra una build firmata. Esegui una volta il programma di installazione scaricato (Windows avviserà di un autore sconosciuto): da lì in poi ogni cambio, compreso il ritorno a Stable, funziona da qui."
+          "manualInstallHint": "Su Windows le build del canale {{value0}} non sono firmate, quindi l’aggiornamento integrato non può installarle sopra una build firmata. Esegui una volta il programma di installazione scaricato (Windows ti avviserà di un editore sconosciuto): da quel momento ogni cambio di canale, anche il ritorno a {{stable}}, funziona da qui.",
+          "stableLabel": "Stabile",
+          "stableDescription": "Versioni stabili per l’uso generale.",
+          "rcLabel": "RC",
+          "rcDescription": "Versioni candidate pubblicate prima di una versione stabile.",
+          "hourlyLabel": "Orario",
+          "hourlyDescription": "Build compilate ogni ora da main.",
+          "dailyLabel": "Giornaliero",
+          "dailyDescription": "Build compilate una volta al giorno da main.",
+          "adhocLabel": "Ad hoc",
+          "adhocDescription": "Build singole da un branch, per provare le modifiche prima del merge.",
+          "devChannelPlatforms": "macOS e Windows",
+          "scheduledWarning": "Queste build escono senza alcun test. Le build per Windows non sono firmate. Tieni a portata di mano una build stabile."
         },
         "VoiceMicrophoneSetting": {
           "systemDefault": "Predefinito di sistema",
@@ -13130,7 +13141,8 @@
             "updateOrcaOnHost": "Aggiorna Orca su questo host",
             "updateAnyway": "Aggiorna comunque",
             "notNow": "Non ora",
-            "forceUpdate": "Sull’host sono in esecuzione dei terminali. Continuano a funzionare durante l’aggiornamento e i loro riquadri si riconnettono quando il server di Orca si riavvia."
+            "forceUpdate": "Sull’host sono in esecuzione dei terminali. Continuano a funzionare durante l’aggiornamento e i loro riquadri si riconnettono quando il server di Orca si riavvia.",
+            "forceUpdateUncounted": "Orca non è riuscito a contare i terminali su questo host. L’aggiornamento procede solo se lì non è in esecuzione alcun daemon dei terminali, e i terminali eseguiti direttamente dal server di Orca verranno chiusi."
           },
           "description": "Orca si installa su un host SSH vuoto e si mantiene aggiornato.",
           "deploy": {
@@ -13378,7 +13390,11 @@
           "connect": "Connetti",
           "forceUpdate": "Forza aggiornamento",
           "turnOn": "Apri Sperimentale",
-          "chip": "WSL"
+          "chip": "WSL",
+          "notStartedAsWslHost": "Il server di questo host è stato avviato da un host SSH, non come host WSL, quindi i progetti non possono essere spostati qui. Riavvialo come host WSL per risolvere.",
+          "restartAsWslHost": {
+            "button": "Riavvia come host WSL"
+          }
         },
         "restartServer": {
           "action": "Riavvia il server di Orca…",
@@ -19792,7 +19808,12 @@
         "placeholder": "Chiedi qualsiasi cosa, @ per citare file, / per i comandi",
         "loadingFiles": "Caricamento file...",
         "noFiles": "Nessun file corrispondente",
-        "noMembers": "Nessun bot corrispondente",
+        "noBots": "Nessun bot",
+        "noBotsMatch": "Nessun bot corrisponde a \"{{query}}\"",
+        "botCount_one": "{{count}} bot",
+        "botCount_other": "{{count}} bot",
+        "fileCount_one": "{{count}} file",
+        "fileCount_other": "{{count}} file",
         "filesLoadFailed": "Impossibile caricare i file",
         "attach": "Allega file",
         "startDictation": "Avvia dettatura",
@@ -19880,6 +19901,10 @@
         "attachmentOwnerChanged": "Quest’area di lavoro ha cambiato host durante il caricamento degli allegati — trascina di nuovo i file.",
         "attachmentUnreadable": "Impossibile leggere i file trascinati.",
         "tooManyAttachments": "Allega al massimo {{value0}} file alla volta.",
+        "permissionAgentSettings": "Impostazioni di {{agent}}",
+        "permissionAgentSettingsUsedHint": "Usa le impostazioni di autorizzazione di {{agent}}.",
+        "permissionAgentSettingsUnnamedHint": "Usa le impostazioni di autorizzazione di {{agent}}. Orca non può mostrare questa modalità.",
+        "permissionFromAgentSettings": "{{mode}}, dalle impostazioni di {{agent}}",
         "pasteFailed": "Impossibile incollare.",
         "tooManySkills": "Il messaggio non è stato inviato a {{agent}}. Seleziona al massimo {{limit}} file di skill e riprova.",
         "commandAttachmentsUnsupported": "Rimuovi gli allegati prima di usare un comando della sessione di chat.",
@@ -19891,6 +19916,7 @@
         "imageUnavailable": "Anteprima non disponibile",
         "botFor": "Per: {{detail}}",
         "agents": "Agenti",
+        "recent": "Recenti",
         "bots": "Bot",
         "files": "File",
         "skillPillLabel": "Skill: {{name}}",
@@ -19906,7 +19932,7 @@
         "noMatchingChats": "Nessuna chat corrispondente",
         "noOtherChats": "Nessun’altra chat",
         "retryChats": "Riprova",
-        "permissionAppliesNextMessage": "{{saved}} si applica al tuo prossimo messaggio; in uso: {{active}}",
+        "permissionAppliesNextMessage": "{{saved}} si applica al tuo prossimo messaggio; ora in uso: {{active}}",
         "modelAndEffortValue": "{{model}} · {{effort}}",
         "modelAndEffort": "Modello e impegno"
       },
@@ -20290,6 +20316,7 @@
         "open": "Apri {{name}}",
         "row": {
           "started": "Avviato",
+          "forItems": "per",
           "reopened": "Riaperto",
           "followedUp": "Messaggio successivo inviato a",
           "handedOff": "Passato a",
@@ -20737,7 +20764,6 @@
         "copyFailed": "Impossibile copiare",
         "copyIdentity": "Copia {{value0}}",
         "detachedCommit": "Commit {{head}} (non un branch)",
-        "folder": "Cartella",
         "mainCheckout": "Checkout principale",
         "turnWorking": "L’agente di questa chat è al lavoro. Cambia branch quando termina il suo turno.",
         "worktree": "Worktree"
@@ -23960,6 +23986,8 @@
       "destinationChanged": "Progetti precedenti di {{distro}} sono stati spostati su un altro host WSL. Connetti quell’host per spostarne altri.",
       "hostUnavailable": "L’host {{distro}} non è connesso. Connettilo in Impostazioni, poi riprova.",
       "hostUpdateRequired": "L’host {{distro}} usa una versione meno recente di Orca. Aggiornalo in Impostazioni, poi riprova.",
+      "hostLaunchUnproven": "Il server Orca in {{distro}} usa questa versione di Orca ma non può accogliere questi progetti, quindi aggiornare non serve. Potrebbe essere stato avviato al di fuori degli host WSL, ad esempio da un host SSH. Rimuovi l’host {{distro}} in Impostazioni, poi aggiungilo di nuovo.",
+      "hostNotWslLaunched": "Il server Orca in {{distro}} non è stato avviato come host WSL (di solito lo avvia un host SSH per questa distribuzione), quindi non può accogliere questi progetti. Aggiornare non serve. Scegli Riavvia come host WSL sull’host {{distro}} in Impostazioni, poi riprova.",
       "terminalsBlocked": "Alcuni terminali, agenti o automazioni in questi progetti sono occupati. Non è stato spostato nulla.",
       "exportIncomplete": "Parte dello stato salvato in questi progetti non può ancora essere spostata, quindi non è stato spostato nulla:",
       "exportIncompletePreview": "Parte dello stato salvato in questi progetti non può ancora essere spostata:",
@@ -25165,7 +25193,8 @@
     },
     "errors": {
       "nameTaken": "Un altro bot ha già questo nome.",
-      "avatarInvalid": "Impossibile usare quell’immagine. Scegli un’immagine PNG o JPG."
+      "avatarInvalid": "Impossibile usare quell’immagine. Scegli un’immagine PNG o JPG.",
+      "unsavedDrafts": "La sua cartella ha modifiche non salvate nell’editor. Salvale o chiudile, poi elimina di nuovo."
     },
     "slack": {
       "connection": {
@@ -25396,7 +25425,8 @@
         "removeNote": "Le persone non potranno più chiedergli nulla su GitHub e le sue persone GitHub vengono rimosse. L’app Orca resta installata.",
         "removeConfirm": "Rimuovi",
         "finishSetup": "Completa la configurazione",
-        "orgDescription": "{{repos}} · accesso come @{{login}}"
+        "orgDescription": "{{repos}} · accesso come @{{login}}",
+        "addAccount": "Aggiungi un altro account GitHub"
       },
       "account": {
         "defaultBot": "Bot predefinito per le mie richieste",
@@ -25408,6 +25438,8 @@
         "unlink": "Scollega",
         "unlinked": "Aggiungi GitHub dai Connettori di un bot per collegare il tuo account.",
         "descriptionOnHost": "L’utente GitHub con cui lavorano i bot di {{host}} e che ne è il proprietario.",
+        "descriptionPlural": "I tuoi account GitHub, così i tuoi bot sanno quali commenti sono tuoi.",
+        "descriptionOnHostPlural": "Gli utenti GitHub con cui lavorano i bot di {{host}} e che ne sono i proprietari.",
         "linkedAs": "Collegato come {{login}}",
         "reconnect": "Riconnetti",
         "linkFromApp": "Collega GitHub da Orca su un computer associato a {{host}}.",
@@ -25805,6 +25837,19 @@
       "filter": "Filtra bot",
       "pickTwo": "Scegli 2 o più bot",
       "sameComputer": "I bot di un gruppo devono essere sullo stesso computer.",
+      "pairedComputersOnly": "I gruppi possono aggiungere bot solo dai computer associati.",
+      "needsLocalBot": "Questo gruppo richiede almeno un bot su questo computer.",
+      "thisComputer": "Questo computer",
+      "remoteNeedsChat": "Apri una chat con {{name}} almeno una volta, poi aggiungilo al gruppo.",
+      "remoteReplied": "Ha risposto su {{computer}}",
+      "remoteNotice": "Nessuna risposta su {{computer}}",
+      "remoteNotSent": "Non inviato a {{computer}}",
+      "remoteUnknown": "Consegna sconosciuta",
+      "remoteStopped": "Interrotto qui",
+      "remoteSending": "Richiesta su {{computer}}…",
+      "remoteAsked": "Chiesto su {{computer}}",
+      "remoteMayAnswer": "Potrebbe ancora rispondere su {{computer}}.",
+      "remoteShortened": "Abbreviata. La risposta completa è su {{computer}}.",
       "homeUnavailable": "L’area di lavoro principale di “{{name}}” su {{host}} non è disponibile.",
       "createdNotOpened": "“{{name}}” creato, ma impossibile aprirlo.",
       "retryOpen": "Riprova",
@@ -26288,6 +26333,12 @@
       "linkCopied": "Link copiato",
       "webhookNotShared": "Webhook · non condiviso",
       "commandNotShared": "Comando · non condiviso",
+      "fileLinkNotShared": "Contiene un link simbolico o un hard link · non condiviso",
+      "outsideSkill": "Esterna a {{project}}",
+      "outsideSkillWith": "Esterna a {{project}} · {{description}}",
+      "tooLargeNotShared": "Troppo grande · non condiviso",
+      "unreadableNotShared": "Illeggibile · non condiviso",
+      "overLimitNotShared": "Oltre il limite della skill · non condiviso",
       "notShared": "Non condiviso",
       "includeMemory": "Includi memoria",
       "countOf": "{{picked}} di {{all}}",
@@ -26659,7 +26710,10 @@
       "workers": "Worker",
       "waitingCount": "{{count}} in attesa",
       "loading": "Caricamento delle chat…",
-      "readFailed": "Impossibile leggere le chat di questo bot."
+      "readFailed": "Impossibile leggere le chat di questo bot.",
+      "delete": "Elimina chat",
+      "open": "Apri",
+      "actions": "Azioni chat"
     },
     "cloudSignIn": {
       "automationScheduledOnly": "Viene eseguita solo secondo la pianificazione: i suoi eventi sono in pausa finché sei disconnesso da Orca",
@@ -26827,6 +26881,8 @@
         "replyOrPick": "Rispondi con parole tue o scegli un’opzione",
         "replyingTo": "In risposta a:",
         "hideReplyingTo": "Nascondi",
+        "replyingToShow": "In risposta a: {{question}}. Mostra domanda",
+        "showQuestion": "Mostra domanda",
         "replyTo": "Rispondi a {{name}}…"
       },
       "empty": {
@@ -26920,7 +26976,8 @@
         "firstItem": "Primo elemento",
         "lastItem": "Ultimo elemento",
         "deleted": "Questo elemento è stato eliminato.",
-        "moreLinks": "Altri {{count}} link"
+        "moreLinks": "Altri {{count}} link",
+        "loading": "Caricamento elemento…"
       },
       "loading": "Caricamento degli elementi…",
       "readFailed": "Impossibile leggere gli elementi.",
@@ -27266,6 +27323,7 @@
     "auggieProduct": "Auggie",
     "kiloProduct": "Kilo CLI",
     "mimoCodeProduct": "MiMo Code",
+    "qwenCodeProduct": "Qwen Code",
     "commandCopied": "Comando copiato",
     "commandNotCopied": "Impossibile copiare il comando",
     "copyCommand": "Copia",
@@ -27322,5 +27380,18 @@
     "toolsLabel": "Strumenti dell’app",
     "workspaces": "Aree di lavoro",
     "more": "Altro"
+  },
+  "chats": {
+    "delete": {
+      "updateHost": "Aggiorna {{host}} per eliminare le chat",
+      "failed": "Impossibile eliminare la chat",
+      "undone": "L’operazione non può essere annullata.",
+      "title": "Vuoi eliminare questa chat?",
+      "descriptionHost": "Viene eliminata definitivamente da {{host}}. L’operazione non può essere annullata.",
+      "action": "Elimina",
+      "groupRoom": "Non puoi eliminare la chat di una stanza di gruppo",
+      "workerOwed": "Un’orchestrazione attende ancora questa chat",
+      "home": "Non puoi eliminare la chat principale di un agente gestito"
+    }
   }
 }
