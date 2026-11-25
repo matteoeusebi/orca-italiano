@@ -355,6 +355,9 @@
     "serverPage": {
       "download": {
         "started": "Download in corso in {{path}} su {{host}}"
+      },
+      "print": {
+        "failed": "Impossibile salvare la pagina come PDF"
       }
     },
     "clientHosted": {
@@ -391,6 +394,12 @@
       "pending": "Riapertura…",
       "caveat": "Apre una nuova pagina sull’host remoto all’ultimo indirizzo di questa pagina. L’accesso e altri stati temporanei della pagina potrebbero essere diversi, e una pagina nata dall’invio di un modulo si apre vuota.",
       "failed": "Impossibile aprire questa pagina sull’host remoto. Controlla la connessione e riprova."
+    },
+    "deviceMove": {
+      "toThisComputer": "Apri su questo computer",
+      "toHost": "Apri su {{host}}",
+      "tooltip": "Apre questo indirizzo in una nuova scheda dall’altra parte e chiude questa. Potresti dover accedere di nuovo.",
+      "failedToThisComputer": "Impossibile aprire questa pagina su questo computer."
     },
     "sshRoute": {
       "preparingTitle": "Connessione tramite l’host SSH",
@@ -531,12 +540,21 @@
         "imported_other": "Importati {{count}} cookie per {{domains}}. Ricarica la pagina per usarli.",
         "failed": "Importazione dei cookie non riuscita: {{reason}}"
       },
-      "sshPage": {
+      "routedPage": {
         "label": "Browser su questo dispositivo",
         "destination": "Importa nel browser di {{host}}.",
-        "hostAgents": "Gli agenti su {{host}} possono usare questi accessi, ma non leggere i cookie.",
+        "hostAgents": "Gli agenti su {{host}} possono usare questi accessi, ma non leggere i cookie."
+      },
+      "sshPage": {
         "stored": "Salvati nel browser di {{host}}.",
         "googleCookiesSkipped": "I cookie di Google non sono stati importati. Apri una pagina che naviga tramite {{host}}, poi accedi a Google."
+      },
+      "picker": {
+        "menuItem": "Importa cookie…",
+        "search": "Cerca profili",
+        "lastUsed": "Ultimo usato",
+        "noMatches": "Nessun risultato",
+        "googleNote": "Gli accessi Google non vengono importati"
       }
     },
     "passwords": {
@@ -1048,8 +1066,8 @@
       "chatUnavailableOnWindows": "La chat di {{value0}} non è ancora disponibile su Windows, quindi {{value0}} si apre in un terminale su questo host. Le chat su un host macOS o Linux funzionano comunque.",
       "undetectedCommandHint": "Se la CLI di {{agent}} è installata fuori dal PATH, inserisci il percorso completo dell’eseguibile su questo host.",
       "agentActions": "Azioni di {{agent}}",
-      "showDetails": "Mostra dettagli",
-      "hideDetails": "Nascondi dettagli",
+      "showAgentDetails": "Mostra dettagli di {{agent}}",
+      "hideAgentDetails": "Nascondi dettagli di {{agent}}",
       "defaultAutoBadge": "Predefinito · Auto",
       "newAgentsTitle": "Nuovi agenti",
       "defaultSurfaceServerDescription": "Il valore predefinito per gli agenti che {{host}} avvia da sé, ad esempio dalla sua CLI o dai worker di orchestrazione. Gli agenti che apri da questo computer seguono la scelta di Questo computer."
@@ -2471,7 +2489,13 @@
           "tab": {
             "open": {
               "urlFailed": "Impossibile aprire l’URL.",
-              "searchFailed": "Impossibile cercare con {{value0}}."
+              "searchFailed": "Impossibile cercare con {{value0}}.",
+              "failure": {
+                "stageError": "Errore · {{value0}} · {{value1}}",
+                "hostNotFound": "Computer dell’area di lavoro non trovato.",
+                "linkBlocked": "Apertura del link bloccata.",
+                "notWebLink": "Non è un link web."
+              }
             }
           }
         }
@@ -2615,13 +2639,18 @@
         }
       },
       "activateAiVaultStructuredSession": {
-        "unavailable": "La sessione strutturata dell’agente non è ancora disponibile. Riprova tra poco.",
         "gone": "Questa chat non è più su questo host, quindi non si può riaprire qui.",
         "hostCannotOpen": "Questa chat non si può riaprire finché non aggiorni Orca.",
         "notLocatedNamed": "Orca non trova dove è in esecuzione {{agent}}, quindi non può aprirlo.",
         "notLocated": "Orca non trova dove è in esecuzione questo agente, quindi non può aprirlo.",
         "worktreeDeleted": "Il worktree è stato eliminato.",
-        "folderWorkspaceRemoved": "L’area di lavoro della cartella è stata rimossa."
+        "projectRemoved": "Il progetto è stato rimosso da Orca.",
+        "folderWorkspaceRemoved": "L’area di lavoro della cartella è stata rimossa.",
+        "chatStillStarting": "Questa chat è ancora in fase di avvio. Riprova tra poco.",
+        "chatOpenFailed": "Impossibile aprire questa chat.",
+        "chatOpenRetry": "Riprova",
+        "chatOpenShowDetails": "Mostra dettagli",
+        "chatOpenHideDetails": "Nascondi dettagli"
       },
       "ephemeralVmWorktreeCreation": {
         "sparseCheckoutUnsupported": "Le ricette con radice predisposta non supportano lo sparse checkout."
@@ -2784,7 +2813,11 @@
       "projectHostSetupOptions": {
         "locationNotSet": "Posizione del progetto non impostata",
         "hostLocalGitProject": "Nessun remote Git corrispondente per questo progetto",
-        "hostLocalFolderProject": "I progetti cartella non possono collegarsi ad altri host"
+        "hostLocalFolderProject": "I progetti cartella non possono collegarsi ad altri host",
+        "pendingNotSetUp": "Progetto registrato su questo host ma non configurato",
+        "pendingSettingUp": "Setup del progetto in corso",
+        "pendingError": "Il setup del progetto richiede attenzione",
+        "pendingUnsupported": "Progetto non supportato su questo host"
       },
       "updateCheckClickOptions": {
         "releaseHint": "{{rcKey}}+clic controlla l’ultima RC; {{perfKey}}+clic controlla l’ultima build perf.",
@@ -4944,6 +4977,7 @@
             "downloadAlreadyLocal": "'{{value0}}' è già su questo computer.",
             "downloadFolderUnsupported": "Impossibile scaricare la cartella '{{value0}}' da questo host.",
             "downloadOpenFailed": "Impossibile scaricare '{{value0}}'.",
+            "openLinkInThisGroupRefused": "Impossibile aprire il link in questo gruppo",
             "openInThisGroupRefused": "Impossibile aprire {{value0}} in questo gruppo",
             "openInNewTab": "Apri in una nuova scheda"
           },
@@ -17708,8 +17742,6 @@
             "ed8f54509d": "Predefinito",
             "e5d31de1a9": "Dimensioni viewport",
             "56f94f4ffa": "Da file…",
-            "eb280bfb11": "Da {{value0}}",
-            "2293adf620": "Importa cookie",
             "cf7cdc67ef": "Nuovo profilo…",
             "7b838540c7": "Menu del browser",
             "a7a86702b3": "Profilo {{value0}} creato e attivato",
@@ -19019,9 +19051,7 @@
         "typeHtml": "HTML"
       },
       "BrowserCookieImportMachineNotice": {
-        "clientLabel": "Browser su questo dispositivo",
         "remoteLabel": "Browser su {{value0}}",
-        "clientNoteLocalStorage": "L’importazione legge i browser di questo dispositivo. I cookie vengono salvati in locale.",
         "remoteNoteRemoteStorage": "L’importazione legge i browser su {{value0}}. I cookie vengono salvati su quel computer e sul suo schermo potrebbe comparire una richiesta di autorizzazione."
       },
       "native": {
@@ -19740,6 +19770,8 @@
         "historyUnreadable": "Impossibile leggere la cronologia salvata di questa chat.",
         "historyUnusable": "Impossibile caricare questa chat.",
         "historyUnavailable": "Al momento è impossibile aprire la cronologia di questa chat.",
+        "diskFull": "Il disco del computer su cui è in esecuzione questa chat è pieno.",
+        "freeDiskSpace": "Libera spazio su quel disco, poi riprova.",
         "savedInOtherFolder": "Questa conversazione è stata salvata in un’altra cartella.",
         "savedByNewerOrca": "Le chat sono state salvate da una versione più recente di Orca.",
         "updateOrcaToKeepUsing": "Aggiorna Orca per continuare a usarle.",
@@ -20261,7 +20293,6 @@
         "sending": "Invio…",
         "terminalRequired": "Rispondi a questa domanda di OMP nel terminale.",
         "recommended": "Consigliata",
-        "stepAnswered": "{{value0}}, risposta data",
         "stepOf": "{{value0}} di {{value1}}",
         "answered": "Risposta data",
         "title": "Domanda",
@@ -20391,7 +20422,8 @@
           "handedOff": "Passato a",
           "task": "Attività da",
           "update": "Aggiornamento da",
-          "message": "Messaggio da"
+          "message": "Messaggio da",
+          "notSentYet": "non ancora inviato"
         },
         "kind": {
           "started": "Avviato",
@@ -20548,6 +20580,17 @@
       "imagePreview": {
         "fileActions": "Azioni sul file",
         "linkActions": "Azioni sul link"
+      },
+      "imageGallery": {
+        "scopeHelp": "Immagini vicine a questa parte della chat quando hai aperto l’anteprima. Le immagini più in alto o più in basso non sono incluse. Chiudi e riapri per aggiornare.",
+        "description": "Immagini in questa vista: {{position}} di {{count}}. {{help}}",
+        "stepAnnouncement": "Immagine {{position}} di {{count}} in questa vista: {{title}}.",
+        "firstImage": "Prima immagine.",
+        "lastImage": "Ultima immagine.",
+        "loading": "Caricamento immagine…",
+        "loadFailed": "Impossibile caricare {{name}}",
+        "closedImageChanged": "Anteprima chiusa perché un’immagine è cambiata. Apri una miniatura per vedere le immagini attuali.",
+        "closedChatChanged": "Anteprima chiusa perché la chat è cambiata. Apri una miniatura per vedere le immagini attuali."
       },
       "goalControl": {
         "settingsRejected": "Codex non è riuscito ad applicare il modello e l’impegno selezionati. Questa modifica all’obiettivo non è stata inviata. Controlla la selezione e riprova.",
@@ -20707,7 +20750,8 @@
         "oneComment": "1 commento",
         "comments": "{{count}} commenti",
         "unavailable": "Anteprima non disponibile.",
-        "retry": "Riprova"
+        "retry": "Riprova",
+        "retryKeyHint": "Anteprima non disponibile. Premi {{key}} per riprovare."
       },
       "webPeek": {
         "unavailable": "Nessuna anteprima per questa pagina."
@@ -21285,7 +21329,6 @@
       },
       "googleOffer": {
         "useAccount": "Usa {{email}} per Google.",
-        "useAnother": "Usa un altro account",
         "reconnect": "Riconnetti {{email}}",
         "use": "Usa {{email}}",
         "staysDefault": "{{email}} resta il predefinito"
@@ -21298,6 +21341,8 @@
         "remoteOwner": "Interrompi o rimuovi questo elemento dal computer su cui è in esecuzione",
         "restore": "Mostra di nuovo nel dock",
         "unavailable": "Stato del worker non disponibile",
+        "alreadyStopped": "Già interrotto",
+        "cantStop": "Impossibile interrompere ora",
         "empty": "0 worker",
         "clearAllLabel_one": "Rimuovi worker non riuscito",
         "clearAllLabel_other": "Rimuovi tutti i {{count}} worker non riusciti",
@@ -22259,12 +22304,13 @@
       "downloadSize": "Download di {{size}} MB.",
       "downloading": "Download in corso: {{done}} MB.",
       "downloadingOf": "Download in corso: {{done}} MB su {{total}} MB.",
-      "external": "Usa la copia di {{agent}} trovata su questo host.",
-      "extracting": "Estrazione di {{agent}}.",
+      "external": "Usa la tua copia di {{agent}}",
+      "externalShort": "Usa la tua copia",
+      "extracting": "Estrazione di {{agent}}…",
+      "extractingShort": "Estrazione…",
       "failed": "Installazione non riuscita. Riprova.",
       "cancelFailed": "Impossibile annullare l’installazione. Riprova.",
       "install": "Installa {{agent}}",
-      "installManaged": "Installa la copia di Orca",
       "installedByOrca": "Installato da Orca · {{version}}",
       "notInstalled": "Non installato.",
       "progress": "Download di {{agent}}",
@@ -22278,7 +22324,8 @@
       "unavailable": "{{agent}} non è disponibile su questo host.",
       "update": "Aggiorna",
       "updateTo": "Aggiorna a {{version}}",
-      "verifying": "Verifica del runtime scaricato.",
+      "verifying": "Verifica…",
+      "verifyingAgent": "Verifica di {{agent}}…",
       "installTitle": "Installa {{agent}} per iniziare a chattare",
       "continueTitle": "Installa {{agent}} per continuare",
       "heroBody": "Download una tantum di {{size}} MB. È condiviso dalle chat di {{agent}} sul computer che esegue questa chat.",
@@ -22296,7 +22343,7 @@
       "checkingTitle": "Verifica del download",
       "progressOf": "{{done}} di {{total}} MB",
       "unpackingDetail": "Estrazione del runtime",
-      "checkingDetail": "Verifica del runtime scaricato",
+      "checkingDetail": "Verifica di {{agent}}…",
       "stepDownload": "Download",
       "stepUnpack": "Estrazione",
       "stepCheck": "Verifica"
@@ -22328,7 +22375,6 @@
       "showDetails": "Mostra attività e risposta di {{name}}",
       "task": "Attività",
       "openFailed": "{{name}}: {{detail}}",
-      "chatUnavailable": "Questo host non può aprire la chat. Riprova.",
       "terminalExited": "Questo terminale è stato chiuso.",
       "openOnHost": "Apri questo agente su {{host}}.",
       "cannotLocate": "Questo host non riesce a trovare questo agente. Riprova.",
@@ -22341,11 +22387,10 @@
     },
     "orchestration": {
       "workerAutoClose": {
-        "running": "Worker di orchestrazione temporaneo · Si chiude 2 minuti dopo aver finito",
-        "finished": "Worker di orchestrazione temporaneo terminato · Si chiude tra {{countdown}}",
         "keepOpen": "Mantieni aperto",
         "bannerRunning": "Worker di orchestrazione · Si chiude 2 minuti dopo aver finito",
         "bannerFinished": "Worker di orchestrazione terminato · Si chiude tra {{countdown}}",
+        "bannerFinishedStatus": "Worker di orchestrazione terminato · Si chiude a breve",
         "boundRunning": "Si chiude con {{worker}}",
         "boundFinished": "{{worker}} ha finito · Si chiude tra {{countdown}}",
         "boundFallbackName": "il suo worker"
@@ -22767,6 +22812,9 @@
     "scanTooLarge": "Scansione di Apertura rapida troppo grande ({{reason}})."
   },
   "checksPanel": {
+    "commentsUnavailable": "Impossibile caricare i commenti.",
+    "linkedReviewUnavailable": "Impossibile caricare la pull request collegata.",
+    "loadingReviewDetails": "Caricamento dettagli della revisione…",
     "unlinked": {
       "title": "Pull request scollegata",
       "description": "La PR #{{number}} è nascosta per questa area di lavoro. Collegala di nuovo per ripristinare i controlli e i dettagli della revisione.",
@@ -23518,7 +23566,7 @@
       "signInRequired": "Accedi di nuovo per usare questo account",
       "signInAgain": "Accedi di nuovo",
       "usageSignInLabel": "Accedi di nuovo",
-      "usageSignInMessage": "L’account Claude selezionato richiede un nuovo accesso. Apri Impostazioni > Account dei provider IA oppure scegli Predefinito di sistema.",
+      "usageSignInMessage": "Devi accedere di nuovo a questo account.",
       "signIn": "Accedi",
       "moreSignInOptions": "Altre opzioni di accesso",
       "copySignInLink": "Copia invece il link di accesso",
@@ -24343,8 +24391,12 @@
       "orca": "Orca",
       "agents": "Agenti",
       "otherTerminals": "Altri terminali",
-      "privateBytes": "Memoria riservata da Orca e dai terminali"
-    }
+      "privateBytes": "Memoria riservata da Orca, dagli agenti e dai terminali"
+    },
+    "chatRow": {
+      "tooltip": "Chat di {{agent}}, inclusi i processi in esecuzione al suo interno"
+    },
+    "sharedAgentProcesses": "Processi condivisi degli agenti"
   },
   "browserTab": {
     "agentDriving": "Un agente sta usando questa pagina",
@@ -24768,6 +24820,7 @@
     "waitForImageUploads": "Attendi il termine del caricamento delle immagini, poi riprova con Crea PR."
   },
   "agentPicker": {
+    "refreshModels": "Aggiorna modelli",
     "catalogUnsupportedLaunch": "I modelli di {{agent}} non sono disponibili su questo host. Le scelte attuali restano valide.",
     "catalogLoadFailed": "Impossibile caricare i modelli di {{agent}}.",
     "catalogLoading": "Caricamento modelli…",
@@ -25315,7 +25368,6 @@
       "waitingForUntil": "In attesa di {{label}} · fino a {{time}}",
       "waitingCount": "In attesa di {{count}} eventi",
       "settings": "Impostazioni bot…",
-      "hostDisconnected": "{{host}} disconnesso",
       "disconnected": "Disconnesso",
       "runsOn": "In esecuzione su {{host}}"
     },
@@ -25412,6 +25464,8 @@
       "identityReports": "Riferisce {{what}}"
     },
     "section": {
+      "scrollLeft": "Scorri a sinistra · {{amount}} nascosti",
+      "scrollRight": "Scorri a destra · {{amount}} nascosti",
       "title": "Bot",
       "newBot": "Nuovo bot",
       "startFromScratch": "Parti da zero",
@@ -25420,8 +25474,6 @@
       "expand": "Espandi Bot",
       "collapse": "Comprimi Bot",
       "summary": "{{action}}, {{total}} bot, {{attention}} richiedono il tuo intervento, {{unread}} non letti, {{working}} al lavoro",
-      "showMore_one": "Mostra {{count}} altro bot",
-      "showMore_other": "Mostra altri {{count}} bot",
       "new": "Nuovo bot o gruppo",
       "expandAll": "Espandi tutti i bot",
       "collapseAll": "Comprimi tutti i bot"
@@ -25754,7 +25806,8 @@
       "runNow": "Esegui ora",
       "openOnPage": "Apri nella pagina Automazioni",
       "pauseShort": "Metti in pausa",
-      "resumeShort": "Riprendi"
+      "resumeShort": "Riprendi",
+      "nextAt": "prossima {{time}}"
     },
     "accessRequest": {
       "toast": "{{person}} ha chiesto l’accesso a {{name}}",
@@ -26104,23 +26157,12 @@
       "newThreadHint": "riparte da zero",
       "newThreadTab": "Nuovo thread",
       "items": {
-        "thisGroup": "Questo gruppo",
-        "thread": "Thread",
-        "all": "Tutto il loro lavoro",
         "orNames": "{{names}} o {{last}}",
         "emptyBotsNeedsYou": "Nessun elemento di {{names}} ti aspetta",
         "emptyBots": "Nessun elemento di {{names}}",
         "emptyTitle": "Ancora nessun elemento da questo gruppo",
-        "emptyBody": "Quando {{names}} prendono in carico qualcosa in questo gruppo, compare qui.",
-        "showAll": "Mostra tutto il loro lavoro",
         "filterNamed": "Filtra elementi, filtro attivo: {{filter}}",
-        "filterBot": "Bot",
-        "outside_one": "{{count}} altro elemento fuori da questo gruppo",
-        "outside_other": "{{count}} altri elementi fuori da questo gruppo",
-        "outsideRoom_one": "{{count}} altro elemento fuori da questa stanza",
-        "outsideRoom_other": "{{count}} altri elementi fuori da questa stanza",
-        "outsideThread_one": "{{count}} altro elemento fuori da questo thread",
-        "outsideThread_other": "{{count}} altri elementi fuori da questo thread"
+        "filterBot": "Bot"
       },
       "panel": {
         "membersMore": "Membri: {{names}} e altri {{count}}",
@@ -26176,13 +26218,10 @@
       "hostChoice": {
         "description": "Scegli come {{bot}} accede a Gmail, Calendar e Drive.",
         "orca": "Ospitato da Orca",
-        "comingSoon": "Prossimamente",
-        "orcaNote": "Accedi con Google. Niente da configurare.",
+        "soon": "Prossimamente",
+        "orcaNote": "Accedi con Google.",
         "self": "Ospitato da te",
-        "selfNote": "Crei una tua app Google Cloud, così il tuo accesso resta sul tuo computer. Niente passa dai server di Orca.",
-        "stepApp": "{{bot}} apre Google Cloud e configura l’app",
-        "stepSignIn": "Spunti la casella dei termini di Google e accedi",
-        "stepCheck": "{{bot}} verifica che Gmail, Calendar e Drive funzionino",
+        "selfNote": "La tua app Google.",
         "continue": "Continua"
       },
       "connectDescription": "Dai ai tuoi bot l’accesso a Gmail, Calendar e Drive. Il tuo accesso resta su {{host}}.",
@@ -26204,7 +26243,14 @@
       "accountActions": "Azioni per {{email}}",
       "addServiceMenu": "Aggiungi un servizio…",
       "updateToAdd": "Aggiorna Orca su {{host}} per aggiungere un altro account Google.",
-      "account": "Google · {{email}}"
+      "account": "Google · {{email}}",
+      "accessBlocked": "Vedi ‘Accesso bloccato’?",
+      "setUpNewApp": "Configura una nuova app Google",
+      "useAnother": "Usa un altro account",
+      "useAnotherSignIn": "Accedi con Google",
+      "useAnotherSignInDetail": "Usa la tua app Google attuale",
+      "setUpNewAppDetail": "Se la tua app attuale non funziona per questo account o organizzazione",
+      "updateToSetUpNewApp": "Aggiorna Orca su {{host}} per configurare una nuova app Google."
     },
     "googleSetup": {
       "receipt": {
@@ -27502,12 +27548,7 @@
       },
       "cancel": {
         "confirmMany": "Annulla {{count}}",
-        "confirmOne": "Annulla elemento",
-        "keep": "Mantieni",
-        "placeholder": "Motivo",
-        "titleMany": "Vuoi annullare {{count}} elementi?",
-        "titleOne": "Vuoi annullare {{title}}?",
-        "why": "Il bot vede il motivo. Non viene eliminato nulla."
+        "keep": "Mantieni"
       },
       "chat": {
         "added": "Ha aggiunto {{items}}",
@@ -27581,7 +27622,6 @@
         "title": "titolo"
       },
       "filter": {
-        "chat": "Chat",
         "clearAll": "Cancella filtri",
         "label": "Filtra elementi",
         "needsYou": "Solo quelli che ti aspettano",
@@ -27607,8 +27647,7 @@
         "automationEnded": "Terminata"
       },
       "menu": {
-        "cancel": "Annulla…",
-        "canceled": "Annullato…",
+        "cancel": "Annulla",
         "done": "Completato",
         "waiting": "In attesa…"
       },
@@ -27693,7 +27732,9 @@
         "recommended": "Consigliato",
         "step": "{{n}} di {{total}}",
         "typeAnswer": "Scrivi la tua risposta",
-        "replaced": "L’agente ha fatto una nuova domanda. Leggila, poi rispondi."
+        "replaced": "L’agente ha fatto una nuova domanda. Leggila, poi rispondi.",
+        "replacedByNewer": "Sostituita da una domanda più recente",
+        "skipped": "Saltata"
       },
       "readMoreClosedFailed": "Impossibile leggere altri elementi Chiusi",
       "wait": {
@@ -28261,7 +28302,8 @@
     "navigationLabel": "Navigazione dell’app",
     "toolsLabel": "Strumenti dell’app",
     "workspaces": "Aree di lavoro",
-    "more": "Altro"
+    "more": "Altro",
+    "pageRegion": "Pagina"
   },
   "chats": {
     "delete": {
