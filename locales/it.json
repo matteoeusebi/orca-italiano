@@ -352,6 +352,9 @@
     "guestRecovery": {
       "failed": "La pagina del browser si è interrotta inaspettatamente. Riprova per ripristinarla."
     },
+    "claimedDownload": {
+      "saved": "Salvato in {{place}}"
+    },
     "serverPage": {
       "download": {
         "started": "Download in corso in {{path}} su {{host}}"
@@ -590,6 +593,25 @@
     },
     "loadStall": {
       "waitingForHost": "In attesa di {{host}}…"
+    },
+    "profileCookieClear": {
+      "label": "Cookie",
+      "action": "Cancella cookie…",
+      "rowLocal": "Ti disconnette da tutti i siti di {{profile}} su questo computer.",
+      "rowServer": "Ti disconnette da tutti i siti di {{profile}} su {{host}}, sia nelle pagine su questo computer sia nelle pagine in streaming.",
+      "rowSsh": "Ti disconnette da tutti i siti di {{profile}} per {{host}}.",
+      "unavailable": "Non disponibile per questo profilo sull’host selezionato.",
+      "confirmTitle": "Vuoi cancellare i cookie di {{profile}} su {{host}}?",
+      "confirmTitleLocal": "Vuoi cancellare i cookie di {{profile}} su questo computer?",
+      "confirmDescriptionServer": "Ti disconnette da tutti i siti di questo profilo, sia nelle pagine su questo computer sia nelle pagine in streaming. Gli altri profili e host mantengono i loro cookie.",
+      "confirmDescription": "Ti disconnette da tutti i siti di questo profilo. Gli altri profili e host mantengono i loro cookie.",
+      "clear": "Cancella",
+      "cancel": "Annulla",
+      "cleared": "Cookie di {{profile}} su {{host}} cancellati.",
+      "clearedLocal": "Cookie di {{profile}} su questo computer cancellati.",
+      "failed": "Impossibile cancellare i cookie di {{profile}} su {{host}}. Riprova.",
+      "failedLocal": "Impossibile cancellare i cookie di {{profile}} su questo computer. Riprova.",
+      "sshHostOption": "{{host}} (SSH)"
     }
   },
   "editor": {
@@ -974,6 +996,9 @@
           "sleep": "sospensione",
           "performance": "prestazioni"
         }
+      },
+      "sessionHost": {
+        "sshDetail": "Le pagine per questo host SSH si aprono su questo computer."
       }
     },
     "agents": {
@@ -1369,7 +1394,7 @@
         "addedMany": "Aggiunte {{count}} righe",
         "forgotMany": "Dimenticate {{count}} righe",
         "changedMany": "Modificate {{count}} righe",
-        "chat": "Chat \"{{title}}\"",
+        "chat": "Chat “{{title}}”",
         "aChat": "Una chat",
         "chatFrom": "{{chat}} · da {{source}}",
         "kept": "Orca · sovrascritta da {{chat}}",
@@ -2497,6 +2522,18 @@
                 "notWebLink": "Non è un link web."
               }
             }
+          }
+        },
+        "ports": {
+          "serverPortForward": {
+            "updateServer": "Impossibile inoltrare la porta {{port}} da {{host}}. Aggiorna Orca su {{host}} e riprova.",
+            "failed": "Impossibile inoltrare la porta {{port}} da {{host}}. Controlla la connessione e riprova.",
+            "forwarded": "Porta {{port}} inoltrata da {{host}}",
+            "opened": "{{address}} aperto nel browser predefinito.",
+            "otherMachine": "Impossibile inoltrare la porta {{port}}: questa area di lavoro non è in esecuzione direttamente su {{host}}.",
+            "useSshPorts": "Impossibile inoltrare la porta {{port}} da {{host}}. Inoltrala in Porte, poi riprova.",
+            "restoredMoved": "Porta {{port}} inoltrata da {{host}} a localhost:{{localPort}}",
+            "restoredMovedReason": "localhost:{{previousPort}} è in uso su questo computer."
           }
         }
       },
@@ -4721,9 +4758,8 @@
             "a9957007eb": "Ignora {{value0}}",
             "bef0adef9b": "Branch",
             "bbb1ab6a6f": "Seleziona {{value0}}",
-            "b771c92598": "Elimina selezionate",
             "7eee951968": "Analisi delle aree di lavoro",
-            "7ae2ad30f4": "Aggiorna",
+            "191f0bc98e": "Chiudi",
             "7f451a3e2c": "Impossibile ignorare il suggerimento di pulizia",
             "662b8ec3f8": "Analisi di pulizia delle aree di lavoro non riuscita",
             "9cc26c019d": "Rimuovi",
@@ -4791,10 +4827,6 @@
             "faa855a582": "Hex",
             "1cec618bcc": "Selettore {{value0}}"
           }
-        },
-        "dialog": {
-          "f26c4baeda": "Chiudi",
-          "minimize": "Riduci a icona"
         },
         "repo": {
           "multi": {
@@ -8544,18 +8576,14 @@
         },
         "BrowserProfileRow": {
           "8e636cae25": "Profilo \"{{value0}}\" rimosso.",
-          "2d4bea7f35": "Cookie predefiniti cancellati.",
           "796d846483": "Nessun cookie importato",
           "c29648fe5b": "Attivo",
           "b4c167764d": "Importati {{value0}} cookie dal file in {{value1}}.",
           "a3f8c2d1e0b4": "Importati {{value0}} cookie da {{value1}} ({{value2}}) in {{value3}}.",
           "b4e9d3f2a1c5": "Importati {{value0}} cookie da {{value1}} in {{value2}}.",
           "c5a273a809": "Da {{value0}}",
-          "4054c458e1": "Cancella cookie predefiniti",
           "80bffd32bf": "Importa cookie",
-          "bd7d68f138": "Da file…",
-          "3b662becd5": "Cancellare i cookie del profilo predefinito?",
-          "f159cf5a3e": "Potrebbe disconnetterti dai siti in questo profilo."
+          "bd7d68f138": "Da file…"
         },
         "BrowserUseComputerUseNotice": {
           "79209b37b9": "Se l’importazione dei cookie non fa al caso tuo, Computer Use può controllare le app locali e, dove possibile, usare le sessioni del browser in cui hai già eseguito l’accesso. Installa la skill Orca Computer Use; su macOS servono anche le autorizzazioni per la privacy.",
@@ -9488,7 +9516,9 @@
           "lucideDescription": "Icona {{label}} con il colore del repository",
           "defaultIcon": "Predefinita",
           "cc76342291": "Usa l’avatar GitHub",
-          "43bf3709dd": "Icona del repo"
+          "43bf3709dd": "Icona del repo",
+          "autoColor": "Colore automatico (distinto da quello degli altri progetti)",
+          "lettersDescription": "Lettere “{{text}}”"
         },
         "RepositoryPane": {
           "15a99d9b9f": "I percorsi relativi partono dalla radice di questo progetto.",
@@ -13927,13 +13957,6 @@
             "c76693e456": "Impossibile caricare i file di quest’area di lavoro:"
           },
           "GitHistoryPanel": {
-            "cf7cad58d2": "Ancora nessun commit",
-            "d0fb0f4bf2": "Aggiorna commit",
-            "9f7535d22b": "I ref sono nomi di branch o tag che puntano esattamente a quel commit. Compaiono solo dove Git ha un ref con nome per il commit.",
-            "9289ba0cb9": "Cosa sono i ref?",
-            "d836037d02": "Commit",
-            "8232c8b2f2": "Apri commit {{value0}}: {{value1}}",
-            "e5e81e59a6": "Ridimensiona la sezione dei commit",
             "6d1e0a7c3b": "Impossibile caricare i file del commit"
           },
           "HostedReviewActions": {
@@ -14295,7 +14318,59 @@
             "markResolved": "Segna come risolto",
             "keepFile": "Mantieni file",
             "keepDeletion": "Mantieni eliminazione",
-            "refreshAll": "Aggiorna tutto"
+            "refreshAll": "Aggiorna tutto",
+            "baseUpToDate": "Aggiornato",
+            "rebaseOperationInProgress": "Attendi la fine dell’operazione Git in corso",
+            "rebaseButton": "Rebase",
+            "rebaseConflictCount_one": "{{count}} conflitto",
+            "rebaseConflictCount_other": "{{count}} conflitti",
+            "rebasePaused": "Rebase in pausa",
+            "rebaseResolveConflictsFirst": "Risolvi prima i conflitti",
+            "rebaseAbort": "Interrompi",
+            "rebaseContinue": "Continua",
+            "continueRebasePausedAgain": "Rebase in pausa al conflitto successivo",
+            "continueRebaseFailed": "Continuazione del rebase non riuscita",
+            "rebaseAutostashConflict": "Rebase eseguito. Le modifiche senza commit non si sono riapplicate senza conflitti; sono salvate nello stash.",
+            "rebaseStoppedByGit": "Git ha messo in pausa il rebase",
+            "continueRebaseUnconfirmed": "Impossibile confermare il risultato. Controllo del codice sorgente è stato aggiornato per mostrare lo stato attuale.",
+            "noRebaseInProgress": "Nessun rebase in corso",
+            "rebaseStopMovedOn": "Il rebase è già andato avanti. Controlla il pannello e riprova.",
+            "rebaseEmptyStep": "Niente di cui eseguire il commit in questo passaggio. Interrompi il rebase o completalo in un terminale.",
+            "rebaseStepUnreadableShort": "Verifica non riuscita",
+            "rebaseCheckAgain": "Ricontrolla",
+            "rebaseRetryInspect": "Riprova",
+            "rebaseRetryInspectLabel": "Riprova a verificare il passaggio del rebase",
+            "rebaseStoppedFinishInTerminal": "Git ha messo in pausa questo passaggio. Completalo in un terminale o interrompi.",
+            "rebaseCheckingStep": "Verifica del passaggio del rebase",
+            "rebaseEmptyStepShort": "Passaggio vuoto",
+            "rebaseAbortLabel": "Interrompi rebase",
+            "scopeFileCount_one": "{{count}} file",
+            "scopeFileCount_other": "{{count}} file",
+            "scopeCommitCount_one": "{{count}} commit",
+            "scopeCommitCount_other": "{{count}} commit",
+            "scopeUncommitted": "Senza commit",
+            "scopeAllChanges": "Tutte le modifiche",
+            "scopeNone": "Nessuno",
+            "scopeOpenDiff": "Apri diff",
+            "scopeShowAll": "Mostra tutte le modifiche",
+            "scopeLoadingBranchChanges": "Caricamento delle modifiche del branch…",
+            "scopeBranchCommits": "Commit su questo branch",
+            "scopeRecentCommits": "Commit recenti",
+            "scopeCompareTo": "Confronta con {{ref}}",
+            "scopeFilterCommits": "Filtra commit",
+            "scopeCommitsFailed": "Impossibile caricare i commit.",
+            "scopeFilesFailed": "Impossibile caricare i file.",
+            "scopeLoadingFiles": "Caricamento dei file…",
+            "scopeNoSharedHistory": "Nessuna cronologia condivisa con {{ref}}",
+            "scopeRetryCommits": "Riprova",
+            "scopeLoadingCommits": "Caricamento dei commit…",
+            "scopeNoMatchingCommits": "Nessun commit corrispondente",
+            "scopeNoBranchCommitsYet": "Ancora nessun commit su questo branch",
+            "scopeNoCommitsYet": "Ancora nessun commit",
+            "scopeOlderHistory": "Cronologia precedente in Git Graph",
+            "scopeNoUncommitted": "Nessuna modifica senza commit.",
+            "scopeCommitFiles": "File",
+            "gitGraphButton": "Grafico"
           },
           "SourceControlAgentActionDialog": {
             "8e856842d1": "Impossibile avviare l’agente selezionato.",
@@ -14712,10 +14787,8 @@
                   "titlePublishBranchFirst": "Pubblica prima il branch per sincronizzare i commit",
                   "titleUseForcePush": "Usa Commit e push forzato — il remote ha solo copie più vecchie dei commit locali",
                   "titleCommitThenPullPush": "Esegui il commit, poi pull e push",
-                  "rebaseFromNamedBase": "Rebase da {{baseRef}}",
                   "rebaseFromBase": "Rebase dalla base",
                   "rebaseChooseRemoteBase": "Scegli un branch di base remoto da cui eseguire il rebase",
-                  "rebaseDirtyHint": "Prova il rebase; git potrebbe richiedere prima il commit o lo stash delle modifiche locali",
                   "rebaseWithLatestFrom": "Esegui il rebase del branch corrente con gli ultimi commit di {{baseRef}}",
                   "blockedCommitFirst": "Esegui prima il commit delle modifiche",
                   "blockedCheckOutBranchFirst": "Esegui prima il checkout di un branch",
@@ -14737,7 +14810,6 @@
                   "titleCommitAndPush": "Esegui il commit delle modifiche in stage e il push",
                   "commitForcePush": "Commit e push forzato",
                   "commitPush": "Commit e push",
-                  "titleOperationInProgress": "Operazione in corso…",
                   "titleAbortRebaseInProgress": "Interrompi il rebase in corso",
                   "titleAbortMergeInProgress": "Interrompi il merge in corso",
                   "titleNothingToPushTo": "Nessun push da eseguire su {{upstreamName}}",
@@ -14798,7 +14870,6 @@
                   "statusSetsUpstream": "Imposta l’upstream",
                   "statusMayFail": "Potrebbe non riuscire",
                   "statusPublished": "Pubblicato",
-                  "statusStashFirst": "Prima lo stash",
                   "statusReplaces": "Sostituisce ↓{{behind}}",
                   "statusCommitFirst": "Prima il commit",
                   "statusReviewOpen": "{{shortLabel}} aperta",
@@ -14809,7 +14880,14 @@
                   "statusPushFirst": "Prima il push",
                   "statusForcePushFirst": "Prima il push forzato",
                   "statusSyncFirst": "Prima sincronizza",
-                  "statusUnsupported": "Non supportato"
+                  "statusUnsupported": "Non supportato",
+                  "rebaseOntoNamedBase": "Rebase su {{base}}",
+                  "rebaseCommitOrStashFirst": "Prima esegui il commit o lo stash delle modifiche",
+                  "continueRebase": "Continua rebase",
+                  "titleContinueRebase": "Continua il rebase in pausa",
+                  "rebaseFromNamedBase": "Rebase da {{baseRef}}",
+                  "rebaseDirtyHint": "Prova il rebase; git potrebbe richiedere prima il commit o lo stash delle modifiche locali",
+                  "statusStashFirst": "Prima lo stash"
                 }
               },
               "primary": {
@@ -14852,7 +14930,8 @@
                   "e9b5d1f470": "Esegui il checkout di un branch prima di creare una {{value0}}.",
                   "f0c6e2a581": "Questo branch non è ancora pronto per una {{value0}}.",
                   "8f9a0b1c2d": "Nessun commit da eseguire. Il branch è aggiornato.",
-                  "h3i4j5k607": "Verifica della possibilità di creare una {{value0}} da questo branch…"
+                  "h3i4j5k607": "Verifica della possibilità di creare una {{value0}} da questo branch…",
+                  "nothingToCommit": "Niente di cui eseguire il commit"
                 }
               },
               "branch": {
@@ -15147,12 +15226,7 @@
             "f8a2c4d1e0": "Modalità di ricerca di Esplora risorse"
           },
           "GitHistoryCommitFiles": {
-            "b2c3d4e5f6": "Nessuna modifica ai file in questo commit",
-            "c3d4e5f6a7": "Apri tutte le modifiche"
-          },
-          "GitHistoryRow": {
-            "2f9c41ab07": "Mostra i file nel commit {{value0}}: {{value1}}",
-            "4a8d9e0c1f": "Nascondi i file nel commit {{value0}}: {{value1}}"
+            "b2c3d4e5f6": "Nessuna modifica ai file in questo commit"
           },
           "GitHistoryCommitContextMenu": {
             "7b1c4e9a02": "Apri il commit nel browser",
@@ -15409,6 +15483,25 @@
         },
         "forkIndicator": {
           "forkOf": "Fork di {{repo}}"
+        },
+        "ProjectPeek": {
+          "openRemote": "Apri {{value0}} nel browser",
+          "folderProject": "Cartella · non è un repo git",
+          "noRemote": "Repo git locale · nessun remote",
+          "openUpstream": "Apri {{value0}} nel browser",
+          "forkOf": "Fork di {{value0}}",
+          "openSettingsPage": "Apri la pagina delle impostazioni",
+          "done": "Fine",
+          "resetDone": "Icona e colore reimpostati",
+          "undo": "Annulla",
+          "styleLetters": "Lettere",
+          "stylePicture": "Immagine",
+          "resetAppearance": "Reimposta icona e colore",
+          "faviconPlaceholder": "Sito web per la favicon",
+          "lettersInput": "Fino a 2 lettere",
+          "lettersPlaceholder": "1–2 lettere",
+          "useLetters": "Usa “{{value0}}”",
+          "usingGitHubAvatar": "Avatar GitHub in uso"
         }
       },
       "pet": {
@@ -19401,7 +19494,8 @@
         "transitionFieldsNeedsUpdate": "Aggiorna il server Orca remoto per inviare i campi di transizione obbligatori, o completa la transizione in Jira."
       },
       "runtimeGitSyncClient": {
-        "completeMergeNeedsNewerHost": "Per completare un merge serve una versione più recente di Orca su questo host. Aggiorna Orca su quell’host."
+        "completeMergeNeedsNewerHost": "Per completare un merge serve una versione più recente di Orca su questo host. Aggiorna Orca su quell’host.",
+        "continueRebaseNeedsNewerHost": "Per continuare un rebase serve una versione più recente di Orca su questo host. Aggiorna Orca su quell’host."
       },
       "runtimeGitWorkingTreeClient": {
         "resolveConflictNeedsNewerHost": "Per risolvere i conflitti serve una versione più recente di Orca su questo host. Aggiorna Orca su quell’host."
@@ -19904,7 +19998,6 @@
       },
       "composer": {
         "send": "Invia",
-        "planMode": "Piano",
         "moreControls": "Altri controlli della chat",
         "exitPlanMode": "Esci dalla modalità piano",
         "alternateSteerHint": "{{shortcut}} per indirizzare",
@@ -19980,7 +20073,6 @@
         "searchModels": "Cerca modelli…",
         "noModelsMatch": "Nessun modello corrisponde alla ricerca.",
         "toggleOption": "Attiva/disattiva {{value0}}",
-        "pillAccessibleName": "{{value0}} {{value1}}",
         "sentNotConfirmed": "Inviato all’agente — non confermato",
         "setWhenSessionStarts": "Impostato all’avvio della sessione.",
         "availableAfterSessionStarts": "Disponibile dopo l’avvio della sessione.",
@@ -20010,10 +20102,6 @@
         "attachmentOwnerChanged": "Quest’area di lavoro ha cambiato host durante il caricamento degli allegati — trascina di nuovo i file.",
         "attachmentUnreadable": "Impossibile leggere i file trascinati.",
         "tooManyAttachments": "Allega al massimo {{value0}} file alla volta.",
-        "permissionAgentSettings": "Impostazioni di {{agent}}",
-        "permissionAgentSettingsUsedHint": "Usa le impostazioni di autorizzazione di {{agent}}.",
-        "permissionAgentSettingsUnnamedHint": "Usa le impostazioni di autorizzazione di {{agent}}. Orca non può mostrare questa modalità.",
-        "permissionFromAgentSettings": "{{mode}}, dalle impostazioni di {{agent}}",
         "pasteFailed": "Impossibile incollare.",
         "tooManySkills": "Il messaggio non è stato inviato a {{agent}}. Seleziona al massimo {{limit}} file di skill e riprova.",
         "commandAttachmentsUnsupported": "Rimuovi gli allegati prima di usare un comando della sessione di chat.",
@@ -20023,7 +20111,6 @@
           "xhigh": "Extra"
         },
         "imageUnavailable": "Anteprima non disponibile",
-        "botFor": "Per: {{detail}}",
         "agents": "Agenti",
         "recent": "Recenti",
         "bots": "Bot",
@@ -20041,7 +20128,6 @@
         "noMatchingChats": "Nessuna chat corrispondente",
         "noOtherChats": "Nessun’altra chat",
         "retryChats": "Riprova",
-        "permissionAppliesNextMessage": "{{saved}} si applica al tuo prossimo messaggio; ora in uso: {{active}}",
         "modelAndEffortValue": "{{model}} · {{effort}}",
         "modelAndEffort": "Modello e impegno"
       },
@@ -20283,6 +20369,10 @@
       "railLabel": "I tuoi messaggi",
       "railImageMessage": "Allegato immagine",
       "railEmptyMessage": "Messaggio",
+      "railFilterPlaceholder": "Filtra i tuoi messaggi",
+      "railNoMatches": "Nessun messaggio corrispondente",
+      "railTickLabel": "Messaggio {{index}} di {{count}}: {{text}}",
+      "railMatchCount": "{{count}} di {{total}}",
       "question": {
         "step": "Passaggio {{value0}}",
         "otherPlaceholder": "Scrivi la tua risposta",
@@ -21340,22 +21430,16 @@
         "openWorker": "Apri worker",
         "remoteOwner": "Interrompi o rimuovi questo elemento dal computer su cui è in esecuzione",
         "restore": "Mostra di nuovo nel dock",
-        "unavailable": "Stato del worker non disponibile",
         "alreadyStopped": "Già interrotto",
         "cantStop": "Impossibile interrompere ora",
-        "empty": "0 worker",
         "clearAllLabel_one": "Rimuovi worker non riuscito",
         "clearAllLabel_other": "Rimuovi tutti i {{count}} worker non riusciti",
-        "clearAll": "Rimuovi tutti",
-        "attention": "Richiede attenzione",
-        "openWork": "Apri lavoro",
-        "orderHeld": "Ordine mantenuto",
-        "statusChanged": "Stato cambiato",
         "loadingWorker": "Caricamento worker…",
         "resultUnavailable": "Risultato del worker non disponibile",
-        "showLatest": "Mostra più recenti",
+        "showDetails": "Mostra dettagli",
+        "hideDetails": "Nascondi dettagli",
+        "close": "Chiudi",
         "workersRegion": "Worker",
-        "timeUnavailable": "Ora dello stato non disponibile",
         "doneResult": "Completato · apri risultato",
         "clearName": "Rimuovi {{name}}",
         "stopUnavailable": "Interrompi {{name}} · {{title}} non disponibile · {{reason}}",
@@ -21394,12 +21478,17 @@
         "finished": "Completato",
         "failedCount": "Non riusciti: {{count}}",
         "needsYouCount": "{{count}} richiede il tuo intervento",
-        "showName": "Mostra {{name}}",
-        "startedAt": " · Avviato {{time}} · {{elapsed}} trascorsi",
-        "contactUnavailable": " · Ultimo contatto confermato non disponibile",
         "runningCount": "In esecuzione: {{count}}",
         "cleared_one": "1 worker rimosso",
-        "cleared_other": "{{count}} worker rimossi"
+        "cleared_other": "{{count}} worker rimossi",
+        "stopAll": "Interrompi tutti",
+        "clearFailed": "Rimuovi non riusciti",
+        "pillLabel_one": "{{count}} worker, ultimo: {{title}}",
+        "pillLabel_other": "{{count}} worker, ultimo: {{title}}",
+        "unlistedDetail": "Parte del lavoro in background non è elencata qui",
+        "unlisted": "Lavoro in background in corso",
+        "unread": "Impossibile caricare i worker",
+        "unreadDetail": "I worker compariranno qui una volta caricati"
       },
       "webhookSetup": {
         "heading": "Configura un webhook",
@@ -21453,8 +21542,6 @@
           "noSizes": "Nessuna dimensione delle aree di lavoro ancora misurata.",
           "noSizesDescription": "Le dimensioni compaiono dopo la misurazione dello spazio su disco.",
           "measureSizesTitle": "Analizza le dimensioni delle aree di lavoro",
-          "sizeOnDisk": "Dimensione su disco: {{value0}}",
-          "checkingGitRow": "Verifica dello stato git",
           "searchPlaceholder": "Cerca per nome, repo, branch, percorso, host",
           "searchLabel": "Cerca aree di lavoro",
           "filters": "Filtri",
@@ -21512,7 +21599,6 @@
           "noMatches": "Nessuna area di lavoro corrisponde a questi filtri.",
           "noMatchesDescription": "Tutte le aree di lavoro sono in un unico elenco — allarga un filtro o cancella i filtri.",
           "sortBy": "Ordina per",
-          "sortByField": "Ordina per {{value0}}",
           "sort": {
             "lastActivity": "Ultima attività",
             "lastVisited": "Ultima apertura",
@@ -21568,18 +21654,11 @@
             "none": "Assente"
           },
           "idleSignalField": "Criterio di inattività",
-          "updatedAgo": "Aggiornato {{value0}}",
-          "refreshing": "Aggiornamento…",
-          "refreshingProgress": "Aggiornamento {{value0}}/{{value1}}",
-          "notMeasured": "Non misurata",
           "openWorkspaceNamed": "Apri {{value0}}",
           "openWorkspace": "Apri area di lavoro",
-          "workspaceStatus": "Stato dell’area di lavoro: {{value0}}",
           "measuringSizesProgress": "Analisi {{value0}}/{{value1}}",
           "measuringSizes": "Analisi delle dimensioni",
           "measureSizesFailed": "Impossibile analizzare le dimensioni delle aree di lavoro",
-          "selectedCount": "{{value0}} selezionate",
-          "deleteAnyway": "Elimina comunque",
           "appliedFilters": "Filtri applicati",
           "removeFilter": "Rimuovi filtro {{value0}}",
           "chip": {
@@ -21628,10 +21707,8 @@
           "selectionVanishedCount_other": "{{count}} aree di lavoro selezionate non esistono più.",
           "selectionWithheldCount_one": "{{count}} area di lavoro selezionata è nascosta dai filtri correnti ed è stata deselezionata.",
           "selectionWithheldCount_other": "{{count}} aree di lavoro selezionate sono nascoste dai filtri correnti e sono state deselezionate.",
-          "selectAllSafetyChecked_one": "Seleziona {{count}} area di lavoro verificata",
-          "selectAllSafetyChecked_other": "Seleziona tutte le {{count}} aree di lavoro verificate",
           "lastActive": "Ultima attività {{value0}}",
-          "moreFlags": "Mostra altri {{value0}} indicatori",
+          "projectNamed": "Progetto: {{value0}}",
           "pathLabel": "Percorso",
           "copyPath": "Copia percorso",
           "gitNotChecked": "Non verificato",
@@ -21639,7 +21716,8 @@
           "ignoreTooltip": "Ignora: escludi dall’eliminazione multipla",
           "stopIgnoring": "Non ignorare più",
           "stopIgnoringNamed": "Non ignorare più {{value0}}",
-          "clearSelection": "Cancella selezione"
+          "sortAscending": "crescente",
+          "sortDescending": "decrescente"
         },
         "scan": {
           "progress": "Analisi delle aree di lavoro ({{value0}}/{{value1}})",
@@ -21664,6 +21742,60 @@
           "ignoredFilesBlocker": "File locali ignorati",
           "ignoredFilesNamed": "File ignorati: {{value0}}",
           "ignoredFilesUnchecked": "File ignorati non controllati del tutto"
+        },
+        "review": {
+          "title": "Rivedi aree di lavoro",
+          "refresh": "Aggiorna",
+          "checking": "Verifica delle modifiche",
+          "updatesAvailable": "Ci sono novità. Aggiorna"
+        },
+        "row": {
+          "sizeLabel": "Dimensione",
+          "reviewLabel": "Revisione",
+          "statusLabel": "Stato",
+          "signalsLabel": "Segnali",
+          "projectOnHost": "{{project}} · {{host}}",
+          "notGit": "Non è un’area di lavoro git. Rimuovi invece il progetto da Orca.",
+          "unreachable": "Impossibile raggiungere {{host}}. Riconnettiti per eliminarla, oppure rimuovila da Orca.",
+          "mainCheckout": "Impossibile eliminare il checkout principale del progetto.",
+          "uncommittedFiles_one": "{{count}} file senza commit",
+          "uncommittedFiles_other": "{{count}} file senza commit",
+          "couldntCheck": "Impossibile verificare le modifiche"
+        },
+        "group": {
+          "empty": "Nessuna area di lavoro qui.",
+          "localFiles": "Contiene file locali",
+          "cannotDelete": "Impossibile eliminare",
+          "label": "Gruppi di aree di lavoro",
+          "selected": "{{count}} selezionate"
+        },
+        "selectAll": {
+          "partial": "{{selected}} di {{total}} selezionate",
+          "all": "Seleziona tutte ({{count}})"
+        },
+        "runCard": {
+          "title": "Eliminazione delle aree di lavoro",
+          "progress": "{{done}}/{{total}}",
+          "dismiss": "Ignora",
+          "show": "Mostra"
+        },
+        "done": {
+          "failedLine_one": "{{count}} non è stata eliminata.",
+          "failedLine_other": "{{count}} non sono state eliminate.",
+          "title": "Aree di lavoro eliminate: {{deleted}} di {{total}}",
+          "singleTitle": "Area di lavoro eliminata: {{deleted}} di {{total}}",
+          "button": "Fine"
+        },
+        "deleting": {
+          "title_one": "Eliminazione di {{count}} area di lavoro",
+          "title_other": "Eliminazione di {{count}} aree di lavoro",
+          "runInBackground": "Esegui in background",
+          "progress": "{{done}} di {{total}} eliminate",
+          "statusDeleted": "Eliminata",
+          "statusDeleting": "Eliminazione…",
+          "statusFailed": "Impossibile eliminare",
+          "statusWaiting": "In attesa",
+          "unconfirmed": "Impossibile confermare l’eliminazione. Aggiorna per verificare."
         }
       },
       "creation": {
@@ -23281,7 +23413,6 @@
   },
   "common": {
     "retry": "Riprova",
-    "cancel": "Annulla",
     "unassigned": "Non assegnata",
     "copy": "Copia"
   },
@@ -25480,6 +25611,8 @@
     },
     "errors": {
       "nameTaken": "Un altro bot ha già questo nome.",
+      "avatarHomeUnreadable": "Impossibile leggere l’immagine salvata. Sceglila di nuovo.",
+      "folderNotOwned": "Impossibile verificare la cartella di questo bot.",
       "avatarInvalid": "Impossibile usare quell’immagine. Scegli un’immagine PNG o JPG.",
       "unsavedDrafts": "La sua cartella ha modifiche non salvate nell’editor. Salvale o chiudile, poi elimina di nuovo."
     },
@@ -25663,6 +25796,8 @@
         "describe": "Descrizione dell’immagine",
         "button": "Genera",
         "generating": "Generazione…",
+        "closeAnytime": "Puoi chiudere quando vuoi",
+        "failedFor": "Impossibile generare un’immagine per {{name}}.",
         "cancel": "Annulla",
         "cancelRunning": "Annulla generazione",
         "edit": "Modifica descrizione",
@@ -25807,7 +25942,9 @@
       "openOnPage": "Apri nella pagina Automazioni",
       "pauseShort": "Metti in pausa",
       "resumeShort": "Riprendi",
-      "nextAt": "prossima {{time}}"
+      "nextAt": "prossima {{time}}",
+      "deleting": "Eliminazione…",
+      "deleteFailed": "Impossibile eliminare {{name}}"
     },
     "accessRequest": {
       "toast": "{{person}} ha chiesto l’accesso a {{name}}",
@@ -25824,9 +25961,7 @@
       "decideFailed": "Impossibile salvare la tua risposta. Riprova."
     },
     "connect": {
-      "cancel": "Annulla",
-      "signedInAs": "Accesso come {{who}}",
-      "notYou": "Non sei tu?"
+      "cancel": "Annulla"
     },
     "connector": {
       "howToAsk": "Come chiedere",
@@ -26132,6 +26267,7 @@
       "sameComputer": "I bot di un gruppo devono essere sullo stesso computer.",
       "pairedComputersOnly": "I gruppi possono aggiungere bot solo dai computer associati.",
       "needsLocalBot": "Questo gruppo richiede almeno un bot su questo computer.",
+      "pickLocalBot": "Scegli un bot su questo computer",
       "thisComputer": "Questo computer",
       "remoteNeedsChat": "Apri una chat con {{name}} almeno una volta, poi aggiungilo al gruppo.",
       "remoteReplied": "Ha risposto su {{computer}}",
@@ -26191,10 +26327,7 @@
         "promotes": "{{email}} diventa il predefinito.",
         "removeOneNote": "I bot smettono di usare questo account qui."
       },
-      "reconnect": "Riconnetti",
       "thisComputer": "questo computer",
-      "thisServer": "questo server",
-      "title": "Google",
       "description": "Permetti ai tuoi bot di usare Gmail, Calendar e Drive a tuo nome. Il tuo accesso a Google resta su {{host}}.",
       "updateServer": "Aggiorna questo server per connettere Google.",
       "retry": "Riprova",
@@ -26236,9 +26369,6 @@
       "setUpOpens": "Apre la chat di {{bot}}",
       "createBotToSetUp": "Nuovo bot",
       "defaultBadge": "Predefinito",
-      "row": {
-        "signedOut": "Disconnesso da Google"
-      },
       "setDefault": "Imposta come predefinito",
       "accountActions": "Azioni per {{email}}",
       "addServiceMenu": "Aggiungi un servizio…",
@@ -26250,7 +26380,11 @@
       "useAnotherSignIn": "Accedi con Google",
       "useAnotherSignInDetail": "Usa la tua app Google attuale",
       "setUpNewAppDetail": "Se la tua app attuale non funziona per questo account o organizzazione",
-      "updateToSetUpNewApp": "Aggiorna Orca su {{host}} per configurare una nuova app Google."
+      "updateToSetUpNewApp": "Aggiorna Orca su {{host}} per configurare una nuova app Google.",
+      "picker": {
+        "label": "Account Google",
+        "addAccount": "Aggiungi un altro account"
+      }
     },
     "googleSetup": {
       "receipt": {
@@ -26261,7 +26395,8 @@
         "signedIn": "✓ Accesso effettuato",
         "done": "✓ Completato",
         "takeOver": "✓ Da qui prosegue {{bot}}",
-        "chose": "✓ Hai scelto {{what}}"
+        "chose": "✓ Hai scelto {{what}}",
+        "stopped": "Setup interrotto"
       },
       "ended": "Questa configurazione di Google è terminata.",
       "heading": "Connetti Google",
@@ -26305,7 +26440,8 @@
         "waiting": "Ti sta aspettando",
         "working": "Al lavoro",
         "heading": "Configurazione di Google",
-        "you": "Tu"
+        "you": "Tu",
+        "stopped": "Interrotto"
       },
       "letMe": "Questo lo faccio io",
       "step": {
@@ -26403,7 +26539,6 @@
     "composio": {
       "connectedAs": "Connesso come {{label}}",
       "connected": "Connesso",
-      "group": "Altre app con Composio",
       "key": {
         "label": "Chiave API di Composio",
         "placeholder": "Incolla la tua chiave",
@@ -27056,12 +27191,9 @@
       "duplicateSkill": "Stesso nome, in {{folder}} · non condivisa"
     },
     "apps": {
-      "title": "Aggiungi a {{bot}}",
       "close": "Chiudi",
       "signingIn": "Accesso in corso",
-      "add": "Aggiungi",
       "composio": {
-        "note": "Si connettono tramite il tuo account Composio.",
         "browseAll": "Sfoglia app Composio",
         "searchCaption": "App Composio",
         "allCaption": "Tutte le app Composio",
@@ -27071,9 +27203,9 @@
         "accountThenCatalog": "Una volta sola, per tutti i tuoi bot. Poi scegli tra tutte le app di Composio.",
         "keyStored": "Salvata su questo computer: i bot non la vedono mai. Composio conserva i tuoi accessi alle app.",
         "addKey": "Aggiungi chiave e continua",
-        "keyStoredOnHost": "Salvata su {{host}}: i bot non la vedono mai. Composio conserva i tuoi accessi alle app."
+        "keyStoredOnHost": "Salvata su {{host}}: i bot non la vedono mai. Composio conserva i tuoi accessi alle app.",
+        "signsIn": "Accede tramite il tuo account Composio."
       },
-      "allApps": "Tutte le app",
       "closeKeepsSigningIn": "L’accesso continua nel browser",
       "openPageAgain": "Riapri la pagina",
       "webhooks": {
@@ -27086,7 +27218,9 @@
         "line": "Qualsiasi server MCP che {{bot}} deve usare",
         "failedLine": "{{app}} è su {{bot}} ma l’accesso non è stato effettuato. Riprova o rimuovila in Impostazioni › Strumenti.",
         "done": "{{app}} è su {{bot}}",
-        "doneLine": "{{bot}} può usare i suoi strumenti dal prossimo turno."
+        "doneLine": "{{bot}} può usare i suoi strumenti dal prossimo turno.",
+        "name": "Personalizzato",
+        "rowLine": "Qualsiasi server MCP"
       },
       "couldNotSignIn": "Impossibile accedere a {{app}}",
       "done": "Fine",
@@ -27098,11 +27232,11 @@
       },
       "signInAllow": "Accedi a {{app}} e consenti l’accesso.",
       "viaComposio": "tramite Composio",
-      "onBot": "Su {{bot}}",
       "appsCaption": "App",
       "searchComposio": "Cerca app Composio",
-      "searchMine": "Cerca su {{bot}}",
+      "searchAdded": "Cerca nelle app aggiunte",
       "search": "Cerca app",
+      "filters": "Filtri delle app",
       "categories": "Categorie",
       "addByUrl": "Aggiungi tramite URL",
       "noMatch": "Nessuna app corrisponde a “{{query}}”.",
@@ -27122,7 +27256,6 @@
         "github": "Menzioni ed eventi su issue e PR",
         "slack": "Messaggi e menzioni",
         "linear": "Issue assegnate e menzioni",
-        "google": "Gmail, Calendar e Drive, a tuo nome",
         "vercel": "Controlla i deploy e leggine i log",
         "sentry": "Analizza gli errori e gli eventi che li hanno generati",
         "datadog": "Cerca log, metriche e monitor",
@@ -27191,7 +27324,16 @@
         "box": "File e cartelle",
         "miro": "Lavagne, post-it e frame",
         "reddit": "Post, commenti e subreddit"
-      }
+      },
+      "addedCount": "{{count}} aggiunte",
+      "addedCaption": "Aggiunte",
+      "chip": {
+        "all": "Tutte",
+        "composio": "Composio",
+        "more": "Altre"
+      },
+      "setUpNamed": "Configura {{name}}",
+      "setUp": "Configura"
     },
     "panel": {
       "idle": "Inattivo",
@@ -27683,10 +27825,8 @@
         "activity": "Attività",
         "canceledNote": "Annullato:",
         "doneNote": "Completato:",
-        "links": "Link",
         "showLess": "Mostra meno",
         "showMore": "Mostra di più",
-        "subWhere": "Elemento {{number}} · {{chat}}",
         "showEarlier": "Mostra precedenti",
         "next": "Elemento successivo",
         "previous": "Elemento precedente",
@@ -27698,7 +27838,10 @@
         "firstItem": "Primo elemento",
         "lastItem": "Ultimo elemento",
         "deleted": "Questo elemento è stato eliminato.",
-        "moreLinks": "Altri {{count}} link",
+        "linkCount": "{{count}} link",
+        "reply": "Rispondi",
+        "replyAbove": "Rispondi, sopra",
+        "replyBelow": "Rispondi, sotto",
         "loading": "Caricamento elemento…"
       },
       "loading": "Caricamento degli elementi…",
@@ -27724,17 +27867,17 @@
         "pickCustom": "Orario personalizzato"
       },
       "ask": {
-        "heldCount_one": "{{count}} risposta non ancora inviata, <send>inviala comunque</send>",
-        "heldCount_other": "{{count}} risposte non ancora inviate, <send>inviale comunque</send>",
-        "next": "Domanda successiva",
         "notSentYet": "non ancora inviato",
-        "previous": "Domanda precedente",
         "recommended": "Consigliato",
-        "step": "{{n}} di {{total}}",
         "typeAnswer": "Scrivi la tua risposta",
         "replaced": "L’agente ha fatto una nuova domanda. Leggila, poi rispondi.",
         "replacedByNewer": "Sostituita da una domanda più recente",
-        "skipped": "Saltata"
+        "skipped": "Saltata",
+        "send": "Invia",
+        "sending": "Invio…",
+        "sendSome": "Invia {{count}}/{{total}}",
+        "sendSomeLabel": "Invia {{count}} risposte su {{total}}",
+        "changeAnswer": "{{question}}: {{answer}}. Cambia risposta"
       },
       "readMoreClosedFailed": "Impossibile leggere altri elementi Chiusi",
       "wait": {
@@ -27829,6 +27972,7 @@
       "toolCredentialsRaced": "Le credenziali degli strumenti del bot sono cambiate in un’altra istanza di Orca. Riprova.",
       "toolSourceManaged": "Orca gestisce questo strumento. Modificalo dove l’hai configurato.",
       "toolValuesUnmoved": "Uno strumento conserva ancora i suoi valori salvati. Riapri gli strumenti del bot per spostarli.",
+      "googleAccountsChanged": "I suoi account Google sono cambiati da quando li hai aperti. Controllali e salva di nuovo.",
       "toolCodexCheckFailed": "Codex non è riuscito a controllare o connettere gli strumenti. Controlla la sua configurazione e riprova.",
       "toolCodexNoThread": "Codex non ha avviato alcun thread in cui controllare gli strumenti.",
       "toolSignInFolderFailed": "Impossibile preparare la cartella di accesso: {{detail}}",
@@ -28043,7 +28187,8 @@
     "branchCreated": "Branch {{branch}} creato su {{commit}}",
     "branchName": "Nome del branch",
     "invalidBranchName": "Questo nome di branch non è valido. Scegli un nome diverso.",
-    "createBranchFailed": "Impossibile creare il branch. Controlla questo repository in un terminale, poi riprova."
+    "createBranchFailed": "Impossibile creare il branch. Controlla questo repository in un terminale, poi riprova.",
+    "openDiff": "Apri diff"
   },
   "macosUpdateRequirement": {
     "title": "Gli aggiornamenti di Orca ora richiedono macOS {{macos}}",
@@ -28269,7 +28414,23 @@
     "failedChipTooltip": "Aggiornamento non riuscito. Fai clic per i dettagli.",
     "failedTitle": "Impossibile aggiornare {{product}}",
     "failedDescription": "Orca ha eseguito <code>{{command}}</code> su <strong>{{host}}</strong> per aggiornare {{product}} da <strong>{{installedVersion}}</strong> a <strong>{{latestVersion}}</strong>, ma il comando non è riuscito.",
-    "failedDescriptionNoCommand": "Impossibile aggiornare {{product}} su <strong>{{host}}</strong>."
+    "failedDescriptionNoCommand": "Impossibile aggiornare {{product}} su <strong>{{host}}</strong>.",
+    "cardLabel": "Aggiornamenti delle CLI degli agenti",
+    "cardLater": "Più tardi",
+    "toastUpdating_one": "Aggiornamento {{current}} di {{count}} CLI",
+    "toastUpdating_other": "Aggiornamento {{current}} di {{count}} CLI",
+    "toastDone_one": "{{count}} CLI aggiornata",
+    "toastDone_other": "{{count}} CLI aggiornate",
+    "hideList": "Nascondi elenco",
+    "showList": "Mostra elenco",
+    "toastUpdate": "Aggiorna {{total}}",
+    "toastRetry": "Riprova {{failed}}",
+    "copied": "Copiato",
+    "manualSection": "Manuale",
+    "toastFailedCount_one": "{{count}} aggiornamento non riuscito",
+    "toastFailedCount_other": "{{count}} aggiornamenti non riusciti",
+    "toastClose": "Chiudi",
+    "queued": "In coda"
   },
   "backgroundWorkerPaused": {
     "title": "Alcune attività in background sono state messe in pausa dopo ripetuti arresti anomali",
