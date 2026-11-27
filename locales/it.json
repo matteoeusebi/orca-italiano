@@ -357,7 +357,12 @@
     },
     "serverPage": {
       "download": {
-        "started": "Download in corso in {{path}} su {{host}}"
+        "started": "Download in corso in {{path}} su {{host}}",
+        "saveHere": "Salva su questo computer",
+        "copying": "Download di {{filename}} su questo computer…",
+        "copied": "Salvato in {{path}}",
+        "copyFailed": "Impossibile salvare {{filename}} su questo computer.",
+        "showInFolder": "Mostra nella cartella"
       },
       "print": {
         "failed": "Impossibile salvare la pagina come PDF"
@@ -589,10 +594,53 @@
       "resetZoom": "Reimposta zoom",
       "resetViewport": "Reimposta dimensioni viewport",
       "findOnPage": "Trova nella pagina",
-      "profile": "Profilo"
+      "profile": "Profilo",
+      "annotateModeWithShortcut": "Annota, cattura o disegna ({{value0}})",
+      "annotateMode": "Annota, cattura o disegna"
     },
     "loadStall": {
       "waitingForHost": "In attesa di {{host}}…"
+    },
+    "annotatePalette": {
+      "annotateTooltip": "Annota: commenta un elemento (A)",
+      "grabTooltip": "Cattura: copia il contesto di un elemento (G)",
+      "drawTooltip": "Disegna: aggiungi segni a uno screenshot (D)",
+      "positionLeft": "Sinistra",
+      "positionRight": "Destra",
+      "positionTop": "In alto",
+      "positionMiddle": "Al centro",
+      "positionBottom": "In basso",
+      "label": "Strumenti di annotazione",
+      "tools": "Strumento",
+      "copy": "Copia",
+      "copyTitle": "Copia l’elemento selezionato",
+      "copied": "Copiato",
+      "screenshot": "Screenshot",
+      "screenshotTitle": "Copia uno screenshot dell’elemento selezionato",
+      "done": "Fine",
+      "doneTitle": "Fine (Esc)",
+      "move": "Sposta barra degli strumenti",
+      "positionValueBothAxes": "{{side}} {{percent}}%, {{vertical}} {{verticalPercent}}%",
+      "annotateTooltipNoKey": "Annota: commenta un elemento",
+      "grabTooltipNoKey": "Cattura: copia il contesto di un elemento",
+      "drawTooltipNoKey": "Disegna: aggiungi segni a uno screenshot",
+      "moveAnywhereTooltip": "Trascina o usa i tasti freccia per spostare · doppio clic per reimpostare · tieni premuto {{key}} per vedere sotto",
+      "copyMarkup": "Copia disegno",
+      "pickFirst": "Seleziona prima un elemento",
+      "moreDrawTools": "Altri strumenti di disegno",
+      "showNotes": "Mostra note",
+      "noteCountOne": "1 nota",
+      "noteCount": "{{count}} note",
+      "drawingDiscarded": "Disegno scartato",
+      "undo": "Annulla",
+      "collapseNotes": "Comprimi note",
+      "expandNotes": "Espandi note",
+      "clearNotes": "Cancella note",
+      "waitingForPage": "In attesa della pagina…",
+      "pageDidNotLoad": "La pagina non si è caricata",
+      "discardDrawing": "Scarta disegno",
+      "discardDrawingTitle": "Scarta disegno (Esc)",
+      "positionCenter": "Centro"
     },
     "profileCookieClear": {
       "label": "Cookie",
@@ -612,6 +660,12 @@
       "failed": "Impossibile cancellare i cookie di {{profile}} su {{host}}. Riprova.",
       "failedLocal": "Impossibile cancellare i cookie di {{profile}} su questo computer. Riprova.",
       "sshHostOption": "{{host}} (SSH)"
+    },
+    "grabToast": {
+      "noScreenshot": "Nessuno screenshot disponibile",
+      "hoverReadFailed": "Impossibile leggere l’elemento sotto il puntatore",
+      "noHover": "Nessun elemento sotto il puntatore",
+      "copyFailed": "Impossibile copiare"
     }
   },
   "editor": {
@@ -689,8 +743,7 @@
         "title": "Provider",
         "searchAgents": "agenti",
         "searchCli": "CLI",
-        "searchTerminal": "terminale",
-        "antigravityAccount": "Account"
+        "searchTerminal": "terminale"
       },
       "permissionsDescriptionOwnAgents": "Le nuove chat seguono l’autorizzazione di ogni agente in Impostazioni → Agenti.",
       "launch": {
@@ -759,7 +812,6 @@
       "statusBar": {
         "claudeToggleDescription": "Mostra l’utilizzo di token e i costi di Claude per l’area di lavoro attiva.",
         "codexToggleDescription": "Mostra l’utilizzo di token e i costi di Codex per l’area di lavoro attiva.",
-        "geminiToggleDescription": "Mostra l’utilizzo di token e i costi di Gemini per l’area di lavoro attiva.",
         "opencodeGoToggleDescription": "Mostra l’utilizzo di token e i costi di OpenCode Go per l’area di lavoro attiva.",
         "kimiToggleDescription": "Mostra l’utilizzo dell’abbonamento Kimi per l’area di lavoro attiva.",
         "minimaxToggleDescription": "Mostra l’utilizzo dell’abbonamento MiniMax per l’area di lavoro attiva.",
@@ -805,6 +857,7 @@
         "widthDescription": "Quanto possono allargarsi i messaggi e la casella del messaggio in un riquadro largo.",
         "resetAppearance": "Reimposta aspetto della chat",
         "resetDescription": "Ripristina i valori predefiniti qui sopra.",
+        "resetKeyword": "reimposta",
         "comfortable": "Comoda",
         "wide": "Larga",
         "full": "Piena",
@@ -953,7 +1006,7 @@
         "importInvalid": "{{count}} righe illeggibili",
         "importUndecryptable": "{{count}} protette dal browser; esporta invece un CSV dal browser",
         "imported": "{{count}} password importate",
-        "deleteAllConfirmDescription": "Tutte le password salvate nel profilo {{profile}} vengono eliminate definitivamente. L’operazione non si può annullare.",
+        "deleteAllConfirmDescription": "Tutte le password, le note e i siti esclusi dal salvataggio nel profilo {{profile}} vengono eliminati definitivamente. L’operazione non si può annullare.",
         "deletedAll": "Dati delle password eliminati",
         "offerToSave": "Proponi di salvare le password",
         "offerToSaveDescription": "Dopo che accedi a un sito nel browser di Orca, proponi di salvare l’accesso.",
@@ -1265,6 +1318,7 @@
           "spaces": "spazi",
           "link": "link",
           "tabs": "schede",
+          "tab_characters": "caratteri di tabulazione",
           "trim": "rimuovi spazi",
           "root": "radice",
           "word_wrap": "a capo automatico",
@@ -1410,6 +1464,8 @@
         "nothingToUndo": "Niente da annullare: nel frattempo quelle righe sono cambiate.",
         "empty": "Ancora nessuna modifica."
       },
+      "muteNotifications": "Silenzia notifiche",
+      "muteNotificationsDescription": "Interrompe l’invio delle notifiche di sistema. Gli indicatori dei messaggi non letti restano visibili.",
       "notifyNeedsPermission": "Richiede autorizzazione",
       "notifyNeedsPermissionDescription": "Quando il bot o un worker ha bisogno della tua approvazione.",
       "notifyTaskComplete": "Attività completata",
@@ -1521,7 +1577,10 @@
           "secretsHint": "I valori salvati restano privati. Lascia vuoto un valore salvato per mantenerlo, inseriscine uno nuovo per sostituirlo o rimuovi la sua riga per eliminarlo.",
           "unconfirmed": "Non confermato",
           "checkAgain": "Ricontrolla"
-        }
+        },
+        "hostMcpNone": "Ancora nessuno su questo host",
+        "hostMcp": "I tuoi server MCP",
+        "hostMcpAndMore": "I tuoi server MCP, {{rest}}"
       },
       "editPicture": "Modifica immagine del bot",
       "retry": "Riprova",
@@ -1849,6 +1908,116 @@
     },
     "artifacts": {
       "teamDisabled": "La condivisione degli artefatti è disattivata dal tuo team."
+    },
+    "navigation": {
+      "accounts": {
+        "description": "Cambio di account facoltativo e configurazione dell’utilizzo per Claude, Codex, Antigravity, OpenCode Go, MiniMax e Grok."
+      }
+    },
+    "mcpServers": {
+      "custom": {
+        "found": "Trovati {{count}} server",
+        "foundUrl": "URL · {{line}}",
+        "foundCommand": "Comando · {{line}}",
+        "title": "Server personalizzato",
+        "sourceLabel": "URL del server, comando di avvio o configurazione",
+        "sourceHint": "Incolla l’URL di un server, un comando di avvio o una configurazione, oppure inserisci tu i dettagli.",
+        "nameTaken": "Esiste già un server chiamato {{name}}. Scegli un altro nome.",
+        "line": "Un URL, un comando di avvio o una configurazione",
+        "foundTaken": "Già aggiunto"
+      },
+      "empty": {
+        "copied": "Copiati {{count}} server da {{host}}",
+        "title": "Nessun server MCP su {{host}}",
+        "copyFrom": "Copia da {{host}}"
+      },
+      "addServer": "Aggiungi un server",
+      "toast": {
+        "saved": "{{name}} salvato",
+        "sharedOn": "{{name}} condivide un solo processo",
+        "sharedOff": "{{name}} si avvia una volta per sessione",
+        "signedOut": "Disconnesso da {{name}}",
+        "removed": "{{name}} rimosso",
+        "workspaces": "{{name}}: {{workspaces}}",
+        "added": "{{name}} aggiunto",
+        "addedMany": "{{count}} server aggiunti",
+        "repoOn": "{{name}} attivato in {{repo}}",
+        "repoOff": "{{name}} disattivato in {{repo}}"
+      },
+      "stale": "Questo server è cambiato altrove. Viene mostrato com’è ora.",
+      "launch": {
+        "title": "Avvio",
+        "command": "Comando",
+        "args": "Argomenti",
+        "env": "Ambiente"
+      },
+      "connection": {
+        "title": "Connessione",
+        "url": "URL",
+        "headers": "Intestazioni"
+      },
+      "shared": {
+        "title": "Condividi un solo processo tra gli agenti",
+        "line": "Usa meno memoria. Il server viene eseguito fuori dalla cartella dell’area di lavoro."
+      },
+      "signIn": "Accedi",
+      "signInActions": "Azioni di accesso",
+      "signInAgain": "Accedi di nuovo",
+      "signOut": "Esci",
+      "loading": "Lettura dei server MCP…",
+      "remove": {
+        "title": "Rimuovere {{name}}?",
+        "line": "Le nuove sessioni su {{host}} non lo avranno. I valori salvati e l’accesso vengono eliminati.",
+        "confirm": "Rimuovi",
+        "button": "Rimuovi server"
+      },
+      "found": {
+        "onlyIn": "Solo {{agents}} · {{projects}}",
+        "move": "Sposta in Orca",
+        "actions": "Azioni di {{name}}",
+        "copy": "Copia in Orca",
+        "open": "Apri",
+        "copied": "{{name}} copiato in Orca",
+        "title": "Nei tuoi agenti",
+        "summary": "Trovati {{count}} server in {{agents}}",
+        "moveAll": "Sposta tutti in Orca"
+      },
+      "signedInToast": "Accesso a {{name}} effettuato",
+      "pasteRefused": "Questo indirizzo non proviene da questo accesso.",
+      "workspaces": {
+        "title": "Aree di lavoro",
+        "later": "Aree di lavoro aggiunte in seguito"
+      },
+      "catalog": {
+        "noMatch": "Nessun server corrisponde a “{{query}}”.",
+        "search": "Cerca server",
+        "caption": "Server"
+      },
+      "add": {
+        "title": "Aggiungi un server MCP"
+      },
+      "catalogLine": {
+        "github": "Issue, pull request e ricerca nel codice",
+        "linear": "Leggi e aggiorna issue e progetti"
+      },
+      "move": {
+        "title": "Spostare {{name}} in Orca?",
+        "allTitle": "Spostare {{count}} server in Orca?",
+        "line": "Orca lo rimuove dalle impostazioni di {{agents}} e ne conserva un backup.",
+        "allLine": "Orca li rimuove dalle impostazioni di {{agents}} e ne conserva un backup.",
+        "confirm": "Sposta"
+      },
+      "yours": "Tuoi",
+      "fromPlugins": "Dai plugin",
+      "unsupported": "I server MCP non sono disponibili su {{host}}.",
+      "title": "Server MCP",
+      "description": "Server che i tuoi agenti possono usare. Le modifiche valgono per le nuove sessioni.",
+      "repo": {
+        "on": "Attivo in questo repo",
+        "add": "Aggiungi un server per questo repo",
+        "files": "Dai file di questo repo",
+        "open": "Apri {{file}}"
+      }
     }
   },
   "menu": {
@@ -2266,7 +2435,6 @@
           "8da11d876c": "Goose",
           "b32627f09b": "Aider",
           "691dd11789": "Antigravity",
-          "12e6baa4f7": "Gemini",
           "09973b4d84": "OMP",
           "302934c5d9": "Pi",
           "706b0fe68b": "GitHub Copilot",
@@ -2534,6 +2702,10 @@
             "useSshPorts": "Impossibile inoltrare la porta {{port}} da {{host}}. Inoltrala in Porte, poi riprova.",
             "restoredMoved": "Porta {{port}} inoltrata da {{host}} a localhost:{{localPort}}",
             "restoredMovedReason": "localhost:{{previousPort}} è in uso su questo computer."
+          },
+          "forwardedUrl": {
+            "openedIpv4": "Aperto 127.0.0.1:{{port}} al posto di localhost",
+            "openedIpv4Reason": "Un’altra app su questo computer usa localhost:{{port}}."
           }
         }
       },
@@ -2684,7 +2856,8 @@
         "projectRemoved": "Il progetto è stato rimosso da Orca.",
         "folderWorkspaceRemoved": "L’area di lavoro della cartella è stata rimossa.",
         "chatStillStarting": "Questa chat è ancora in fase di avvio. Riprova tra poco.",
-        "chatOpenFailed": "Impossibile aprire questa chat.",
+        "chatOpenFailed": "Impossibile aprire la chat",
+        "chatOpenDismiss": "Ignora",
         "chatOpenRetry": "Riprova",
         "chatOpenShowDetails": "Mostra dettagli",
         "chatOpenHideDetails": "Nascondi dettagli"
@@ -2894,11 +3067,6 @@
           "failedToLoadUsage": "Impossibile caricare i dati di utilizzo",
           "failedToParseCliOutput": "Impossibile leggere l’output della CLI",
           "fetchAborted": "Recupero dei limiti di richieste interrotto",
-          "geminiCredentialsNotFound": "Credenziali della CLI di Gemini non trovate",
-          "geminiOauthDisabled": "L’OAuth della CLI di Gemini è disattivato nelle impostazioni",
-          "geminiProjectIdLoadFailed": "Impossibile caricare l’ID progetto di Gemini (HTTP {{status}})",
-          "geminiProjectIdMissingInResponse": "ID progetto di Gemini non trovato nella risposta dell’API",
-          "geminiProjectIdNotFound": "ID progetto di Gemini non trovato",
           "grokAuthInvalid": "Il file di autenticazione di Grok non è valido",
           "grokAuthUnreadable": "Impossibile leggere il file di autenticazione di Grok",
           "grokBillingConfigMissing": "La risposta di fatturazione di Grok non includeva la configurazione",
@@ -2934,13 +3102,11 @@
           "opencodeNoWorkspaceIdShort": "Nessun ID dell’area di lavoro trovato",
           "ptyTimeout": "Timeout del PTY",
           "ptyUsageTimeout": "Timeout del PTY — il pannello /usage non è stato mostrato",
-          "quotaFetchFailed": "Recupero della quota non riuscito ({{status}})",
           "rpcFailed": "RPC non riuscita",
           "rpcProcessExited": "Il processo RPC è terminato inaspettatamente",
           "rpcTimeout": "Timeout RPC",
           "sessionCookieNotConfigured": "Cookie di sessione non configurato",
           "signInWithChatgpt": "Accedi con ChatGPT",
-          "tokenRefreshFailed": "Aggiornamento del token non riuscito",
           "unknown": "Errore sconosciuto",
           "usagePageFetchFailed": "Recupero della pagina di utilizzo non riuscito ({{status}})",
           "waitingForClaudeSession": "In attesa della sessione Claude",
@@ -3065,7 +3231,6 @@
         "cd50cec5d7": "Coordina più agenti di coding tramite Orca.",
         "58a868e8e4": "Orchestrazione",
         "7c79d3b7bf": "Facoltativo",
-        "b1c2f8b0ac": "Cambio account e configurazione dell’utilizzo facoltativi per Claude, Codex, Gemini, OpenCode Go, MiniMax e Grok.",
         "f70ac54d38": "Account dei provider IA",
         "4121f7a0a2": "Gestisci gli agenti IA, imposta quello predefinito e personalizza i comandi.",
         "b49abbd2f7": "Agenti",
@@ -5540,8 +5705,6 @@
             "runtime_last_close_reason": "Chiuso: {{value0}}",
             "runtime_reconnect_attempt": "Tentativo {{value0}}",
             "runtime_workspace_window_closed": "Finestra dell’area di lavoro chiusa",
-            "connectedHostCount_one": "{{count}} host",
-            "connectedHostCount_other": "{{count}} host",
             "searchSshHosts": "Cerca host SSH…",
             "noMatchingSshHosts": "Nessun host SSH corrispondente.",
             "moreSshHostMatches_one": "{{count}} altro risultato. Continua a digitare per restringere la ricerca.",
@@ -5555,7 +5718,6 @@
             "24ac89df1a": "Host remoti",
             "5e59007df4": "Utilizzo Kimi",
             "8c86cd77b0": "Utilizzo OpenCode Go",
-            "c1df0d67ec": "Utilizzo Gemini",
             "c0909c686e": "Utilizzo Codex",
             "3885eb74d8": "Utilizzo Claude",
             "c8857b40f7": "Aggiorna dati di utilizzo",
@@ -5825,6 +5987,12 @@
               "waiting": {
                 "label": "Si aggiorna quando Claude è in esecuzione",
                 "message": "L’utilizzo di Claude si aggiorna alla prossima esecuzione di Claude."
+              }
+            },
+            "codex": {
+              "waiting": {
+                "label": "Si aggiorna quando Codex è in esecuzione",
+                "message": "L’utilizzo di Codex si aggiorna alla prossima esecuzione di Codex."
               }
             },
             "justNow": "adesso",
@@ -6833,13 +7001,24 @@
           "strandedDescription": "Le tue modifiche sono ancora in {{value0}}. Copiale in un posto sicuro prima di aggiornare di nuovo.",
           "preservedTitle": "Le tue modifiche a {{value0}} sono state salvate a parte",
           "preservedDescription": "Orca ha aggiornato la skill e salvato le tue modifiche in {{value0}}.",
+          "preservedBackupOnly": "Orca ha salvato le tue modifiche in {{value0}}.",
           "uncertainTitle": "Impossibile confermare l’aggiornamento della skill su {{value0}}",
-          "uncertainDescription": "Orca potrebbe aver aggiornato le skill su {{value0}}, ma non è riuscito a confermare il risultato. Se hai modificato una skill durante l’aggiornamento, la tua copia è in {{value1}}."
+          "uncertainDescriptionKept": "Orca potrebbe aver aggiornato le skill su {{value0}}, ma non è riuscito a confermare il risultato. Se hai modificato una skill durante l’aggiornamento, la tua copia è in {{value1}} o ancora nella cartella delle skill."
         },
         "SkillBackupPathLine": {
           "movedTo": "Vecchia copia spostata in:",
           "movedToOnHost": "Vecchia copia spostata su {{host}}:",
           "showFolder": "Mostra cartella"
+        },
+        "skillBackupRefusal": {
+          "inPlaceReason": "Impossibile eseguirne il backup: si trova su un altro disco.",
+          "tryAgain": "Spostala fuori dalla cartella delle skill, poi riprova.",
+          "leftoverReason": "Impossibile eseguire il backup della copia rimasta: si trova su un altro disco.",
+          "movedAsideReason": "Impossibile eseguire il backup della vecchia copia: si trova su un altro disco.",
+          "keepIt": "Spostala fuori dalla cartella delle skill per conservarla.",
+          "noReminder": "Spostala fuori dalla cartella delle skill. Orca non te lo ricorderà.",
+          "copyPathFor": "Copia il percorso di {{value0}}",
+          "copyFailed": "Impossibile copiare il percorso."
         }
       },
       "sidebar": {
@@ -8071,8 +8250,8 @@
           "running": "In esecuzione",
           "stopped": "Arrestata",
           "title": "Aggiungi distribuzione WSL",
-          "descriptionMoveFromSidebar": "Orca esegue il server dentro la distribuzione, così git, file e terminali funzionano in modo nativo in Linux. I progetti di questa distribuzione che hai aperto tramite \\\\wsl.localhost restano su questo computer finché non li sposti dal loro menu nella barra laterale. Anche i progetti su un’unità Windows (/mnt/…) restano qui. Puoi riportare indietro un progetto spostato dalla barra laterale.",
-          "descriptionAutoMove": "Orca esegue il server dentro la distribuzione, così git, file e terminali funzionano in modo nativo in Linux. I progetti di questa distribuzione che hai aperto tramite \\\\wsl.localhost passano automaticamente a questo host quando i loro terminali sono inattivi. I progetti su un’unità Windows (/mnt/…) restano su questo computer. Puoi riportare indietro un progetto spostato dalla barra laterale.",
+          "descriptionMoveFromSidebar": "Git, file e terminali vengono eseguiti in modo nativo in Linux. I progetti WSL esistenti restano su Windows finché non scegli Sposta sull’host … nel loro menu del progetto.",
+          "descriptionAutoMove": "Git, file e terminali vengono eseguiti in modo nativo in Linux. I tuoi progetti WSL si spostano qui appena i loro terminali sono inattivi.",
           "distro": "Distribuzione",
           "loading": "Ricerca delle distribuzioni WSL…",
           "placeholder": "Scegli una distribuzione",
@@ -8267,12 +8446,6 @@
           "0335bd31d5": "Incolla l’intera intestazione Cookie di opencode.ai, incluso __Host-console_session, per recuperare i limiti di richieste.",
           "ea631977b5": "Configura le impostazioni del provider OpenCode Go.",
           "4ac10b4d08": "OpenCode Go",
-          "c2aee76420": "Estrae le credenziali OAuth dall’installazione locale di Gemini CLI per autenticarsi con Google per {{value0}}. Usa credenziali rilasciate all’app Gemini CLI, non a Orca. Potrebbe smettere di funzionare se Google aggiorna la CLI. Usala a tuo rischio.",
-          "96f3649526": "Usa le credenziali di Gemini CLI (sperimentale)",
-          "d676c41fc6": "Estrae le credenziali OAuth dall’installazione locale di Gemini CLI per autenticarsi con Google. Usa credenziali rilasciate all’app Gemini CLI, non a Orca. Potrebbe smettere di funzionare se Google aggiorna la CLI. Usala a tuo rischio.",
-          "0c7f915b01": "Usa le credenziali di Gemini CLI",
-          "973741a871": "Mantieni disponibili le sessioni esistenti di Gemini CLI. Le credenziali Gemini non ti fanno accedere ad Antigravity.",
-          "0c64dc2a64": "Gemini CLI (legacy)",
           "db209ee572": "Rimuovi",
           "8a0f870153": "Ripeti l’autenticazione",
           "3d245ef7d9": "Codex segnala che questo accesso non è più valido",
@@ -10369,13 +10542,6 @@
             "61f7d1fcbe": "cookie",
             "37020a02c2": "console",
             "25591bf95b": "Incolla l’intera intestazione Cookie di opencode.ai, incluso __Host-console_session, per recuperare i limiti di richieste.",
-            "b7c2cee442": "sperimentale",
-            "7118d2f908": "credenziali",
-            "933deaf732": "oauth",
-            "8630464352": "cli",
-            "e8e1ff3887": "gemini",
-            "bada4a3218": "Estrae le credenziali OAuth dall’installazione locale di Gemini CLI per autenticarsi con Google.",
-            "d819755b02": "Usa le credenziali di Gemini CLI",
             "35b461d817": "accedi",
             "f2d666a886": "facoltativo",
             "8b06729e0f": "attivo",
@@ -10614,8 +10780,6 @@
             "a9d56852eb": "opencode",
             "7f72de7cbe": "Mostra token e costi di OpenCode Go nella barra di stato.",
             "51b0ccd6a2": "google",
-            "2804a920ad": "gemini",
-            "9660c5b2f1": "Mostra token e costi di Gemini nella barra di stato.",
             "97957e374e": "openai",
             "8dfd676c28": "codex",
             "e9e4412545": "Mostra token e costi di Codex nella barra di stato.",
@@ -10699,7 +10863,6 @@
             "1b404ee6ad": "Mostra il pulsante Orca Mobile",
             "183e6b8ef9": "Utilizzo di ZCode",
             "d408ece868": "Riduci nell’area di notifica alla chiusura",
-            "585be839e9": "Utilizzo di Gemini",
             "20e7d30150": "Utilizzo di OpenCode Go",
             "ca64c95969": "Utilizzo di Grok",
             "7f5d534f81": "Mostra pulsante Automazioni",
@@ -13510,7 +13673,7 @@
         "wslHostsExperimental": {
           "toggleLabel": "Attiva o disattiva le distribuzioni WSL come host",
           "title": "Distribuzioni WSL come host",
-          "description": "Aggiungi una distribuzione WSL 2 come host. Orca esegue il suo server dentro la distribuzione, così git, file e terminali dei nuovi progetti lì girano in modo nativo su Linux.",
+          "description": "Esegui il server di Orca in una distribuzione WSL 2, così git, file e terminali vengono eseguiti in modo nativo in Linux.",
           "keywordWsl": "wsl",
           "keywordLinux": "linux",
           "keywordDistro": "distribuzione"
@@ -13518,13 +13681,13 @@
         "wslHosts": {
           "title": "Host WSL",
           "experimental": "Sperimentale",
-          "description": "Orca esegue un server dentro ogni distribuzione. Aprire un progetto non avvia mai una distribuzione ferma: fai clic su Avvia, apri un nuovo terminale o connettila da qui.",
+          "description": "Orca esegue un server in ogni distribuzione. Per avviare una distribuzione ferma, fai clic su Avvia, apri un terminale o connettila qui.",
           "add": "Aggiungi distribuzione WSL",
           "connect": "Connetti",
           "forceUpdate": "Forza aggiornamento",
           "turnOn": "Apri Sperimentale",
           "chip": "WSL",
-          "notStartedAsWslHost": "Il server di questo host è stato avviato da un host SSH, non come host WSL, quindi i progetti non possono essere spostati qui. Riavvialo come host WSL per risolvere.",
+          "notStartedAsWslHost": "Questo server è stato avviato da un host SSH, quindi i progetti non possono spostarsi qui. Riavvialo come host WSL per risolvere.",
           "restartAsWslHost": {
             "button": "Riavvia come host WSL"
           }
@@ -13838,8 +14001,8 @@
             "windows": "percentuale della finestra",
             "reset": "tempo all’azzeramento, es. 3h 15m",
             "resetAt": "ora dell’azzeramento, es. 20:50",
-            "buckets": "gruppi di modelli Gemini",
-            "optional": "omesso quando un segnaposto al suo interno è vuoto"
+            "optional": "omesso quando un segnaposto al suo interno è vuoto",
+            "usagePools": "gruppi di utilizzo con nome, ad es. modelli Antigravity"
           }
         }
       },
@@ -14116,7 +14279,6 @@
             "286dbda4d6": "Riprova",
             "ed34038d0d": "Aggiorna confronto tra branch",
             "493f963029": "Cambia ref di base",
-            "11b5dd8e41": "Confronto con",
             "a9bf7c171a": "Commit non riuscito",
             "011f9713fc": "Commit bloccato",
             "cc199ccc5f": "Altre azioni di commit e sul remote",
@@ -14250,8 +14412,6 @@
             "c8e4a1f902": "Filtro: {{value0}}",
             "b3c8f1a902": "Filtra i file per nome",
             "d4f8c2a901": "Cancella e chiudi il filtro",
-            "e8a1c4b203": "vs",
-            "4b4a7de138": "Apri la pagina della revisione nel browser",
             "createPrIntentCommitBlockedSummary": "Commit bloccato: {{value0}} Risolvi il problema, poi riprova a creare la PR.",
             "pushRecovery": {
               "4b37ae99b0": "Avvia l’agente IA predefinito per correggere questo errore di push",
@@ -14271,7 +14431,6 @@
             "97e7124eac": "Impossibile aggiornare il controllo del codice sorgente. Riprova.",
             "b8c2e1a904": "{{value0}} → {{value1}}",
             "a4e93c21d7": "Branch corrente: {{value0}}",
-            "c7d4e2f801": "Cambia ref di base: {{value0}}",
             "createPrIntentGenerateDetailsFailed": "Impossibile generare i dettagli della revisione. Riprova a creare la PR.",
             "entryStageFailed": "Impossibile aggiungere “{{value0}}” allo stage",
             "entryUnstageFailed": "Impossibile rimuovere “{{value0}}” dallo stage",
@@ -14319,9 +14478,6 @@
             "keepFile": "Mantieni file",
             "keepDeletion": "Mantieni eliminazione",
             "refreshAll": "Aggiorna tutto",
-            "baseUpToDate": "Aggiornato",
-            "rebaseOperationInProgress": "Attendi la fine dell’operazione Git in corso",
-            "rebaseButton": "Rebase",
             "rebaseConflictCount_one": "{{count}} conflitto",
             "rebaseConflictCount_other": "{{count}} conflitti",
             "rebasePaused": "Rebase in pausa",
@@ -14351,9 +14507,7 @@
             "scopeUncommitted": "Senza commit",
             "scopeAllChanges": "Tutte le modifiche",
             "scopeNone": "Nessuno",
-            "scopeOpenDiff": "Apri diff",
             "scopeShowAll": "Mostra tutte le modifiche",
-            "scopeLoadingBranchChanges": "Caricamento delle modifiche del branch…",
             "scopeBranchCommits": "Commit su questo branch",
             "scopeRecentCommits": "Commit recenti",
             "scopeCompareTo": "Confronta con {{ref}}",
@@ -14370,7 +14524,8 @@
             "scopeOlderHistory": "Cronologia precedente in Git Graph",
             "scopeNoUncommitted": "Nessuna modifica senza commit.",
             "scopeCommitFiles": "File",
-            "gitGraphButton": "Grafico"
+            "gitGraphButton": "Grafico",
+            "compareLoadingAgainst": "Confronto con {{base}}"
           },
           "SourceControlAgentActionDialog": {
             "8e856842d1": "Impossibile avviare l’agente selezionato.",
@@ -15490,8 +15645,6 @@
           "noRemote": "Repo git locale · nessun remote",
           "openUpstream": "Apri {{value0}} nel browser",
           "forkOf": "Fork di {{value0}}",
-          "openSettingsPage": "Apri la pagina delle impostazioni",
-          "done": "Fine",
           "resetDone": "Icona e colore reimpostati",
           "undo": "Annulla",
           "styleLetters": "Lettere",
@@ -15501,7 +15654,8 @@
           "lettersInput": "Fino a 2 lettere",
           "lettersPlaceholder": "1–2 lettere",
           "useLetters": "Usa “{{value0}}”",
-          "usingGitHubAvatar": "Avatar GitHub in uso"
+          "usingGitHubAvatar": "Avatar GitHub in uso",
+          "openSettings": "Apri Impostazioni"
         }
       },
       "pet": {
@@ -16874,7 +17028,7 @@
           "13822cdfda": "Testo semplice"
         },
         "RichMarkdownDocLinkMenu": {
-          "e17b987473": "↑↓ naviga&nbsp;&nbsp;↵ seleziona&nbsp;&nbsp;esc chiudi",
+          "e17b987473": "↑↓ naviga  ↵ seleziona  esc chiudi",
           "63ced7cb9b": "Nessun documento trovato",
           "0e8489bc11": "Link ai documenti Markdown",
           "showingOfTotal": "{{shown}} di {{total}} mostrati"
@@ -17743,8 +17897,6 @@
             "fa6ea61de3": "Annulla",
             "c2ef0359b9": "Copia contenuto",
             "f2d0c22d67": "Elimina annotazione {{value0}}",
-            "11c5084aa2": "Cancella annotazioni",
-            "734e4343ec": "Cancella annotazioni del browser",
             "95af781091": "Invia commenti a un agente",
             "ac39b9366b": "Invia",
             "366bf5d62c": "Nuova scheda",
@@ -17778,21 +17930,14 @@
             "b71dc3d930": "Riconnetti",
             "d51ef37351": "Copia",
             "6f4ab3592b": "Copiato",
-            "499b31b84e": "Copia tutto",
             "168350ae6a": "Fai clic su un elemento o passaci sopra, poi premi C per copiarlo o S per farne uno screenshot.",
-            "e852e20cea": "Copiato: premi S per uno screenshot o seleziona un altro elemento",
             "777b5bc4ec": "Fai clic su un elemento per aggiungere un commento per l’agente.",
             "b733a91bd9": "Aggiungi un commento per l’elemento selezionato.",
             "4328a0a062": "Cattura non riuscita: {{value0}}",
             "759f32af29": "Download in corso",
             "4300f38145": "Download da {{value0}}{{value1}}",
-            "cc4a071d3a": "Annota elemento della pagina ({{value0}})",
             "572046436a": "Browser remoto",
             "b313a7275b": "Apertura del browser remoto",
-            "ea6af700da": "{{value0}} annotazione",
-            "c13693fe27": "{{value0}} annotazioni",
-            "074f0ed10b": "{{value0}} annotazione pronta. Seleziona un altro elemento o copia tutti i commenti.",
-            "a2164a6e5a": "{{value0}} annotazioni pronte. Seleziona un altro elemento o copia tutti i commenti.",
             "9f6f2e8c19": "Il percorso del file scaricato non è disponibile.",
             "0c79b7634d": "Impossibile aprire il file scaricato. Potrebbe essere stato spostato o eliminato.",
             "397d9dc923": "Impossibile mostrare il file scaricato. Potrebbe essere stato spostato o eliminato.",
@@ -17822,7 +17967,13 @@
             "devToolsDockRight": "Aggancia a destra",
             "devToolsDockBottom": "Aggancia in basso",
             "devToolsUndock": "Apri in una finestra separata",
-            "devToolsClose": "Chiudi DevTools"
+            "devToolsClose": "Chiudi DevTools",
+            "499b31b84e": "Copia tutto",
+            "e852e20cea": "Copiato: premi S per uno screenshot o seleziona un altro elemento",
+            "074f0ed10b": "{{value0}} annotazione pronta. Seleziona un altro elemento o copia tutti i commenti.",
+            "a2164a6e5a": "{{value0}} annotazioni pronte. Seleziona un altro elemento o copia tutti i commenti.",
+            "11c5084aa2": "Cancella annotazioni",
+            "734e4343ec": "Cancella annotazioni del browser"
           },
           "BrowserToolbarMenu": {
             "429ef481f9": "Annulla",
@@ -17908,8 +18059,6 @@
                     "c16f932cb3": "Salva",
                     "024467ceac": "Annulla",
                     "449d2c2629": "Tipo di annotazione",
-                    "38d320108c": "Comprimi annotazioni",
-                    "9f209891a7": "Espandi annotazioni",
                     "includePageDetails": "Includi dettagli della pagina",
                     "copyFeedback": "Copia commenti",
                     "copyFeedbackWithPageDetails": "Copia commenti con dettagli della pagina"
@@ -19435,6 +19584,11 @@
         "stateNeedsYou": "Ti aspetta",
         "stateResuming": "Ripresa in corso",
         "stateStopped": "Interrotta"
+      },
+      "RunTargetCombobox": {
+        "noWslDistros": "Nessuna distribuzione WSL trovata",
+        "wslDistro": "Distribuzione WSL",
+        "wslDistroHint": "Una distribuzione Linux su questo PC"
       }
     },
     "i18n": {
@@ -20129,7 +20283,9 @@
         "noOtherChats": "Nessun’altra chat",
         "retryChats": "Riprova",
         "modelAndEffortValue": "{{model}} · {{effort}}",
-        "modelAndEffort": "Modello e impegno"
+        "modelAndEffort": "Modello e impegno",
+        "modelsLoading": "Caricamento modelli…",
+        "signInForModels": "Accedi per vedere i modelli che puoi usare."
       },
       "tool": {
         "exitCode": "uscita {{value0}}",
@@ -20446,10 +20602,7 @@
         "started_other": "Avviati {{count}} subagenti",
         "ran_one": "Eseguito {{count}} subagente",
         "ran_other": "Eseguiti {{count}} subagenti",
-        "backToMain": "Torna all’agente principale",
         "mainAgent": "Agente principale",
-        "promptFromMain": "Prompt dall’agente principale",
-        "backTo": "Torna a {{value0}}",
         "path": "Percorso dei subagenti",
         "stateHeading": {
           "completed": "Completato",
@@ -20462,7 +20615,15 @@
         "noSteps": "Ancora nessun passaggio",
         "beforeClear": "Questo subagente è stato eseguito prima che la chat venisse cancellata",
         "stoppedBeforeReply": "Interrotto prima di rispondere",
-        "noReply": "Terminato senza risposta"
+        "noReply": "Terminato senza risposta",
+        "prompt": "Prompt",
+        "result": "Risultato",
+        "close": "Chiudi",
+        "needsYou": "Ti aspetta",
+        "agentNeedsYou": "{{name}} ti aspetta",
+        "mainNeedsYou": "L’agente principale ti aspetta",
+        "show": "Mostra",
+        "backTo": "Torna a {{value0}}"
       },
       "rewind": {
         "unsupported": "Questa chat non può tornare a un messaggio precedente.",
@@ -21040,6 +21201,7 @@
         "template": "Modello",
         "nameTaken": "Hai già un bot chiamato {{name}}.",
         "open": "Apri",
+        "openBot": "Apri {{name}}",
         "edit": "Modifica",
         "rename": "Rinomina",
         "create": "Crea bot",
@@ -21123,7 +21285,8 @@
           "addressLabel": "Indirizzo della pagina di accesso",
           "unfinished": "L’accesso non è ancora completato. Completalo nella pagina che si è aperta, poi premi Fine.",
           "pastePlaceholder": "http://localhost:…"
-        }
+        },
+        "manage": "Gestisci i server MCP"
       },
       "cardKindHidden": {
         "description": "Puoi cambiarlo quando vuoi in",
@@ -21288,6 +21451,7 @@
         "paused": "In pausa",
         "replied": "{{actor}} ha risposto",
         "rowAccessibleName": "{{label}}: {{name}}. {{details}}",
+        "thenAt": "Si esegue una volta alle {{time}}",
         "thenLine": "Poi",
         "thenOnce": "Si esegue una volta, quando accade",
         "thenOnceBy": "Si esegue una volta; alle {{time}} se non arriva nulla",
@@ -21353,7 +21517,8 @@
         "signIn": "Accedi",
         "signsInClaudeAccount": "Accede con questo account Claude",
         "runsCommand": "Esegue {{command}} in un terminale",
-        "thenSlashCommand": "Accedi, poi digita {{slashCommand}}."
+        "thenSlashCommand": "Accedi, poi digita {{slashCommand}}.",
+        "signsInAgy": "Esegue l’accesso di agy con Google nel tuo browser"
       },
       "antigravityAuth": {
         "chipLabel": "Antigravity accede con {{method}}. Cambia",
@@ -21370,11 +21535,8 @@
         "otherWays": "Puoi invece accedere con una chiave API o con gcloud.",
         "moreOptions": "Altre opzioni…",
         "useApiKey": "Usa la tua chiave API di Gemini",
-        "useGcloud": "Usa gcloud ({{project}})",
         "useGoogle": "Usa il tuo accesso Google",
-        "apiKeyFromEnvironment": "Trovata GEMINI_API_KEY nel tuo ambiente",
         "apiKeySaved": "Salvata in Orca",
-        "gcloudFound": "Trovato il tuo accesso gcloud (Application Default Credentials)",
         "googleFound": "Hai già effettuato l’accesso con Google su questo host",
         "askApiKeyEnvironment": "Usare invece la chiave API di Gemini trovata nel tuo ambiente?",
         "askApiKeySaved": "Usare invece la chiave API di Gemini salvata in Orca?",
@@ -21385,19 +21547,21 @@
         "signedOut": "Antigravity non ha effettuato l’accesso.",
         "refused": "Google ha rifiutato le credenziali di questa chat.",
         "usageLimit": "Questo accesso ha raggiunto il limite di utilizzo.",
-        "foundLead": "Orca ha trovato su questo host credenziali che puoi usare invece:",
         "signInGoogle": "Accedi con Google",
-        "useKeyOrGcloud": "Chiave API o gcloud",
         "yourAgy": "Il tuo agy",
         "yourAgyVersion": "Il tuo agy · v{{version}}",
-        "orcaCopy": "Copia di Orca",
-        "orcaCopyVersion": "Copia di Orca · v{{version}}",
         "orcasAgy": "agy di Orca",
         "orcasAgyVersion": "agy di Orca · v{{version}}",
         "runsOn": "Eseguito su: {{program}}",
-        "agyItem": "Accesso proprio di agy",
-        "agyHint": "Questa chat esegue la CLI di Antigravity su questo host. Un altro metodo vale per le nuove chat.",
-        "confirmSignIn": "Accedere con Google?"
+        "keepsOwnLogin": "Questa chat mantiene l’accesso Google di agy. Le nuove chat usano {{method}}.",
+        "apiKeyEnvironment": "Dal tuo ambiente",
+        "foundGcloud": "Funziona anche il tuo accesso gcloud.",
+        "foundKey": "Funziona anche la tua chiave API di Gemini.",
+        "foundKeyAndGcloud": "Funzionano anche la tua chiave API di Gemini e il tuo accesso gcloud.",
+        "gcloudProject": "Progetto {{project}}",
+        "otherWaysMenu": "Altri modi per accedere…",
+        "useGcloudLogin": "Usa il tuo accesso gcloud",
+        "otherWaysLabel": "Altri modi per accedere"
       },
       "pairedServerAsk": {
         "always": "Consenti sempre {{server}}",
@@ -21429,6 +21593,7 @@
         "dismiss": "Ignora",
         "openWorker": "Apri worker",
         "remoteOwner": "Interrompi o rimuovi questo elemento dal computer su cui è in esecuzione",
+        "workspaceRemoved": "L’area di lavoro di questo worker è stata rimossa",
         "restore": "Mostra di nuovo nel dock",
         "alreadyStopped": "Già interrotto",
         "cantStop": "Impossibile interrompere ora",
@@ -21462,33 +21627,20 @@
         "workflow": "Workflow",
         "monitor": "Monitoraggio",
         "task": "Attività",
-        "taskCount_one": "{{count}} attività",
-        "taskCount_other": "{{count}} attività",
         "workerCount_one": "{{count}} worker",
         "workerCount_other": "{{count}} worker",
-        "commandCount_one": "{{count}} comando",
-        "commandCount_other": "{{count}} comandi",
-        "workflowCount_one": "{{count}} workflow",
-        "workflowCount_other": "{{count}} workflow",
-        "monitorCount_one": "{{count}} monitoraggio",
-        "monitorCount_other": "{{count}} monitoraggi",
-        "agentCount_one": "{{count}} agente",
-        "agentCount_other": "{{count}} agenti",
-        "stoppedByYou": "Interrotto da te",
+        "stopped": "Interrotto",
         "finished": "Completato",
         "failedCount": "Non riusciti: {{count}}",
         "needsYouCount": "{{count}} richiede il tuo intervento",
         "runningCount": "In esecuzione: {{count}}",
-        "cleared_one": "1 worker rimosso",
-        "cleared_other": "{{count}} worker rimossi",
         "stopAll": "Interrompi tutti",
         "clearFailed": "Rimuovi non riusciti",
-        "pillLabel_one": "{{count}} worker, ultimo: {{title}}",
-        "pillLabel_other": "{{count}} worker, ultimo: {{title}}",
         "unlistedDetail": "Parte del lavoro in background non è elencata qui",
         "unlisted": "Lavoro in background in corso",
         "unread": "Impossibile caricare i worker",
-        "unreadDetail": "I worker compariranno qui una volta caricati"
+        "unreadDetail": "I worker compariranno qui una volta caricati",
+        "chipLabel": "{{label}}, ultimo: {{title}}"
       },
       "webhookSetup": {
         "heading": "Configura un webhook",
@@ -21873,6 +22025,9 @@
       },
       "hostFile": {
         "updateHostForOutsideFiles": "Aggiorna Orca su {{value0}} per aprire file esterni alle sue aree di lavoro"
+      },
+      "paste": {
+        "clipboardUnpastable": "Impossibile incollare il file copiato. Prova a trascinarlo nel terminale."
       }
     },
     "settings": {
@@ -21968,7 +22123,7 @@
         "turnDiffsSearchChangedFiles": "file modificati",
         "turnDiffsSearchEdits": "modifiche",
         "promptSuggestionsTitle": "Prompt suggeriti",
-        "promptSuggestionsCopy": "Dopo una risposta di Claude, la sua ipotesi sul tuo prossimo messaggio compare nella casella del messaggio vuota. Premi Tab per usarla. Ogni ipotesi è una richiesta in più che conta nel tuo utilizzo di Claude.",
+        "promptSuggestionsCopy": "Dopo che Claude o Codex rispondono, la loro previsione del tuo prossimo messaggio appare nella casella del messaggio vuota. Premi Tab per usarla. Ogni previsione è una richiesta in più che conta nell’utilizzo di quell’agente.",
         "promptSuggestionsSearchNext": "prossimo prompt",
         "promptSuggestionsSearchGhost": "testo fantasma"
       },
@@ -22152,7 +22307,8 @@
           "correctionWord": "Parola di correzione",
           "correctionWordDescription": "Dilla per ritirare quello che hai appena detto: “alle quattro, {{word}}, alle cinque”.",
           "correctionWordOff": "Nessuna"
-        }
+        },
+        "localOnlyNotice": "Parla invece di scrivere in qualsiasi riquadro. Queste impostazioni valgono solo per questo computer; {{host}} mantiene le sue."
       },
       "repositoryHooks": {
         "availableEnvVars": "Variabili d’ambiente disponibili"
@@ -22276,6 +22432,7 @@
         },
         "rulesLoadFailed": "Impossibile caricare le regole di pulizia di questo host: {{error}}",
         "retry": "Riprova",
+        "listSeparator": ", ",
         "summary": {
           "merged": "Elimina unite",
           "unchanged": "Elimina senza modifiche",
@@ -22520,9 +22677,9 @@
     "orchestration": {
       "workerAutoClose": {
         "keepOpen": "Mantieni aperto",
-        "bannerRunning": "Worker di orchestrazione · Si chiude 2 minuti dopo aver finito",
-        "bannerFinished": "Worker di orchestrazione terminato · Si chiude tra {{countdown}}",
-        "bannerFinishedStatus": "Worker di orchestrazione terminato · Si chiude a breve",
+        "bannerRunning": "Si chiude {{minutes}} min dopo aver finito",
+        "bannerFinished": "Terminato · si chiude tra {{countdown}}",
+        "bannerFinishedStatus": "Worker terminato · si chiude a breve",
         "boundRunning": "Si chiude con {{worker}}",
         "boundFinished": "{{worker}} ha finito · Si chiude tra {{countdown}}",
         "boundFallbackName": "il suo worker"
@@ -22602,6 +22759,9 @@
       "fileRenameFailed": "Impossibile rinominare '{{name}}'.",
       "worktreeCreateFailed": "Impossibile creare il worktree.",
       "missingBaseBranchHelp": "Crea un commit iniziale (ad esempio su main), o seleziona un branch esistente in Crea da, poi riprova.",
+      "baseBranchLookupFailedTitle": "Impossibile trovare il branch di base",
+      "baseBranchLookupFailedMessage": "Git non è riuscito o è andato in timeout durante la ricerca del branch di base predefinito di questo repo.",
+      "baseBranchLookupFailedHelp": "Riprova, oppure seleziona un branch di base in Crea da.",
       "dropTooManyPaths": "Il rilascio contiene troppi percorsi.",
       "dropPathsTooLarge": "L’elenco dei percorsi trascinati è troppo lungo.",
       "fileOwnerResolveFailed": "Impossibile determinare il proprietario del file."
@@ -23571,22 +23731,16 @@
       "description": "Lì gli agenti usano gli account Claude e Codex predefiniti della distribuzione finché Orca in WSL non viene aggiornato."
     },
     "antigravity": {
-      "chatSignIn": "Accedi",
-      "chatChangeAccount": "Cambia account",
-      "chatRetry": "Riprova l’accesso",
       "chatCancel": "Annulla",
       "chatCopyLink": "Copia link di accesso",
       "chatCopyFailed": "Impossibile copiare il link.",
       "chatStarting": "Avvio dell’accesso…",
-      "chatWaiting": "Completa l’accesso nel browser.",
       "chatOpenFailed": "Copia il link e aprilo nel browser.",
       "chatVerifying": "Completamento dell’accesso…",
-      "chatPasteHelp": "Se l’ultima pagina dopo l’accesso non si carica, copia il suo indirizzo completo dal browser e incollalo qui.",
       "chatContinue": "Continua",
       "chatCancelled": "Accesso annullato.",
       "chatExpired": "Tempo scaduto per l’accesso. Riprova.",
       "chatFailed": "Accesso non riuscito. Riprova.",
-      "chatOtherClient": "Accesso in corso in un altro client.",
       "chatReadFailed": "Impossibile verificare l’accesso su {{host}}.",
       "retry": "Riprova",
       "changed": "L’account nativo è cambiato. Seleziona di nuovo un account salvato prima di avviare agy.",
@@ -23616,14 +23770,6 @@
       "settingsSaveFailed": "Orca non è riuscito a salvare le impostazioni di accesso di Antigravity. Riprova.",
       "lastReading": "{{reading}} · Letto {{time}}",
       "noReading": "Utilizzo sconosciuto: non ancora letto",
-      "chatSeparate": "Separato dall’account agy del terminale.",
-      "chatBadgeSigningIn": "Accesso in corso",
-      "chatBadgeSignedIn": "Accesso effettuato",
-      "chatBadgeSignedOut": "Accesso non effettuato",
-      "chatSignInWith": "Accedi con {{method}}",
-      "chatPasteOpen": "La pagina del browser non si è caricata?",
-      "chatSwitchMethod": "Accedi di nuovo per passare a {{method}}.",
-      "enterpriseFieldsNeeded": "Inserisci un progetto e una località Google Cloud.",
       "fd47b5a5dd": "Account Antigravity",
       "personalOption": "Il tuo piano Google AI personale",
       "enterpriseOption": "La licenza della tua organizzazione",
@@ -23644,8 +23790,6 @@
       "apiKeyRemove": "Rimuovi",
       "apiKeyGet": "Ottieni chiave API",
       "location": "Località",
-      "enterpriseFieldsShort": "Inserisci un progetto e una località.",
-      "chatUseMethod": "Accedi di nuovo per usare {{method}}",
       "signInEllipsis": "Accedi…",
       "loadFailed": "Impossibile caricare gli account agy",
       "loading": "Caricamento account…",
@@ -23658,32 +23802,24 @@
       "saveShort": "Salva",
       "readAt": "Letto {{time}}",
       "active": "Attivo",
-      "account": "Account",
       "runtime": "Runtime",
       "chatTitle": "Chat Antigravity",
-      "chatDescription": "L’accesso avviene nel browser, così la chat funziona anche senza agy installato.",
-      "chatDescriptionAgy": "agy ha effettuato l’accesso qui, quindi le nuove chat usano l’account di agy qui sotto. Questo accesso si usa quando agy non è connesso.",
-      "chatDescriptionAgyVersion": "Le nuove chat usano il tuo agy (v{{version}}) e il suo account qui sotto. Questo accesso si usa quando agy non c’è.",
-      "chatDescriptionManagedVersion": "Le nuove chat usano la copia di Orca (v{{version}}), quindi la chat funziona senza agy installato.",
-      "chatDescriptionAgySignedOut": "Le nuove chat usano agy, che non ha ancora effettuato l’accesso. Esegui agy su questo host per accedere.",
-      "chatDescriptionOrcaAgy": "Le chat usano la copia di agy di Orca e l’accesso proprio di agy.",
-      "chatDescriptionAgyOwnSignIn": "Le chat usano agy e l’accesso proprio di agy.",
-      "chatDescriptionInstallAgy": "Installa agy qui sotto per usare la chat. Accede con il proprio account.",
-      "chatDescriptionOrcaAgyVersion": "Le chat usano l’agy di Orca (v{{version}}) e l’accesso proprio di agy.",
-      "chatDescriptionAgyOwnSignInVersion": "Le chat usano il tuo agy (v{{version}}) e l’accesso proprio di agy.",
       "terminalTitle": "agy nel terminale",
-      "terminalDescriptionWindows": "Usa gli account salvati da agy. Il cambio vale per la credenziale agy predefinita dell’host.",
       "terminalDescription": "Usa gli account salvati da agy. Il cambio vale per le nuove sessioni agy.",
-      "terminalDescriptionChats": "Usa gli account salvati da agy. Il cambio vale per le nuove sessioni agy e per le chat Antigravity.",
-      "terminalDescriptionNoChats": "Usa gli account salvati da agy. Il cambio vale per le nuove sessioni agy, non per le chat Antigravity.",
       "addAccountHelp": "Per aggiungere un account, esegui /logout in agy, accedi di nuovo, poi salvalo qui.",
-      "googleSignIn": "Accesso con account Google",
-      "googleSignInAgy": "Accesso proprio di agy",
-      "googleSignInAgyOption": "Accedi eseguendo agy",
-      "googleSignInOrca": "Accesso integrato di Orca",
-      "googleSignInOrcaOption": "Accedi qui dal browser; agy non serve",
-      "googleSignInUpdateFailed": "Impossibile cambiare il modo in cui Antigravity accede con Google.",
-      "chatDescriptionKeyOnAgy": "Le nuove chat usano agy con l’accesso qui sotto, separato da agy nel terminale."
+      "description": "Le chat e agy nel terminale condividono gli account Google di agy. Le chat possono invece accedere con una chiave API di Gemini o con gcloud.",
+      "descriptionWindows": "Le chat e agy nel terminale condividono gli account Google di agy. Il cambio vale per le credenziali predefinite di agy sull’host. Le chat possono invece accedere con una chiave API di Gemini o con gcloud.",
+      "signInGoogle": "Accedi con Google",
+      "addAccount": "Aggiungi account",
+      "addAccountInApp": "Accedi a un altro account Google. Restano salvati entrambi qui, per passare dall’uno all’altro.",
+      "chatCancelSignIn": "Annulla accesso",
+      "chatCopied": "Copiato",
+      "chatCopySignInLink": "Copia il link di accesso",
+      "chatFinishInBrowser": "Completa nel browser, poi incolla il codice.",
+      "chatOtherWindow": "Accesso in corso in un’altra finestra.",
+      "chatPageDidntOpen": "La pagina non si è aperta?",
+      "chatPasteCode": "Incolla il codice",
+      "chatPasteCodeLabel": "Il codice che Google mostra dopo l’accesso, o l’indirizzo di quella pagina"
     },
     "claude": {
       "added": "Account aggiunto. Selezionalo per usarlo con il prossimo Claude che avvii.",
@@ -23787,6 +23923,12 @@
       }
     },
     "remoteScopeAccountsAddHere": "Account gestiti da {{value0}}. L’accesso dei nuovi account avviene lì; lo completi nel browser di questo dispositivo.",
+    "selection": {
+      "claudeRemoteWslDefaultUnavailable": "Riportare la corsia WSL di questo host al valore predefinito di sistema non è ancora possibile da qui.",
+      "claudeWslLanesNotReset": "Gli account Claude WSL non si possono ancora reimpostare da qui.",
+      "codexSystemDefaultIncludingWsl": "Usa l’accesso Codex attuale di {{value0}}, incluso WSL.",
+      "systemDefaultIncludingWsl": "{{value0}} · incluso WSL"
+    },
     "rename": {
       "action": "Rinomina",
       "title": "Rinomina account",
@@ -24668,7 +24810,8 @@
       "bots": "Bot"
     },
     "searchKeyword": {
-      "worktreePaletteFormerTitle": "Cambia worktree"
+      "worktreePaletteFormerTitle": "Cambia worktree",
+      "quickCommandsMenuFormerTitle": "Mostra/nascondi menu Comandi rapidi"
     }
   },
   "profileState": {
@@ -25592,7 +25735,37 @@
         "setUpInFirstChat": "Configura nella prima chat"
       },
       "identityWatches": "Osserva {{what}}",
-      "identityReports": "Riferisce {{what}}"
+      "identityReports": "Riferisce {{what}}",
+      "wslSetupFailedShort": "Configurazione non completata",
+      "wslSettingUp": "Configurazione…",
+      "wslSetup": {
+        "waiting": "In attesa di {{distro}}…",
+        "starting": "Avvio di {{distro}}",
+        "installing": "Installazione del server di Orca in ~/.orca-remote",
+        "connecting": "Connessione",
+        "findingAgents": "Ricerca degli agenti in {{distro}}",
+        "installingHint": "La prima volta scarica anche il runtime Node per Linux.",
+        "failedTitle": "Impossibile configurare {{distro}}",
+        "details": "Dettagli",
+        "retry": "Riprova",
+        "chooseAnother": "Scegli un altro computer",
+        "title": "Configurazione di {{distro}} come host",
+        "subtitle": "Circa un minuto la prima volta. I tuoi file Windows e le altre distribuzioni non vengono toccati.",
+        "cancel": "Annulla",
+        "failedGeneric": "Il server di Orca non si è avviato nella distribuzione. I dettagli indicano cosa l’ha bloccato."
+      },
+      "wslNoAgent": {
+        "field": "Nessun agente in {{distro}}",
+        "title": "Installa un agente dentro {{distro}}",
+        "body": "Gli agenti installati su Windows non possono essere eseguiti dentro WSL. Installane uno nella distribuzione ed esegui l’accesso: comparirà qui.",
+        "copied": "Copiato",
+        "copy": "Copia",
+        "checkAgain": "Ricontrolla",
+        "checking": "Nuova verifica…"
+      },
+      "hostSleeping": "In sospensione · si riattiva quando lo usi",
+      "wslWaking": "Riattivazione di {{distro}}…",
+      "hostWaking": "Riattivazione…"
     },
     "section": {
       "scrollLeft": "Scorri a sinistra · {{amount}} nascosti",
@@ -25611,6 +25784,7 @@
     },
     "errors": {
       "nameTaken": "Un altro bot ha già questo nome.",
+      "purposeTooLongForHost": "Orca su {{host}} accetta fino a 200 caratteri per lo scopo. Accorcialo, o aggiorna Orca su {{host}}.",
       "avatarHomeUnreadable": "Impossibile leggere l’immagine salvata. Sceglila di nuovo.",
       "folderNotOwned": "Impossibile verificare la cartella di questo bot.",
       "avatarInvalid": "Impossibile usare quell’immagine. Scegli un’immagine PNG o JPG.",
@@ -25801,7 +25975,6 @@
         "cancel": "Annulla",
         "cancelRunning": "Annulla generazione",
         "edit": "Modifica descrizione",
-        "realPerson": "Gli avatar non possono ritrarre persone reali. Descrivi invece un personaggio.",
         "signedOut": "{{agent}} non ha effettuato l’accesso. Accedi, poi riprova.",
         "usageLimit": "{{agent}} ha raggiunto il limite di utilizzo. Riprova più tardi.",
         "noImage": "{{agent}} non ha creato un’immagine. Prova a riformulare la descrizione.",
@@ -27268,7 +27441,13 @@
         "context7": "Documentazione ed esempi aggiornati per le librerie di codice",
         "atlassian": "Issue Jira e pagine Confluence",
         "notion": "Cerca, leggi e modifica pagine",
-        "stripe": "Consulta pagamenti, clienti e abbonamenti"
+        "stripe": "Consulta pagamenti, clienti e abbonamenti",
+        "clickup": "Gestisci attività, elenchi e documenti",
+        "airtable": "Interroga e modifica basi, tabelle e record",
+        "todoist": "Aggiungi, ordina e completa attività",
+        "zapier": "Esegui azioni nelle app che hai configurato in Zapier",
+        "granola": "Cerca note e trascrizioni delle riunioni",
+        "intercom": "Cerca conversazioni, contatti e articoli"
       },
       "mcp": {
         "adding": "Aggiunta di {{app}}…",
@@ -27282,7 +27461,11 @@
           "hostLabel": "Indirizzo GitLab (facoltativo)",
           "hostHint": "Per istanze self-managed o Dedicated. Lascia vuoto per GitLab.com."
         },
+        "intercom": {
+          "siteLabel": "Regione di Intercom"
+        },
         "place": {
+          "unitedStates": "Stati Uniti",
           "usEast": "Stati Uniti Est",
           "usWest": "Stati Uniti Ovest",
           "usCentral": "Stati Uniti Centro",
@@ -27577,7 +27760,8 @@
       "delete": "Elimina chat",
       "open": "Apri",
       "actions": "Azioni chat",
-      "needsYouCount": "{{count}} richiede il tuo intervento"
+      "needsYouCount": "{{count}} richiede il tuo intervento",
+      "hideOlder": "Nascondi le più vecchie"
     },
     "cloudSignIn": {
       "automationScheduledOnly": "Viene eseguita solo secondo la pianificazione: i suoi eventi sono in pausa finché sei disconnesso da Orca",
@@ -27825,8 +28009,10 @@
         "activity": "Attività",
         "canceledNote": "Annullato:",
         "doneNote": "Completato:",
+        "links": "Link",
         "showLess": "Mostra meno",
         "showMore": "Mostra di più",
+        "subWhere": "Elemento {{number}} · {{chat}}",
         "showEarlier": "Mostra precedenti",
         "next": "Elemento successivo",
         "previous": "Elemento precedente",
@@ -27838,10 +28024,7 @@
         "firstItem": "Primo elemento",
         "lastItem": "Ultimo elemento",
         "deleted": "Questo elemento è stato eliminato.",
-        "linkCount": "{{count}} link",
-        "reply": "Rispondi",
-        "replyAbove": "Rispondi, sopra",
-        "replyBelow": "Rispondi, sotto",
+        "moreLinks": "Altri {{count}} link",
         "loading": "Caricamento elemento…"
       },
       "loading": "Caricamento degli elementi…",
@@ -27877,7 +28060,9 @@
         "sending": "Invio…",
         "sendSome": "Invia {{count}}/{{total}}",
         "sendSomeLabel": "Invia {{count}} risposte su {{total}}",
-        "changeAnswer": "{{question}}: {{answer}}. Cambia risposta"
+        "changeAnswer": "{{question}}: {{answer}}. Cambia risposta",
+        "heldImagesLimit": "Le tue risposte partono come un unico commento, che accetta fino a {{max}} immagini. Invia prima le risposte accumulate finora, o rimuovine alcune.",
+        "heldSkillsLimit": "Le tue risposte partono come un unico commento, che accetta fino a {{max}} skill. Invia prima le risposte accumulate finora, o rimuovine alcune."
       },
       "readMoreClosedFailed": "Impossibile leggere altri elementi Chiusi",
       "wait": {
@@ -28464,7 +28649,10 @@
     "toolsLabel": "Strumenti dell’app",
     "workspaces": "Aree di lavoro",
     "more": "Altro",
-    "pageRegion": "Pagina"
+    "customize": "Personalizza",
+    "pageRegion": "Pagina",
+    "account": "Account",
+    "signIn": "Accedi"
   },
   "chats": {
     "delete": {
@@ -28491,5 +28679,14 @@
     "moveLeft": "Sposta a sinistra",
     "moveRight": "Sposta a destra",
     "reset": "Reimposta ordine delle schede"
+  },
+  "mcpServers": {
+    "paste": {
+      "badCommand": "Inserisci i valori veri e propri nel comando mcp add: Orca non può compilare $VARIABLES o altre espressioni della shell.",
+      "unsupported": "Orca non può aggiungere questo server così com’è: usa SSE, un proprio client OAuth o un valore letto dall’ambiente.",
+      "badAddCommand": "Controlla il comando mcp add: serve un nome e un URL o un comando.",
+      "badJson": "Controlla il JSON incollato: non è valido.",
+      "none": "Orca non ha trovato server che possa aggiungere. I server SSE, i server con un proprio client OAuth o filtri degli strumenti e i valori letti dall’ambiente (${VAR}) non sono supportati."
+    }
   }
 }
